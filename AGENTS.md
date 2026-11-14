@@ -65,6 +65,9 @@ este repositorio. **Léela completa al iniciar cada sesión**, junto con
    hora (zona America/Santiago), un resumen de lo generado (qué se instaló, qué
    diseño se codificó, qué archivos cambiaron) y el **modelo usado**. Al iniciar
    cada sesión, leer `LogFile.txt` para recuperar el contexto.
+   **No registrar prompts sin contenido de desarrollo** (por ejemplo, pedir un
+   commit o confirmar un paso a paso administrativo): solo los que generan o
+   deciden algo del proyecto.
 6. **Git:** commits pequeños y frecuentes, un tema por commit. Formato:
    `tipo(alcance): descripción` (tipos: feat, fix, docs, chore, test, perf, refactor).
 7. **Entrega por piezas:** una pieza a la vez, con aprobación y commit en cada
