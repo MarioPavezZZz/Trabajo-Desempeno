@@ -1,0 +1,44 @@
+# Dependencias y herramientas del backend de TCGMASTER.
+# Versiones fijadas para que cada build (local, nube, pruebas de carga) sea idéntico.
+
+[project]
+name = "tcgmaster-backend"
+version = "0.1.0"
+description = "API y modelo de datos de la tienda TCGMASTER (INFB8091)."
+requires-python = ">=3.12"
+dependencies = [
+    "sqlalchemy[asyncio]==2.0.36",
+    "asyncpg==0.30.0",
+    "alembic==1.14.0",
+    "pydantic==2.10.3",
+    "pydantic-settings==2.7.0",
+    "httpx==0.28.1",
+    "pillow==11.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.3.4",
+    "pytest-asyncio==0.25.0",
+    "ruff==0.8.4",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+# E/F: errores base; I: orden de imports; B: bugs comunes; UP: sintaxis moderna.
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+# Migraciones autogeneradas: contienen expresiones SQL largas que no conviene cortar.
+"alembic/versions/*" = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session"
+markers = [
+    "db: requiere PostgreSQL disponible (se omite si no hay conexión)",
+]

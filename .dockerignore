@@ -1,0 +1,10 @@
+# Excluye del contexto de build todo lo que no necesitan las imágenes.
+.git
+.env
+data/
+**/node_modules
+**/__pycache__
+**/.pytest_cache
+**/.ruff_cache
+loadtest/results/
+docs/
