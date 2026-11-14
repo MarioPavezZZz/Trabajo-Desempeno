@@ -70,6 +70,7 @@ este repositorio. **Léela completa al iniciar cada sesión**, junto con
    deciden algo del proyecto.
 6. **Git:** commits pequeños y frecuentes, un tema por commit. Formato:
    `tipo(alcance): descripción` (tipos: feat, fix, docs, chore, test, perf, refactor).
+   **Sin líneas de coautoría** (`Co-Authored-By`) ni otra atribución al agente.
 7. **Entrega por piezas:** una pieza a la vez, con aprobación y commit en cada
    una (ver §5).
 
