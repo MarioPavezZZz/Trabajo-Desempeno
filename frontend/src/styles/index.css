@@ -1,0 +1,80 @@
+/*
+ * Estilos base de TCGMASTER.
+ * Fuentes servidas por nosotros (@fontsource): sin peticiones a terceros y con
+ * font-display: swap, para no bloquear el primer render (LCP).
+ * Solo se cargan los subconjuntos latinos y los pesos usados.
+ */
+@import "@fontsource/gloock/latin-400.css";
+@import "@fontsource/public-sans/latin-400.css";
+@import "@fontsource/public-sans/latin-600.css";
+@import "@fontsource/public-sans/latin-700.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-felt font-sans text-base text-ivory antialiased;
+    font-feature-settings: "kern";
+  }
+  /* Foco siempre visible al navegar con teclado. */
+  :focus-visible {
+    outline: 2px solid theme("colors.brass.bright");
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Precios: cifras tabulares para que las columnas de montos alineen. */
+  .price {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /*
+   * Lista de precios con puntos guía, como la tarjeta de precios de una vitrina
+   * de joyería. Es el elemento distintivo de la marca: se usa en el hero.
+   */
+  .price-leader {
+    @apply flex items-baseline gap-2;
+  }
+  .price-leader::after {
+    content: "";
+    order: 1;
+    flex: 1;
+    border-bottom: 1px dotted theme("colors.brass.dim");
+    transform: translateY(-0.3em);
+  }
+  .price-leader > :last-child {
+    order: 2;
+  }
+
+  /* Marco iridiscente estático para cartas foil (sin animación: no afecta INP/CLS). */
+  .foil-frame {
+    background: conic-gradient(
+      from 210deg,
+      #b8913a,
+      #8fc7c0,
+      #c9a6d8,
+      #e8d8a0,
+      #8fb6d9,
+      #b8913a
+    );
+  }
+
+  .skeleton {
+    @apply bg-felt-raised;
+  }
+}
