@@ -22,7 +22,8 @@ if [ ! -f .env ]; then
   sed -i "s/^JWT_SECRET=GENERAR_JWT$/JWT_SECRET=$(openssl rand -hex 32)/" .env
   chmod 600 .env
 fi
-if grep -q 'GENERAR_' .env; then
+# Solo valores (=GENERAR_...), no los comentarios que explican el mecanismo.
+if grep -q '=GENERAR_' .env; then
   echo "ERROR: .env todavía tiene valores GENERAR_*" >&2
   exit 1
 fi
