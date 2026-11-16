@@ -1,0 +1,47 @@
+# TCGMASTER — ajustes de PRODUCCIÓN (se suman a docker-compose.yml).
+#
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+#
+# - Caddy recibe el tráfico público en 80/443 y obtiene el certificado HTTPS
+#   automáticamente (Let's Encrypt) para SITE_DOMAIN.
+# - Los demás servicios quedan solo en 127.0.0.1 (ver .env.production.example:
+#   WEB_PORT, API_HOST_PORT y POSTGRES_HOST_PORT): la base de datos y /metrics
+#   nunca quedan expuestos a internet. Para /metrics desde fuera: túnel SSH.
+# - Los límites de CPU/memoria son los mismos que en local, así las pruebas de
+#   carga de la Fase 2 se comparan con los mismos recursos.
+
+services:
+  db:
+    restart: unless-stopped
+
+  api:
+    restart: unless-stopped
+    environment:
+      APP_ENV: production
+
+  web:
+    restart: unless-stopped
+
+  caddy:
+    image: caddy:2.8.4-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      SITE_DOMAIN: ${SITE_DOMAIN:?Define SITE_DOMAIN en .env}
+    volumes:
+      - ./infra/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data       # certificados (persisten entre reinicios)
+      - caddy_config:/config
+    depends_on:
+      - web
+    deploy:
+      resources:
+        limits:
+          cpus: "${CADDY_CPUS:-0.5}"
+          memory: ${CADDY_MEMORY:-128m}
+
+volumes:
+  caddy_data:
+  caddy_config:

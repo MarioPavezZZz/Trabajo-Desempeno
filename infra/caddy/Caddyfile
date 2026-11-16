@@ -1,0 +1,14 @@
+# Caddy: terminación HTTPS del sitio público.
+# Obtiene y renueva el certificado de Let's Encrypt para SITE_DOMAIN, redirige
+# HTTP -> HTTPS y reenvía todo a Nginx (servicio "web"), que sigue haciendo de
+# proxy a la API y de servidor de estáticos igual que en local.
+
+{$SITE_DOMAIN} {
+	reverse_proxy web:80
+	header {
+		-Server
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+	}
+}
