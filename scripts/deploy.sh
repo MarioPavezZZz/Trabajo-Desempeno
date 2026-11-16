@@ -12,8 +12,16 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 COMPOSE=(docker compose -f docker-compose.yml -f docker-compose.prod.yml)
 
-echo "==> Código"
-git pull --ff-only
+if [ "${1:-}" != "--ya-actualizado" ]; then
+  echo "==> Código"
+  BEFORE="$(sha1sum scripts/deploy.sh)"
+  git pull --ff-only
+  # Si el pull trajo una versión nueva de este script, se ejecuta esa versión
+  # (bash ya tiene cargada la anterior y seguiría con ella).
+  if [ "$BEFORE" != "$(sha1sum scripts/deploy.sh)" ]; then
+    exec bash scripts/deploy.sh --ya-actualizado
+  fi
+fi
 
 if [ ! -f .env ]; then
   echo "==> Creando .env de producción con secretos nuevos"
