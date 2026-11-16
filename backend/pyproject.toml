@@ -14,6 +14,16 @@ dependencies = [
     "pydantic-settings==2.7.0",
     "httpx==0.28.1",
     "pillow==11.0.0",
+    "fastapi==0.115.6",
+    "uvicorn[standard]==0.34.0",
+    "uvicorn-worker==0.3.0",
+    "gunicorn==23.0.0",
+    "prometheus-client==0.21.1",
+    "structlog==24.4.0",
+    "orjson==3.10.12",
+    "bcrypt==4.2.1",
+    "pyjwt==2.10.1",
+    "email-validator==2.2.0",
 ]
 
 [project.optional-dependencies]
@@ -30,6 +40,10 @@ target-version = "py312"
 [tool.ruff.lint]
 # E/F: errores base; I: orden de imports; B: bugs comunes; UP: sintaxis moderna.
 select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.lint.flake8-bugbear]
+# Patrón estándar de FastAPI: Depends/Query en valores por defecto son declarativos.
+extend-immutable-calls = ["fastapi.Depends", "fastapi.Query"]
 
 [tool.ruff.lint.per-file-ignores]
 # Migraciones autogeneradas: contienen expresiones SQL largas que no conviene cortar.

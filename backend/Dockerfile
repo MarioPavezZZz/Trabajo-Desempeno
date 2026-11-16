@@ -28,6 +28,8 @@ COPY scripts/ ./scripts/
 RUN useradd --create-home --uid 1000 app && mkdir -p /data && chown -R app /data /app
 USER app
 
-# El servidor HTTP se configura en el paso 3; por ahora el contenedor sirve
-# para ejecutar migraciones, el seed y los tests.
-CMD ["python", "-c", "print('TCGMASTER backend: el servidor se agrega en el paso 3')"]
+# Métricas multiproceso: cada worker escribe aquí y /metrics agrega.
+ENV PROMETHEUS_MULTIPROC_DIR=/tmp/prometheus
+
+EXPOSE 8000
+CMD ["gunicorn", "-c", "gunicorn.conf.py", "app.main:app"]
