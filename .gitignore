@@ -40,3 +40,11 @@ docker-compose.override.yml
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Archivos intermedios de LaTeX (el PDF sí se versiona)
+docs/informe-latex/*.aux
+docs/informe-latex/*.log
+docs/informe-latex/*.fls
+docs/informe-latex/*.fdb_latexmk
+docs/informe-latex/*.out
+docs/informe-latex/*.toc
