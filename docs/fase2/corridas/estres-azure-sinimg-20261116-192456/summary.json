@@ -1,0 +1,3146 @@
+{
+  "root_group": {
+    "name": "",
+    "path": "",
+    "id": "d41d8cd98f00b204e9800998ecf8427e",
+    "groups": [
+      {
+        "path": "::navegante",
+        "id": "1c37936df3210d32d07809c5d857e85f",
+        "groups": [],
+        "checks": [
+            {
+              "name": "home: 200",
+              "path": "::navegante::home: 200",
+              "id": "8081ea261e24b0c140b0419b0d94cc2c",
+              "passes": 132,
+              "fails": 69
+            },
+            {
+              "passes": 181,
+              "fails": 18,
+              "name": "listado: 200",
+              "path": "::navegante::listado: 200",
+              "id": "d5eb5afc67a3ab460cadbedcc0ad51ec"
+            },
+            {
+              "name": "facetas: 200",
+              "path": "::navegante::facetas: 200",
+              "id": "488228364abeebcd721233418a05e85f",
+              "passes": 181,
+              "fails": 18
+            },
+            {
+              "name": "detalle: 200",
+              "path": "::navegante::detalle: 200",
+              "id": "64e29bf7156a742afdc9b5426e318987",
+              "passes": 263,
+              "fails": 0
+            },
+            {
+              "passes": 263,
+              "fails": 0,
+              "name": "relacionados: 200",
+              "path": "::navegante::relacionados: 200",
+              "id": "55a2f6e93bde6f57aa2b4c42115d37cf"
+            }
+          ],
+        "name": "navegante"
+      },
+      {
+        "groups": [],
+        "checks": [
+            {
+              "name": "home: 200",
+              "path": "::buscador::home: 200",
+              "id": "241236460edad030b550546ec6e32187",
+              "passes": 72,
+              "fails": 39
+            },
+            {
+              "passes": 98,
+              "fails": 11,
+              "name": "listado: 200",
+              "path": "::buscador::listado: 200",
+              "id": "d455ab0b25a60773887452b78aa18818"
+            },
+            {
+              "path": "::buscador::facetas: 200",
+              "id": "12816b925eb0aecc5f5ba4c2783fe8c1",
+              "passes": 98,
+              "fails": 11,
+              "name": "facetas: 200"
+            },
+            {
+              "passes": 72,
+              "fails": 0,
+              "name": "detalle: 200",
+              "path": "::buscador::detalle: 200",
+              "id": "cd9d560bf4cfe2317ff1c79d2ec9706e"
+            },
+            {
+              "id": "4afca20712ddc2f2ed96c1d257ba613c",
+              "passes": 72,
+              "fails": 0,
+              "name": "relacionados: 200",
+              "path": "::buscador::relacionados: 200"
+            }
+          ],
+        "name": "buscador",
+        "path": "::buscador",
+        "id": "21a4f28813b70d5228b9691dce2e5465"
+      },
+      {
+        "name": "abandono",
+        "path": "::abandono",
+        "id": "420dcfe29b15cb9410369a5b58b67acf",
+        "groups": [],
+        "checks": [
+            {
+              "path": "::abandono::listado: 200",
+              "id": "046f1c88f7b5a4ae893a83b3eda0d052",
+              "passes": 44,
+              "fails": 23,
+              "name": "listado: 200"
+            },
+            {
+              "id": "0529424005e42084f4205df73e8dd65e",
+              "passes": 44,
+              "fails": 23,
+              "name": "facetas: 200",
+              "path": "::abandono::facetas: 200"
+            },
+            {
+              "id": "930817cf9a26fead2f1bc367847daca3",
+              "passes": 44,
+              "fails": 4,
+              "name": "detalle: 200",
+              "path": "::abandono::detalle: 200"
+            },
+            {
+              "path": "::abandono::relacionados: 200",
+              "id": "032f0d5d7ce4b26fcf6732e649a6834c",
+              "passes": 44,
+              "fails": 4,
+              "name": "relacionados: 200"
+            },
+            {
+              "name": "agregar al carrito: 201/409",
+              "path": "::abandono::agregar al carrito: 201/409",
+              "id": "84fee063b7f49f635b16efe714d3ad54",
+              "passes": 65,
+              "fails": 0
+            },
+            {
+              "fails": 0,
+              "name": "carrito: 200",
+              "path": "::abandono::carrito: 200",
+              "id": "62fdbac4fa55555e7622c827d76c6436",
+              "passes": 44
+            }
+          ]
+      },
+      {
+        "id": "9d191f664fe1ad8ed1cd89f7805db7b2",
+        "groups": [],
+        "checks": [
+            {
+              "path": "::comprador_invitado::home: 200",
+              "id": "d2caf29a5fa1d7787931180a972c95be",
+              "passes": 30,
+              "fails": 14,
+              "name": "home: 200"
+            },
+            {
+              "name": "listado: 200",
+              "path": "::comprador_invitado::listado: 200",
+              "id": "322cd70b46f44bba74fcbe315eeed4b7",
+              "passes": 30,
+              "fails": 3
+            },
+            {
+              "path": "::comprador_invitado::facetas: 200",
+              "id": "f9988dcd53488d8a93a61e4f2dcbc5f6",
+              "passes": 30,
+              "fails": 3,
+              "name": "facetas: 200"
+            },
+            {
+              "path": "::comprador_invitado::detalle: 200",
+              "id": "e35fd830447a3301d0b4ffd442ae8ad2",
+              "passes": 30,
+              "fails": 0,
+              "name": "detalle: 200"
+            },
+            {
+              "name": "relacionados: 200",
+              "path": "::comprador_invitado::relacionados: 200",
+              "id": "b7434308ab8a1de46e8f4804164f7494",
+              "passes": 30,
+              "fails": 0
+            },
+            {
+              "name": "agregar al carrito: 201/409",
+              "path": "::comprador_invitado::agregar al carrito: 201/409",
+              "id": "96748f4c3d02bd9ecc69474689c542d4",
+              "passes": 41,
+              "fails": 0
+            },
+            {
+              "passes": 30,
+              "fails": 0,
+              "name": "carrito: 200",
+              "path": "::comprador_invitado::carrito: 200",
+              "id": "f68905c1d035f18625e188a0b0896c54"
+            },
+            {
+              "name": "opciones de pago: 200",
+              "path": "::comprador_invitado::opciones de pago: 200",
+              "id": "e1696eb942d5d06421d8ca047c1c842d",
+              "passes": 30,
+              "fails": 0
+            },
+            {
+              "name": "crear pedido: 201/409",
+              "path": "::comprador_invitado::crear pedido: 201/409",
+              "id": "b248799dd260d14323922558489d6982",
+              "passes": 30,
+              "fails": 0
+            },
+            {
+              "id": "397dbfc72474767f783bbad3917ece73",
+              "passes": 30,
+              "fails": 0,
+              "name": "confirmar pago: 200",
+              "path": "::comprador_invitado::confirmar pago: 200"
+            },
+            {
+              "name": "ver pedido: 200",
+              "path": "::comprador_invitado::ver pedido: 200",
+              "id": "4644dd1861f1de8ed158e47ed908fef8",
+              "passes": 30,
+              "fails": 0
+            }
+          ],
+        "name": "comprador_invitado",
+        "path": "::comprador_invitado"
+      },
+      {
+        "name": "comprador_cuenta",
+        "path": "::comprador_cuenta",
+        "id": "9979c4e3beaf099a4bff75a839def900",
+        "groups": [],
+        "checks": [
+            {
+              "id": "8c2e3e330b06cbdd2d95570a3a3d8e73",
+              "passes": 14,
+              "fails": 8,
+              "name": "registro: 201",
+              "path": "::comprador_cuenta::registro: 201"
+            },
+            {
+              "id": "5c58b18f2328f974b60476caec3175cb",
+              "passes": 14,
+              "fails": 2,
+              "name": "listado: 200",
+              "path": "::comprador_cuenta::listado: 200"
+            },
+            {
+              "name": "facetas: 200",
+              "path": "::comprador_cuenta::facetas: 200",
+              "id": "322e5995099dfc6bbd99ac7922a53af8",
+              "passes": 14,
+              "fails": 2
+            },
+            {
+              "fails": 0,
+              "name": "detalle: 200",
+              "path": "::comprador_cuenta::detalle: 200",
+              "id": "4810498091643b51c74855ecdfd779a3",
+              "passes": 14
+            },
+            {
+              "name": "relacionados: 200",
+              "path": "::comprador_cuenta::relacionados: 200",
+              "id": "9ea6d15afdf35c3207f849ec0ea5de90",
+              "passes": 14,
+              "fails": 0
+            },
+            {
+              "name": "agregar al carrito: 201/409",
+              "path": "::comprador_cuenta::agregar al carrito: 201/409",
+              "id": "83bb2fa485a2a4ea75671590dcc1f260",
+              "passes": 15,
+              "fails": 0
+            },
+            {
+              "fails": 0,
+              "name": "carrito: 200",
+              "path": "::comprador_cuenta::carrito: 200",
+              "id": "1f69509816091b9b715f0269dba0b26f",
+              "passes": 14
+            },
+            {
+              "name": "opciones de pago: 200",
+              "path": "::comprador_cuenta::opciones de pago: 200",
+              "id": "8b6e86050108dec95f672c3d2b1ce7b8",
+              "passes": 14,
+              "fails": 0
+            },
+            {
+              "passes": 14,
+              "fails": 0,
+              "name": "crear pedido: 201/409",
+              "path": "::comprador_cuenta::crear pedido: 201/409",
+              "id": "cbcf6a6335ebe787d89e3c11d4145a06"
+            },
+            {
+              "name": "confirmar pago: 200",
+              "path": "::comprador_cuenta::confirmar pago: 200",
+              "id": "811466324d58619306eda78d6f13855b",
+              "passes": 14,
+              "fails": 0
+            },
+            {
+              "name": "ver pedido: 200",
+              "path": "::comprador_cuenta::ver pedido: 200",
+              "id": "9fa4166c95f0b3da6a6c01fdd542935f",
+              "passes": 14,
+              "fails": 0
+            },
+            {
+              "id": "024fa7e64247ebe754642a90c3ff5514",
+              "passes": 14,
+              "fails": 0,
+              "name": "cerrar sesión: 204",
+              "path": "::comprador_cuenta::cerrar sesión: 204"
+            },
+            {
+              "id": "75319d5e2c7cd331bc6a69e871c1050a",
+              "passes": 14,
+              "fails": 0,
+              "name": "ingresar: 200",
+              "path": "::comprador_cuenta::ingresar: 200"
+            },
+            {
+              "fails": 0,
+              "name": "mis pedidos: 200",
+              "path": "::comprador_cuenta::mis pedidos: 200",
+              "id": "e6072f1ddd1a2679f14a8dd2f88a188d",
+              "passes": 14
+            }
+          ]
+      }
+    ],
+    "checks": []
+  },
+  "options": {
+    "summaryTimeUnit": "",
+    "noColor": false,
+    "summaryTrendStats": [
+      "avg",
+      "min",
+      "med",
+      "p(90)",
+      "p(95)",
+      "p(99)",
+      "max"
+    ]
+  },
+  "state": {
+    "isStdOutTTY": false,
+    "isStdErrTTY": false,
+    "testRunDurationMs": 125724.684006
+  },
+  "metrics": {
+    "data_sent": {
+      "type": "counter",
+      "contains": "data",
+      "values": {
+        "count": 419609,
+        "rate": 3337.522804829439
+      }
+    },
+    "http_req_duration{name:GET /api/cart}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "med": 10.208351,
+        "p(90)": 14.0669059,
+        "p(95)": 18.623436799999975,
+        "p(99)": 25.91570812999997,
+        "max": 31.958207,
+        "avg": 11.334216227272726,
+        "min": 7.495501
+      }
+    },
+    "fallos_red": {
+      "type": "counter",
+      "contains": "default",
+      "values": {
+        "count": 252,
+        "rate": 2.004379664919052
+      }
+    },
+    "http_req_duration{grupo:checkout}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(95)": 321.126497,
+        "p(99)": 332.0702435,
+        "max": 341.056384,
+        "avg": 90.72517792045454,
+        "min": 5.9098,
+        "med": 18.7055525,
+        "p(90)": 318.2610445
+      },
+      "thresholds": {
+        "p(95)<1500": {
+          "ok": true
+        }
+      }
+    },
+    "http_req_duration{name:GET /media/*}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 0,
+        "min": 0,
+        "med": 0,
+        "p(90)": 0,
+        "p(95)": 0,
+        "p(99)": 0,
+        "max": 0
+      }
+    },
+    "iterations": {
+      "type": "counter",
+      "contains": "default",
+      "values": {
+        "count": 296,
+        "rate": 2.354350717523966
+      }
+    },
+    "http_req_duration{name:GET /api/products/{slug}/related}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "max": 82.586406,
+        "avg": 14.204526988290404,
+        "min": 0,
+        "med": 12.855901,
+        "p(90)": 17.150121,
+        "p(95)": 19.38273439999999,
+        "p(99)": 47.186048480000046
+      }
+    },
+    "http_req_connecting": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(90)": 5.5264400000000045,
+        "p(95)": 7.12234785,
+        "p(99)": 10.679037999999998,
+        "max": 1023.085174,
+        "avg": 2.0756564490851233,
+        "min": 0,
+        "med": 0
+      }
+    },
+    "http_req_blocked": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "min": 0,
+        "med": 0.0003,
+        "p(90)": 15.564476600000003,
+        "p(95)": 17.723029349999997,
+        "p(99)": 23.27999738999999,
+        "max": 1030.656468,
+        "avg": 3.3467918635640626
+      }
+    },
+    "http_req_duration{name:POST /api/auth/login}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "med": 78.9138245,
+        "p(90)": 82.3309093,
+        "p(95)": 85.3187509,
+        "p(99)": 89.59991817999999,
+        "max": 90.67021,
+        "avg": 79.51322235714285,
+        "min": 74.911408
+      }
+    },
+    "http_req_duration{name:GET /api/products/facets}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "min": 0,
+        "med": 14.731004,
+        "p(90)": 22.283438499999995,
+        "p(95)": 26.68403069999999,
+        "p(99)": 47.14981937999994,
+        "max": 76.461708,
+        "avg": 14.907959339622632
+      }
+    },
+    "http_req_failed": {
+      "type": "rate",
+      "contains": "default",
+      "values": {
+        "rate": 0.10023866348448687,
+        "passes": 252,
+        "fails": 2262
+      },
+      "thresholds": {
+        "rate<0.10": {
+          "ok": false
+        }
+      }
+    },
+    "iteration_duration": {
+      "values": {
+        "avg": 12037.599083780407,
+        "min": 2492.88053,
+        "med": 11715.221153499999,
+        "p(90)": 17225.064782,
+        "p(95)": 19647.686010750003,
+        "p(99)": 44545.540888850024,
+        "max": 48174.914648
+      },
+      "type": "trend",
+      "contains": "time"
+    },
+    "checks": {
+      "thresholds": {
+        "rate>0.98": {
+          "ok": false
+        }
+      },
+      "type": "rate",
+      "contains": "default",
+      "values": {
+        "rate": 0.8994814519345832,
+        "passes": 2255,
+        "fails": 252
+      }
+    },
+    "http_req_tls_handshaking": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "min": 0,
+        "med": 0,
+        "p(90)": 8.949540300000002,
+        "p(95)": 10.519051399999999,
+        "p(99)": 14.567409999999985,
+        "max": 22.861103,
+        "avg": 1.2438482219570395
+      }
+    },
+    "vus_max": {
+      "type": "gauge",
+      "contains": "default",
+      "values": {
+        "value": 1000,
+        "min": 1000,
+        "max": 1000
+      }
+    },
+    "http_req_duration{name:GET /api/products}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "max": 79.991409,
+        "avg": 17.26534681860466,
+        "min": 0,
+        "med": 17.4956505,
+        "p(90)": 26.2220088,
+        "p(95)": 31.691031899999977,
+        "p(99)": 53.257166059999975
+      }
+    },
+    "http_req_duration": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(99)": 317.37939547999997,
+        "max": 341.056384,
+        "avg": 22.202366291567202,
+        "min": 0,
+        "med": 14.077122,
+        "p(90)": 29.2097962,
+        "p(95)": 50.97026604999999
+      }
+    },
+    "vus": {
+      "type": "gauge",
+      "contains": "default",
+      "values": {
+        "value": 254,
+        "min": 0,
+        "max": 254
+      }
+    },
+    "compras_aprobadas": {
+      "type": "counter",
+      "contains": "default",
+      "values": {
+        "count": 37,
+        "rate": 0.2942938396904958
+      }
+    },
+    "http_req_receiving": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(99)": 7.5761087400000005,
+        "max": 16.3054,
+        "avg": 1.0587469339697717,
+        "min": 0,
+        "med": 0.10930000000000001,
+        "p(90)": 4.846030700000002,
+        "p(95)": 6.02926
+      }
+    },
+    "duracion_sesion": {
+      "values": {
+        "p(90)": 17225,
+        "p(95)": 19648,
+        "p(99)": 44545.85000000002,
+        "max": 48175,
+        "avg": 12037.472972972973,
+        "min": 2493,
+        "med": 11715.5
+      },
+      "type": "trend",
+      "contains": "time"
+    },
+    "http_req_duration{expected_response:true}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "med": 14.950402,
+        "p(90)": 30.0884617,
+        "p(95)": 54.58751409999998,
+        "p(99)": 317.60619345999993,
+        "max": 341.056384,
+        "avg": 24.675839459328007,
+        "min": 5.312101
+      }
+    },
+    "http_req_waiting": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(90)": 25.16150530000001,
+        "p(95)": 46.05671134999996,
+        "p(99)": 317.08483049999995,
+        "max": 340.847084,
+        "avg": 21.028478529435205,
+        "min": 0,
+        "med": 13.316410999999999
+      }
+    },
+    "http_req_duration{grupo:navegacion}": {
+      "thresholds": {
+        "p(95)<800": {
+          "ok": true
+        }
+      },
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(99)": 66.56938510000012,
+        "max": 111.583109,
+        "avg": 16.168449847910562,
+        "min": 0,
+        "med": 13.887504499999999,
+        "p(90)": 27.929024499999997,
+        "p(95)": 34.398015849999936
+      }
+    },
+    "http_req_sending": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 0.11514082816229133,
+        "min": 0,
+        "med": 0.1017,
+        "p(90)": 0.1968700000000003,
+        "p(95)": 0.26179499999999983,
+        "p(99)": 0.4644809999999993,
+        "max": 0.859401
+      }
+    },
+    "compras_rechazadas": {
+      "values": {
+        "count": 7,
+        "rate": 0.055677212914418114
+      },
+      "type": "counter",
+      "contains": "default"
+    },
+    "http_req_duration{name:GET /api/home}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "max": 111.583109,
+        "avg": 23.313620755617972,
+        "min": 0,
+        "med": 26.496653000000002,
+        "p(90)": 51.620257499999994,
+        "p(95)": 61.190496249999995,
+        "p(99)": 89.78967334999997
+      }
+    },
+    "http_req_duration{grupo:carrito}": {
+      "thresholds": {
+        "p(95)<800": {
+          "ok": true
+        }
+      },
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 15.967348746411478,
+        "min": 7.495501,
+        "med": 15.532201,
+        "p(90)": 21.9835414,
+        "p(95)": 24.7198812,
+        "p(99)": 31.924278679999997,
+        "max": 98.811754
+      }
+    },
+    "http_req_duration{name:POST /api/checkout}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(95)": 33.89531655,
+        "p(99)": 37.349379850000005,
+        "max": 39.049903,
+        "avg": 24.127239818181817,
+        "min": 18.202502,
+        "med": 22.7519685,
+        "p(90)": 29.991780400000003
+      }
+    },
+    "duracion_checkout": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "min": 2375,
+        "med": 4144,
+        "p(90)": 5957.300000000001,
+        "p(95)": 6210.35,
+        "p(99)": 6326,
+        "max": 6326,
+        "avg": 4113.431818181818
+      }
+    },
+    "group_duration": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "min": 2492.71713,
+        "med": 11715.1099535,
+        "p(90)": 17224.956532,
+        "p(95)": 19647.56501075,
+        "p(99)": 44545.41048885002,
+        "max": 48174.823748,
+        "avg": 12037.464478337839
+      }
+    },
+    "sin_stock_409": {
+      "values": {
+        "rate": 0.007953887559202589,
+        "count": 1
+      },
+      "type": "counter",
+      "contains": "default"
+    },
+    "data_received": {
+      "type": "counter",
+      "contains": "data",
+      "values": {
+        "count": 12521443,
+        "rate": 99594.14970096434
+      }
+    },
+    "http_req_duration{name:GET /api/products/{slug}}": {
+      "values": {
+        "p(95)": 17.802949599999998,
+        "p(99)": 31.470394180000028,
+        "max": 79.702606,
+        "avg": 12.297326843091328,
+        "min": 0,
+        "med": 11.280102,
+        "p(90)": 15.615904400000005
+      },
+      "type": "trend",
+      "contains": "time"
+    },
+    "http_req_duration{name:POST /api/auth/register}": {
+      "values": {
+        "avg": 82.54713809090907,
+        "min": 0,
+        "med": 118.674425,
+        "p(90)": 145.0607049,
+        "p(95)": 146.03070105,
+        "p(99)": 154.39659246,
+        "max": 156.608286
+      },
+      "type": "trend",
+      "contains": "time"
+    },
+    "checkout_exitoso": {
+      "type": "rate",
+      "contains": "default",
+      "values": {
+        "rate": 1,
+        "passes": 44,
+        "fails": 0
+      }
+    },
+    "http_req_duration{name:POST /api/cart/items}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 19.33689966942148,
+        "min": 10.303101,
+        "med": 17.762002,
+        "p(90)": 23.070801,
+        "p(95)": 27.004106,
+        "p(99)": 48.423403799999946,
+        "max": 98.811754
+      }
+    },
+    "http_reqs": {
+      "type": "counter",
+      "contains": "default",
+      "values": {
+        "count": 2514,
+        "rate": 19.996073323835304
+      }
+    },
+    "http_req_duration{name:GET /api/checkout/simulado/retorno}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(99)": 340.66394192,
+        "max": 341.056384,
+        "avg": 319.5014222727272,
+        "min": 314.131222,
+        "med": 317.8016805,
+        "p(90)": 325.1027866,
+        "p(95)": 328.83258745
+      }
+    }
+  },
+  "setup_data": {
+    "sets": [
+      {
+        "name": "Alliance Insight",
+        "game": "yugioh",
+        "id": 11
+      },
+      {
+        "game": "yugioh",
+        "id": 12,
+        "name": "Supreme Darkness"
+      },
+      {
+        "game": "magic",
+        "id": 1,
+        "name": "Foundations"
+      },
+      {
+        "game": "pokemon",
+        "id": 6,
+        "name": "Surging Sparks"
+      },
+      {
+        "game": "yugioh",
+        "id": 13,
+        "name": "Rage of the Abyss"
+      },
+      {
+        "game": "magic",
+        "id": 2,
+        "name": "Duskmourn: House of Horror"
+      },
+      {
+        "game": "pokemon",
+        "id": 7,
+        "name": "Stellar Crown"
+      },
+      {
+        "game": "magic",
+        "id": 3,
+        "name": "Bloomburrow"
+      },
+      {
+        "game": "yugioh",
+        "id": 14,
+        "name": "The Infinite Forbidden"
+      },
+      {
+        "game": "magic",
+        "id": 4,
+        "name": "Modern Horizons 3"
+      },
+      {
+        "name": "Twilight Masquerade",
+        "game": "pokemon",
+        "id": 8
+      },
+      {
+        "game": "yugioh",
+        "id": 15,
+        "name": "Legacy of Destruction"
+      },
+      {
+        "id": 5,
+        "name": "Outlaws of Thunder Junction",
+        "game": "magic"
+      },
+      {
+        "game": "pokemon",
+        "id": 9,
+        "name": "Temporal Forces"
+      },
+      {
+        "game": "pokemon",
+        "id": 10,
+        "name": "151"
+      }
+    ],
+    "terms": [
+      "aerial",
+      "aipom",
+      "alolan",
+      "ambipom",
+      "ancient",
+      "ancient",
+      "another",
+      "anthropede",
+      "antique",
+      "antique",
+      "appletun",
+      "applin",
+      "arcana",
+      "archaludon",
+      "area",
+      "argostars",
+      "argostars",
+      "astellar",
+      "azamina",
+      "azamina",
+      "azumarill",
+      "azure",
+      "bacha",
+      "bakersbane",
+      "bashful",
+      "battleguard",
+      "beldum",
+      "bellowing",
+      "beware",
+      "bianca",
+      "bianca",
+      "bigfin",
+      "billowing",
+      "black",
+      "blacksnag",
+      "blessing",
+      "blink",
+      "bouffalant",
+      "bovine",
+      "brambleghast",
+      "budy",
+      "bulk",
+      "cche",
+      "cacklig",
+      "caamity",
+      "carvana",
+      "centiskrch",
+      "cetur",
+      "cenur",
+      "chaney",
+      "cansey",
+      "chas",
+      "carizard",
+      "carizard",
+      "chaizard",
+      "alliance",
+      "supreme",
+      "foundations",
+      "surging",
+      "rage",
+      "duskmourn:",
+      "stellar",
+      "bloomburrow",
+      "the",
+      "modern",
+      "twilight",
+      "legacy",
+      "outlaws",
+      "temporal",
+      "151",
+      "dragon",
+      "ex",
+      "sobre",
+      "display",
+      "fundas"
+    ],
+    "games": [
+      "pokemon",
+      "magic",
+      "yugioh"
+    ],
+    "products": {
+      "carta": [
+        {
+          "game": "yugioh",
+          "id": 346,
+          "slug": "a-bao-a-qu-the-lightless-shadow-suda-suda-en049-foil",
+          "stock": 1,
+          "thumb": "/media/cards/yugioh/4731783-SUDA-EN049_thumb.webp"
+        },
+        {
+          "id": 418,
+          "slug": "aerial-eater-info-info-en089",
+          "stock": 5,
+          "thumb": "/media/cards/yugioh/28143384-INFO-EN089_thumb.webp",
+          "game": "yugioh"
+        },
+        {
+          "game": "pokemon",
+          "id": 224,
+          "slug": "aipom-sv06-137-foil",
+          "stock": 2,
+          "thumb": "/media/cards/pokemon/sv06-137_thumb.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 173,
+          "slug": "alolan-dugtrio-sv08-208-foil",
+          "stock": 1,
+          "thumb": "/media/cards/pokemon/sv08-208_thumb.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 225,
+          "slug": "ambipom-sv06-138-foil",
+          "stock": 4,
+          "thumb": "/media/cards/pokemon/sv06-138_thumb.webp"
+        },
+        {
+          "game": "yugioh",
+          "id": 359,
+          "slug": "ame-no-murakumo-no-mitsurugi-suda-suda-en092-foil",
+          "stock": 1,
+          "thumb": "/media/cards/yugioh/19899073-SUDA-EN092_thumb.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 257,
+          "slug": "ancient-booster-energy-capsule-sv05-140",
+          "stock": 3,
+          "thumb": "/media/cards/pokemon/sv05-140_thumb.webp"
+        },
+        {
+          "game": "yugioh",
+          "id": 437,
+          "slug": "ancient-gear-duel-lede-lede-en072",
+          "stock": 8,
+          "thumb": "/media/cards/yugioh/53541822-LEDE-EN072_thumb.webp"
+        },
+        {
+          "game": "magic",
+          "id": 121,
+          "slug": "another-round-otj-1-foil",
+          "stock": 1,
+          "thumb": "/media/cards/magic/4f8dc511-e307-4412-bb79-375a6077312d_thumb.webp"
+        },
+        {
+          "game": "magic",
+          "id": 59,
+          "slug": "anthropede-dsk-167",
+          "stock": 9,
+          "thumb": "/media/cards/magic/51216ab0-9806-4faa-afbd-143e95dc255b_thumb.webp"
+        },
+        {
+          "id": 202,
+          "slug": "antique-cover-fossil-sv07-129-foil",
+          "stock": 3,
+          "thumb": "/media/cards/pokemon/sv07-129_thumb.webp",
+          "game": "pokemon"
+        },
+        {
+          "id": 203,
+          "slug": "antique-root-fossil-sv07-130",
+          "stock": 7,
+          "thumb": "/media/cards/pokemon/sv07-130_thumb.webp",
+          "game": "pokemon"
+        },
+        {
+          "game": "pokemon",
+          "id": 175,
+          "slug": "appletun-sv08-211-foil",
+          "stock": 1,
+          "thumb": "/media/cards/pokemon/sv08-211_thumb.webp"
+        },
+        {
+          "slug": "applin-sv06-017",
+          "stock": 6,
+          "thumb": "/media/cards/pokemon/sv06-017_thumb.webp",
+          "game": "pokemon",
+          "id": 211
+        },
+        {
+          "stock": 8,
+          "thumb": "/media/cards/yugioh/3376703-SUDA-EN004_thumb.webp",
+          "game": "yugioh",
+          "id": 331,
+          "slug": "arcana-force-v-the-hierophant-suda-suda-en004"
+        },
+        {
+          "id": 207,
+          "slug": "archaludon-sv07-155-foil",
+          "stock": 1,
+          "thumb": "/media/cards/pokemon/sv07-155_thumb.webp",
+          "game": "pokemon"
+        },
+        {
+          "game": "pokemon",
+          "id": 210,
+          "slug": "area-zero-underdepths-sv07-174-foil",
+          "stock": 1,
+          "thumb": "/media/cards/pokemon/sv07-174_thumb.webp"
+        },
+        {
+          "stock": 1,
+          "thumb": "/media/cards/yugioh/30964246-ALIN-EN062_thumb.webp",
+          "game": "yugioh",
+          "id": 316,
+          "slug": "argostars-giantslaying-alin-alin-en062-foil"
+        },
+        {
+          "game": "yugioh",
+          "id": 332,
+          "slug": "argostars-glorious-adra-suda-suda-en010-foil",
+          "stock": 2,
+          "thumb": "/media/cards/yugioh/91438674-SUDA-EN010_thumb.webp"
+        },
+        {
+          "game": "yugioh",
+          "id": 393,
+          "slug": "astellar-of-the-white-forest-info-info-en013-foil",
+          "stock": 2,
+          "thumb": "/media/cards/yugioh/25592142-INFO-EN013_thumb.webp"
+        },
+        {
+          "stock": 5,
+          "thumb": "/media/cards/yugioh/17749468-ALIN-EN035_thumb.webp",
+          "game": "yugioh",
+          "id": 310,
+          "slug": "azamina-alin-alin-en035-foil"
+        },
+        {
+          "id": 369,
+          "slug": "azamina-moa-regina-rota-rota-en033-foil",
+          "stock": 1,
+          "thumb": "/media/cards/yugioh/46174776-ROTA-EN033_thumb.webp",
+          "game": "yugioh"
+        },
+        {
+          "id": 158,
+          "slug": "azumarill-sv08-074",
+          "stock": 3,
+          "thumb": "/media/cards/pokemon/sv08-074_thumb.webp",
+          "game": "pokemon"
+        },
+        {
+          "game": "magic",
+          "id": 67,
+          "slug": "azure-beastbinder-blb-41-foil",
+          "stock": 5,
+          "thumb": "/media/cards/magic/211af1bf-910b-41a5-b928-f378188d1871_thumb.webp"
+        },
+        {
+          "stock": 2,
+          "thumb": "/media/cards/yugioh/56208713-LEDE-EN035_thumb.webp",
+          "game": "yugioh",
+          "id": 427,
+          "slug": "bacha-the-melodious-maestra-lede-lede-en035"
+        },
+        {
+          "slug": "bakersbane-duo-blb-163-foil",
+          "stock": 4,
+          "thumb": "/media/cards/magic/5309354f-1ff4-4fa9-9141-01ea2f7588ab_thumb.webp",
+          "game": "magic",
+          "id": 89
+        },
+        {
+          "id": 60,
+          "slug": "bashful-beastie-dsk-169",
+          "stock": 10,
+          "thumb": "/media/cards/magic/c20fa7ee-a4c2-4eb0-9467-195f3b894fa0_thumb.webp",
+          "game": "magic"
+        },
+        {
+          "game": "yugioh",
+          "id": 443,
+          "slug": "battleguard-echoes-lede-lede-en082-foil",
+          "stock": 2,
+          "thumb": "/media/cards/yugioh/74213995-LEDE-EN082_thumb.webp"
+        },
+        {
+          "id": 253,
+          "slug": "beldum-sv05-113",
+          "stock": 2,
+          "thumb": "/media/cards/pokemon/sv05-113_thumb.webp",
+          "game": "pokemon"
+        },
+        {
+          "thumb": "/media/cards/magic/ca2215dd-6300-49cf-b9b2-3a840b786c31_thumb.webp",
+          "game": "magic",
+          "id": 68,
+          "slug": "bellowing-crier-blb-42",
+          "stock": 1
+        },
+        {
+          "game": "yugioh",
+          "id": 409,
+          "slug": "beware-the-white-forest-info-info-en059-foil",
+          "stock": 2,
+          "thumb": "/media/cards/yugioh/35778533-INFO-EN059_thumb.webp"
+        },
+        {
+          "slug": "bianca-s-devotion-sv05-197-foil",
+          "stock": 2,
+          "thumb": "/media/cards/pokemon/sv05-197_thumb.webp",
+          "game": "pokemon",
+          "id": 266
+        },
+        {
+          "slug": "bianca-s-devotion-sv05-209-foil",
+          "stock": 1,
+          "thumb": "/media/cards/pokemon/sv05-209_thumb.webp",
+          "game": "pokemon",
+          "id": 268
+        },
+        {
+          "game": "magic",
+          "id": 8,
+          "slug": "bigfin-bouncer-fdn-31",
+          "stock": 9,
+          "thumb": "/media/cards/magic/9b1d5b76-b07e-45c6-800d-4cfce085164f_thumb.webp"
+        },
+        {
+          "slug": "billowing-shriekmass-fdn-56",
+          "stock": 2,
+          "thumb": "/media/cards/magic/7b3587a9-0667-4d53-807b-c437bcb1d7b3_thumb.webp",
+          "game": "magic",
+          "id": 10
+        },
+        {
+          "stock": 2,
+          "thumb": "/media/cards/pokemon/sv08-218_thumb.webp",
+          "game": "pokemon",
+          "id": 176,
+          "slug": "black-kyurem-ex-sv08-218-foil"
+        },
+        {
+          "stock": 12,
+          "thumb": "/media/cards/magic/ef10b2ad-9b9b-4c5d-a2c7-3ce742224b50_thumb.webp",
+          "game": "magic",
+          "id": 136,
+          "slug": "blacksnag-buzzard-otj-79-foil"
+        },
+        {
+          "id": 431,
+          "slug": "blessing-of-the-voiceless-voice-lede-lede-en062-foil",
+          "stock": 2,
+          "thumb": "/media/cards/yugioh/39114494-LEDE-EN062_thumb.webp",
+          "game": "yugioh"
+        },
+        {
+          "game": "yugioh",
+          "id": 435,
+          "slug": "blink-out-lede-lede-en068",
+          "stock": 5,
+          "thumb": "/media/cards/yugioh/28279365-LEDE-EN068_thumb.webp"
+        },
+        {
+          "id": 200,
+          "slug": "bouffalant-sv07-119",
+          "stock": 2,
+          "thumb": "/media/cards/pokemon/sv07-119_thumb.webp",
+          "game": "pokemon"
+        },
+        {
+          "game": "magic",
+          "id": 122,
+          "slug": "bovine-intervention-otj-6",
+          "stock": 6,
+          "thumb": "/media/cards/magic/26c36742-456f-4618-99bc-793ef20b31b0_thumb.webp"
+        },
+        {
+          "thumb": "/media/cards/pokemon/sv05-021_thumb.webp",
+          "game": "pokemon",
+          "id": 242,
+          "slug": "brambleghast-sv05-021",
+          "stock": 1
+        },
+        {
+          "thumb": "/media/cards/pokemon/sv05-144_thumb.webp",
+          "game": "pokemon",
+          "id": 258,
+          "slug": "buddy-buddy-poffin-sv05-144",
+          "stock": 4
+        },
+        {
+          "stock": 1,
+          "thumb": "/media/cards/magic/977dcc50-da10-4281-b522-9240c1204f5d_thumb.webp",
+          "game": "magic",
+          "id": 15,
+          "slug": "bulk-up-fdn-80"
+        },
+        {
+          "game": "magic",
+          "id": 90,
+          "slug": "cache-grab-blb-167",
+          "stock": 5,
+          "thumb": "/media/cards/magic/dfd977dc-a7c3-4d0a-aca7-b25bd154e963_thumb.webp"
+        },
+        {
+          "slug": "cackling-prowler-fdn-101",
+          "stock": 12,
+          "thumb": "/media/cards/magic/1bd8e971-c075-4203-8d83-c28f22d4f9b9_thumb.webp",
+          "game": "magic",
+          "id": 17
+        },
+        {
+          "game": "magic",
+          "id": 143,
+          "slug": "calamity-galloping-inferno-otj-116",
+          "stock": 2,
+          "thumb": "/media/cards/magic/e7a70f5a-2056-4c26-b6ea-9f751b5d0d8c_thumb.webp"
+        },
+        {
+          "stock": 8,
+          "thumb": "/media/cards/pokemon/sv05-042_thumb.webp",
+          "game": "pokemon",
+          "id": 246,
+          "slug": "carvanha-sv05-042"
+        },
+        {
+          "game": "pokemon",
+          "id": 152,
+          "slug": "centiskorch-sv08-028-foil",
+          "stock": 3,
+          "thumb": "/media/cards/pokemon/sv08-028_thumb.webp"
+        },
+        {
+          "thumb": "/media/cards/yugioh/81696879-ROTA-EN016_thumb.webp",
+          "game": "yugioh",
+          "id": 364,
+          "slug": "centur-ion-chimerea-rota-rota-en016-foil",
+          "stock": 1
+        },
+        {
+          "game": "yugioh",
+          "id": 370,
+          "slug": "centur-ion-primera-primus-rota-rota-en038-foil",
+          "stock": 6,
+          "thumb": "/media/cards/yugioh/8841431-ROTA-EN038_thumb.webp"
+        },
+        {
+          "thumb": "/media/cards/pokemon/sv06-133_thumb.webp",
+          "game": "pokemon",
+          "id": 223,
+          "slug": "chansey-sv06-133",
+          "stock": 5
+        },
+        {
+          "id": 235,
+          "slug": "chansey-sv06-187-foil",
+          "stock": 3,
+          "thumb": "/media/cards/pokemon/sv06-187_thumb.webp",
+          "game": "pokemon"
+        },
+        {
+          "game": "yugioh",
+          "id": 362,
+          "slug": "chaos-allure-queen-rota-rota-en011",
+          "stock": 3,
+          "thumb": "/media/cards/yugioh/29925614-ROTA-EN011_thumb.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 272,
+          "slug": "charizard-ex-sv03-5-006-foil",
+          "stock": 1,
+          "thumb": "/media/cards/pokemon/sv03.5-006_thumb.webp"
+        },
+        {
+          "thumb": "/media/cards/pokemon/sv03.5-183_thumb.webp",
+          "game": "pokemon",
+          "id": 296,
+          "slug": "charizard-ex-sv03-5-183-foil",
+          "stock": 2
+        },
+        {
+          "game": "pokemon",
+          "id": 299,
+          "slug": "charizard-ex-sv03-5-199-foil",
+          "stock": 1,
+          "thumb": "/media/cards/pokemon/sv03.5-199_thumb.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 189,
+          "slug": "charjabug-sv07-052",
+          "stock": 12,
+          "thumb": "/media/cards/pokemon/sv07-052_thumb.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 271,
+          "slug": "charmeleon-sv03-5-005",
+          "stock": 9,
+          "thumb": "/media/cards/pokemon/sv03.5-005_thumb.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 233,
+          "slug": "chimecho-sv06-179-foil",
+          "stock": 3,
+          "thumb": "/media/cards/pokemon/sv06-179_thumb.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 187,
+          "slug": "chinchou-sv07-048-foil",
+          "stock": 10,
+          "thumb": "/media/cards/pokemon/sv07-048_thumb.webp"
+        },
+        {
+          "id": 105,
+          "slug": "chthonian-nightmare-mh3-83",
+          "stock": 1,
+          "thumb": "/media/cards/magic/ce5dd2c1-b6e0-4914-b5c9-7dd451c29e22_thumb.webp",
+          "game": "magic"
+        },
+        {
+          "game": "pokemon",
+          "id": 259,
+          "slug": "ciphermaniac-s-codebreaking-sv05-145",
+          "stock": 3,
+          "thumb": "/media/cards/pokemon/sv05-145_thumb.webp"
+        },
+        {
+          "thumb": "/media/cards/magic/36012810-0e83-4640-8ba7-7262229f1b84_thumb.webp",
+          "game": "magic",
+          "id": 9,
+          "slug": "clinquant-skymage-fdn-33-foil",
+          "stock": 8
+        },
+        {
+          "thumb": "/media/cards/pokemon/sv08-112_thumb.webp",
+          "game": "pokemon",
+          "id": 163,
+          "slug": "clobbopus-sv08-112",
+          "stock": 11
+        },
+        {
+          "thumb": "/media/cards/pokemon/sv03.5-091_thumb.webp",
+          "game": "pokemon",
+          "id": 282,
+          "slug": "cloyster-sv03-5-091",
+          "stock": 5
+        },
+        {
+          "game": "yugioh",
+          "id": 450,
+          "slug": "code-of-soul-lede-lede-en099-foil",
+          "stock": 1,
+          "thumb": "/media/cards/yugioh/74652966-LEDE-EN099_thumb.webp"
+        },
+        {
+          "game": "magic",
+          "id": 45,
+          "slug": "come-back-wrong-dsk-86",
+          "stock": 4,
+          "thumb": "/media/cards/magic/72ee3b45-aa4e-4c5b-a9e6-608bfbd93f8b_thumb.webp"
+        },
+        {
+          "game": "magic",
+          "id": 82,
+          "slug": "conduct-electricity-blb-130",
+          "stock": 4,
+          "thumb": "/media/cards/magic/2f373dd6-2412-453c-85ba-10230dfe473a_thumb.webp"
+        },
+        {
+          "thumb": "/media/cards/pokemon/sv06-105_thumb.webp",
+          "game": "pokemon",
+          "id": 216,
+          "slug": "conkeldurr-sv06-105",
+          "stock": 3
+        },
+        {
+          "id": 226,
+          "slug": "cook-sv06-147",
+          "stock": 9,
+          "thumb": "/media/cards/pokemon/sv06-147_thumb.webp",
+          "game": "pokemon"
+        },
+        {
+          "game": "magic",
+          "id": 100,
+          "slug": "copycrook-mh3-55-foil",
+          "stock": 7,
+          "thumb": "/media/cards/magic/52ea5e71-d0a3-4065-918b-9b2af98589ba_thumb.webp"
+        },
+        {
+          "thumb": "/media/cards/yugioh/90276649-LEDE-EN010_thumb.webp",
+          "game": "yugioh",
+          "id": 421,
+          "slug": "couplet-the-melodious-songstress-lede-lede-en010",
+          "stock": 10
+        },
+        {
+          "stock": 4,
+          "thumb": "/media/cards/pokemon/sv06-058_thumb.webp",
+          "game": "pokemon",
+          "id": 214,
+          "slug": "cramorant-sv06-058"
+        },
+        {
+          "game": "magic",
+          "id": 61,
+          "slug": "crumb-and-get-it-blb-8",
+          "stock": 4,
+          "thumb": "/media/cards/magic/3c7b3b25-d4b3-4451-9f5c-6eb369541175_thumb.webp"
+        },
+        {
+          "game": "magic",
+          "id": 11,
+          "slug": "crypt-feaster-fdn-59",
+          "stock": 7,
+          "thumb": "/media/cards/magic/3b072811-998a-4a71-b59c-6afecc0dc4b6_thumb.webp"
+        },
+        {
+          "game": "yugioh",
+          "id": 343,
+          "slug": "crystal-clear-wing-over-synchro-dragon-suda-suda-en039-foil",
+          "stock": 1,
+          "thumb": "/media/cards/yugioh/84343351-SUDA-EN039_thumb.webp"
+        },
+        {
+          "id": 285,
+          "slug": "cubone-sv03-5-104",
+          "stock": 10,
+          "thumb": "/media/cards/pokemon/sv03.5-104_thumb.webp",
+          "game": "pokemon"
+        },
+        {
+          "game": "yugioh",
+          "id": 319,
+          "slug": "curse-of-diabell-alin-alin-en072",
+          "stock": 10,
+          "thumb": "/media/cards/yugioh/64998567-ALIN-EN072_thumb.webp"
+        },
+        {
+          "game": "yugioh",
+          "id": 390,
+          "slug": "cursed-fire-king-doom-burst-rota-rota-en099-foil",
+          "stock": 3,
+          "thumb": "/media/cards/yugioh/26857786-ROTA-EN099_thumb.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 201,
+          "slug": "cyclizar-sv07-127",
+          "stock": 9,
+          "thumb": "/media/cards/pokemon/sv07-127_thumb.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 208,
+          "slug": "dachsbun-ex-sv07-160-foil",
+          "stock": 2,
+          "thumb": "/media/cards/pokemon/sv07-160_thumb.webp"
+        },
+        {
+          "thumb": "/media/cards/pokemon/sv03.5-195_thumb.webp",
+          "game": "pokemon",
+          "id": 298,
+          "slug": "daisy-s-help-sv03-5-195-foil",
+          "stock": 1
+        },
+        {
+          "game": "magic",
+          "id": 69,
+          "slug": "daring-waverider-blb-44",
+          "stock": 3,
+          "thumb": "/media/cards/magic/19422406-0c1a-497e-bed1-708bc556491a_thumb.webp"
+        },
+        {
+          "game": "yugioh",
+          "id": 411,
+          "slug": "dark-magic-mirror-force-info-info-en069-foil",
+          "stock": 5,
+          "thumb": "/media/cards/yugioh/59016454-INFO-EN069_thumb.webp"
+        },
+        {
+          "stock": 1,
+          "thumb": "/media/cards/yugioh/21960890-SUDA-EN081_thumb.webp",
+          "game": "yugioh",
+          "id": 354,
+          "slug": "dark-necromancer-suda-suda-en081-foil"
+        },
+        {
+          "stock": 9,
+          "thumb": "/media/cards/yugioh/39613288-SUDA-EN067_thumb.webp",
+          "game": "yugioh",
+          "id": 351,
+          "slug": "dark-supremacy-suda-suda-en067"
+        },
+        {
+          "game": "magic",
+          "id": 23,
+          "slug": "day-of-judgment-fdn-140",
+          "stock": 5,
+          "thumb": "/media/cards/magic/96e84bdc-8a9a-4c58-ba8b-9f052fd60069_thumb.webp"
+        },
+        {
+          "game": "yugioh",
+          "id": 374,
+          "slug": "deception-of-the-sinful-spoils-rota-rota-en055-foil",
+          "stock": 1,
+          "thumb": "/media/cards/yugioh/66328392-ROTA-EN055_thumb.webp"
+        },
+        {
+          "game": "magic",
+          "id": 46,
+          "slug": "demonic-counsel-dsk-92",
+          "stock": 4,
+          "thumb": "/media/cards/magic/ff79c845-4115-4fbf-b20f-37470f2bf7fb_thumb.webp"
+        },
+        {
+          "thumb": "/media/cards/yugioh/10474647-INFO-EN031_thumb.webp",
+          "game": "yugioh",
+          "id": 400,
+          "slug": "depresspard-info-info-en031",
+          "stock": 3
+        },
+        {
+          "stock": 4,
+          "thumb": "/media/cards/magic/560debcd-feb4-4534-991e-a7aa1cca2409_thumb.webp",
+          "game": "magic",
+          "id": 91,
+          "slug": "devourer-of-destiny-mh3-2"
+        },
+        {
+          "slug": "dewdrop-cure-blb-10",
+          "stock": 7,
+          "thumb": "/media/cards/magic/666aefc2-44e0-4c27-88d5-7906f245a71f_thumb.webp",
+          "game": "magic",
+          "id": 62
+        },
+        {
+          "game": "yugioh",
+          "id": 405,
+          "slug": "diabell-queen-of-the-white-forest-info-info-en040-foil",
+          "stock": 2,
+          "thumb": "/media/cards/yugioh/14307929-INFO-EN040_thumb.webp"
+        },
+        {
+          "game": "yugioh",
+          "id": 328,
+          "slug": "dipity-alin-alin-en097",
+          "stock": 3,
+          "thumb": "/media/cards/yugioh/46533533-ALIN-EN097_thumb.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 219,
+          "slug": "dipplin-sv06-127",
+          "stock": 9,
+          "thumb": "/media/cards/pokemon/sv06-127_thumb.webp"
+        },
+        {
+          "id": 416,
+          "slug": "dipsea-fiend-info-info-en084",
+          "stock": 11,
+          "thumb": "/media/cards/yugioh/66472129-INFO-EN084_thumb.webp",
+          "game": "yugioh"
+        },
+        {
+          "game": "yugioh",
+          "id": 399,
+          "slug": "disablaster-the-negation-fortress-info-info-en026-foil",
+          "stock": 2,
+          "thumb": "/media/cards/yugioh/58707981-INFO-EN026_thumb.webp"
+        },
+        {
+          "id": 220,
+          "slug": "dragapult-ex-sv06-130-foil",
+          "stock": 2,
+          "thumb": "/media/cards/pokemon/sv06-130_thumb.webp",
+          "game": "pokemon"
+        },
+        {
+          "game": "yugioh",
+          "id": 330,
+          "slug": "dragolithia-kunzite-alin-alin-en100-foil",
+          "stock": 5,
+          "thumb": "/media/cards/yugioh/48705086-ALIN-EN100_thumb.webp"
+        },
+        {
+          "id": 301,
+          "slug": "dragon-master-lords-alin-alin-en000-foil",
+          "stock": 1,
+          "thumb": "/media/cards/yugioh/58931850-ALIN-EN000_thumb.webp",
+          "game": "yugioh"
+        },
+        {
+          "stock": 5,
+          "thumb": "/media/cards/yugioh/85442146-ALIN-EN079_thumb.webp",
+          "game": "yugioh",
+          "id": 321,
+          "slug": "dragon-s-mind-alin-alin-en079"
+        },
+        {
+          "game": "yugioh",
+          "id": 361,
+          "slug": "drake-shark-rota-rota-en002-foil",
+          "stock": 3,
+          "thumb": "/media/cards/yugioh/81096431-ROTA-EN002_thumb.webp"
+        },
+        {
+          "stock": 3,
+          "thumb": "/media/cards/pokemon/sv05-184_thumb.webp",
+          "game": "pokemon",
+          "id": 264,
+          "slug": "drampa-sv05-184-foil"
+        },
+        {
+          "game": "pokemon",
+          "id": 292,
+          "slug": "dratini-sv03-5-147",
+          "stock": 11,
+          "thumb": "/media/cards/pokemon/sv03.5-147_thumb.webp"
+        },
+        {
+          "stock": 3,
+          "thumb": "/media/cards/pokemon/sv08-232_thumb.webp",
+          "game": "pokemon",
+          "id": 177,
+          "slug": "drayton-sv08-232-foil"
+        },
+        {
+          "id": 179,
+          "slug": "drayton-sv08-244-foil",
+          "stock": 1,
+          "thumb": "/media/cards/pokemon/sv08-244_thumb.webp",
+          "game": "pokemon"
+        },
+        {
+          "stock": 6,
+          "thumb": "/media/cards/magic/70e68656-3204-4bb5-9f31-8036083fcba6_thumb.webp",
+          "game": "magic",
+          "id": 107,
+          "slug": "drossclaw-mh3-89"
+        },
+        {
+          "stock": 3,
+          "thumb": "/media/cards/magic/7faf5812-2067-4386-bb83-150723d67d02_thumb.webp",
+          "game": "magic",
+          "id": 92,
+          "slug": "drownyard-lurker-mh3-3-foil"
+        },
+        {
+          "game": "yugioh",
+          "id": 401,
+          "slug": "drytron-meteonis-da-draconids-info-info-en032-foil",
+          "stock": 5,
+          "thumb": "/media/cards/yugioh/56863746-INFO-EN032_thumb.webp"
+        },
+        {
+          "stock": 8,
+          "thumb": "/media/cards/pokemon/sv05-128_thumb.webp",
+          "game": "pokemon",
+          "id": 256,
+          "slug": "dunsparce-sv05-128"
+        },
+        {
+          "stock": 2,
+          "thumb": "/media/cards/yugioh/30350202-ALIN-EN048_thumb.webp",
+          "game": "yugioh",
+          "id": 314,
+          "slug": "eclipse-dragon-ruler-of-catastrophes-alin-alin-en048-foil"
+        },
+        {
+          "game": "pokemon",
+          "id": 275,
+          "slug": "ekans-sv03-5-023",
+          "stock": 10,
+          "thumb": "/media/cards/pokemon/sv03.5-023_thumb.webp"
+        },
+        {
+          "game": "magic",
+          "id": 19,
+          "slug": "elenda-saint-of-dusk-fdn-119-foil",
+          "stock": 4,
+          "thumb": "/media/cards/magic/24955f5f-093c-4d33-b0c1-911cd36032ce_thumb.webp"
+        },
+        {
+          "game": "yugioh",
+          "id": 394,
+          "slug": "elzette-of-the-white-forest-info-info-en014-foil",
+          "stock": 1,
+          "thumb": "/media/cards/yugioh/61980241-INFO-EN014_thumb.webp"
+        },
+        {
+          "game": "yugioh",
+          "id": 448,
+          "slug": "embers-of-the-ashened-lede-lede-en093-foil",
+          "stock": 2,
+          "thumb": "/media/cards/yugioh/35035985-LEDE-EN093_thumb.webp"
+        },
+        {
+          "thumb": "/media/cards/magic/3ba16fbf-2d44-4337-87cb-6ff6b84a258a_thumb.webp",
+          "game": "magic",
+          "id": 31,
+          "slug": "emerge-from-the-cocoon-dsk-5",
+          "stock": 8
+        },
+        {
+          "game": "magic",
+          "id": 108,
+          "slug": "emperor-of-bones-mh3-90-foil",
+          "stock": 5,
+          "thumb": "/media/cards/magic/df9d9075-2d1e-4848-b661-816d539e05eb_thumb.webp"
+        },
+        {
+          "game": "magic",
+          "id": 101,
+          "slug": "emrakul-s-messenger-mh3-61",
+          "stock": 1,
+          "thumb": "/media/cards/magic/f0f818d7-320c-47b9-a083-40007f3d91ea_thumb.webp"
+        },
+        {
+          "game": "magic",
+          "id": 32,
+          "slug": "enduring-innocence-dsk-6",
+          "stock": 3,
+          "thumb": "/media/cards/magic/08f79439-b8f8-418f-9772-26d81844749e_thumb.webp"
+        },
+        {
+          "stock": 3,
+          "thumb": "/media/cards/pokemon/sv06-148_thumb.webp",
+          "game": "pokemon",
+          "id": 227,
+          "slug": "enhanced-hammer-sv06-148"
+        },
+        {
+          "slug": "eriette-s-lullaby-otj-10",
+          "stock": 12,
+          "thumb": "/media/cards/magic/184c18b6-40e2-4f7f-a3bb-49bc695b68ec_thumb.webp",
+          "game": "magic",
+          "id": 123
+        },
+        {
+          "game": "magic",
+          "id": 33,
+          "slug": "ethereal-armor-dsk-7",
+          "stock": 3,
+          "thumb": "/media/cards/magic/fd0e8a82-0201-483e-a976-5f29764b35a4_thumb.webp"
+        },
+        {
+          "game": "yugioh",
+          "id": 341,
+          "slug": "evil-hero-inferno-wing-backfire-suda-suda-en032-foil",
+          "stock": 3,
+          "thumb": "/media/cards/yugioh/59893882-SUDA-EN032_thumb.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 151,
+          "slug": "exeggutor-sv08-003",
+          "stock": 8,
+          "thumb": "/media/cards/pokemon/sv08-003_thumb.webp"
+        },
+        {
+          "game": "magic",
+          "id": 1,
+          "slug": "exemplar-of-light-fdn-11-foil",
+          "stock": 2,
+          "thumb": "/media/cards/magic/920c8fc5-fdd2-446a-a676-5c363f96928f_thumb.webp"
+        },
+        {
+          "game": "yugioh",
+          "id": 410,
+          "slug": "exxod-fires-of-rage-info-info-en068-foil",
+          "stock": 5,
+          "thumb": "/media/cards/yugioh/23617756-INFO-EN068_thumb.webp"
+        },
+        {
+          "slug": "fallen-angel-of-the-golden-land-alin-alin-en036-foil",
+          "stock": 2,
+          "thumb": "/media/cards/yugioh/43143567-ALIN-EN036_thumb.webp",
+          "game": "yugioh",
+          "id": 311
+        },
+        {
+          "thumb": "/media/cards/magic/2a0acb05-91e0-4f7c-b48b-99e1068fad16_thumb.webp",
+          "game": "magic",
+          "id": 48,
+          "slug": "fanatic-of-the-harrowing-dsk-96",
+          "stock": 1
+        },
+        {
+          "id": 222,
+          "slug": "farfetch-d-sv06-132",
+          "stock": 2,
+          "thumb": "/media/cards/pokemon/sv06-132_thumb.webp",
+          "game": "pokemon"
+        },
+        {
+          "id": 170,
+          "slug": "feebas-sv08-198-foil",
+          "stock": 1,
+          "thumb": "/media/cards/pokemon/sv08-198_thumb.webp",
+          "game": "pokemon"
+        },
+        {
+          "thumb": "/media/cards/magic/c96ac326-de44-470b-a592-a4c2a052c091_thumb.webp",
+          "game": "magic",
+          "id": 74,
+          "slug": "fell-blb-95",
+          "stock": 9
+        },
+        {
+          "stock": 5,
+          "thumb": "/media/cards/yugioh/26434972-SUDA-EN079_thumb.webp",
+          "game": "yugioh",
+          "id": 353,
+          "slug": "fiendsmith-kyrie-suda-suda-en079-foil"
+        },
+        {
+          "slug": "fiendsmith-s-desirae-info-info-en036-foil",
+          "stock": 6,
+          "thumb": "/media/cards/yugioh/82135803-INFO-EN036_thumb.webp",
+          "game": "yugioh",
+          "id": 403
+        },
+        {
+          "game": "yugioh",
+          "id": 312,
+          "slug": "firewall-saber-dragon-alin-alin-en038-foil",
+          "stock": 2,
+          "thumb": "/media/cards/yugioh/16926971-ALIN-EN038_thumb.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 174,
+          "slug": "flapple-sv08-210-foil",
+          "stock": 3,
+          "thumb": "/media/cards/pokemon/sv08-210_thumb.webp"
+        },
+        {
+          "thumb": "/media/cards/magic/497a10c6-131b-464e-95e4-e47708a24d48_thumb.webp",
+          "game": "magic",
+          "id": 112,
+          "slug": "flare-of-duplication-mh3-119",
+          "stock": 6
+        },
+        {
+          "game": "magic",
+          "id": 2,
+          "slug": "fleeting-flight-fdn-13",
+          "stock": 5,
+          "thumb": "/media/cards/magic/55139100-9342-41fd-b10a-8e9932e605d4_thumb.webp"
+        },
+        {
+          "game": "magic",
+          "id": 131,
+          "slug": "fleeting-reflection-otj-49",
+          "stock": 2,
+          "thumb": "/media/cards/magic/8f8c931e-219f-4032-b55b-b5975fbea1e7_thumb.webp"
+        },
+        {
+          "slug": "floodpits-drowner-dsk-59",
+          "stock": 9,
+          "thumb": "/media/cards/magic/a6a62aa3-8edb-4000-8ebd-15ec4b00eed7_thumb.webp",
+          "game": "magic",
+          "id": 42
+        },
+        {
+          "slug": "flying-mary-the-wandering-ghost-ship-rota-rota-en047-foil",
+          "stock": 2,
+          "thumb": "/media/cards/yugioh/95784714-ROTA-EN047_thumb.webp",
+          "game": "yugioh",
+          "id": 371
+        },
+        {
+          "id": 252,
+          "slug": "forretress-sv05-110",
+          "stock": 8,
+          "thumb": "/media/cards/pokemon/sv05-110_thumb.webp",
+          "game": "pokemon"
+        },
+        {
+          "game": "magic",
+          "id": 124,
+          "slug": "fortune-loyal-steed-otj-12",
+          "stock": 6,
+          "thumb": "/media/cards/magic/069294a8-e65a-47af-942f-7e99d18658f2_thumb.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 186,
+          "slug": "frogadier-sv07-040",
+          "stock": 7,
+          "thumb": "/media/cards/pokemon/sv07-040_thumb.webp"
+        },
+        {
+          "thumb": "/media/cards/magic/9368cc76-bee5-4b46-a309-981106c3addf_thumb.webp",
+          "game": "magic",
+          "id": 125,
+          "slug": "frontier-seeker-otj-13",
+          "stock": 2
+        },
+        {
+          "game": "pokemon",
+          "id": 247,
+          "slug": "frosmoth-sv05-046",
+          "stock": 7,
+          "thumb": "/media/cards/pokemon/sv05-046_thumb.webp"
+        },
+        {
+          "id": 149,
+          "slug": "full-steam-ahead-otj-164",
+          "stock": 10,
+          "thumb": "/media/cards/magic/084748d8-7169-4e86-a69c-631c6d7d3a1e_thumb.webp",
+          "game": "magic"
+        },
+        {
+          "game": "magic",
+          "id": 49,
+          "slug": "funeral-room-awakening-hall-dsk-100",
+          "stock": 2,
+          "thumb": "/media/cards/magic/48237c98-5067-47a8-af74-7b9bce57c6a4_thumb.webp"
+        },
+        {
+          "slug": "gastrodon-sv08-107-foil",
+          "stock": 6,
+          "thumb": "/media/cards/pokemon/sv08-107_thumb.webp",
+          "game": "pokemon",
+          "id": 161
+        },
+        {
+          "thumb": "/media/cards/pokemon/sv03.5-094_thumb.webp",
+          "game": "pokemon",
+          "id": 283,
+          "slug": "gengar-sv03-5-094-foil",
+          "stock": 2
+        },
+        {
+          "game": "magic",
+          "id": 113,
+          "slug": "ghostfire-slice-mh3-123",
+          "stock": 5,
+          "thumb": "/media/cards/magic/2adea3ee-138f-455b-a001-586883c44758_thumb.webp"
+        },
+        {
+          "stock": 3,
+          "thumb": "/media/cards/magic/8ae6fc26-cfad-4da8-98d9-49c27c24d293_thumb.webp",
+          "game": "magic",
+          "id": 24,
+          "slug": "giada-font-of-hope-fdn-141"
+        },
+        {
+          "thumb": "/media/cards/yugioh/8170654-ALIN-EN098_thumb.webp",
+          "game": "yugioh",
+          "id": 329,
+          "slug": "giant-kra-corn-alin-alin-en098",
+          "stock": 12
+        },
+        {
+          "slug": "giovanni-s-charisma-sv03-5-204-foil",
+          "stock": 2,
+          "thumb": "/media/cards/pokemon/sv03.5-204_thumb.webp",
+          "game": "pokemon",
+          "id": 300
+        },
+        {
+          "thumb": "/media/cards/pokemon/sv05-066_thumb.webp",
+          "game": "pokemon",
+          "id": 248,
+          "slug": "girafarig-sv05-066-foil",
+          "stock": 4
+        },
+        {
+          "game": "yugioh",
+          "id": 342,
+          "slug": "gladiator-beast-claudius-suda-suda-en038-foil",
+          "stock": 5,
+          "thumb": "/media/cards/yugioh/48958757-SUDA-EN038_thumb.webp"
+        },
+        {
+          "game": "yugioh",
+          "id": 345,
+          "slug": "gladiator-beast-dareios-suda-suda-en048",
+          "stock": 11,
+          "thumb": "/media/cards/yugioh/72246674-SUDA-EN048_thumb.webp"
+        },
+        {
+          "game": "magic",
+          "id": 75,
+          "slug": "glidedive-duo-blb-96",
+          "stock": 10,
+          "thumb": "/media/cards/magic/4831e7ae-54e3-4bd9-b5af-52dc29f81715_thumb.webp"
+        },
+        {
+          "stock": 10,
+          "thumb": "/media/cards/yugioh/15094540-ROTA-EN075_thumb.webp",
+          "game": "yugioh",
+          "id": 382,
+          "slug": "goblin-biker-grand-crisis-rota-rota-en075"
+        },
+        {
+          "thumb": "/media/cards/yugioh/90946420-LEDE-EN073_thumb.webp",
+          "game": "yugioh",
+          "id": 438,
+          "slug": "goblin-biker-grand-pileup-lede-lede-en073",
+          "stock": 11
+        },
+        {
+          "id": 344,
+          "slug": "goblin-bikers-gone-bonkers-suda-suda-en044-foil",
+          "stock": 2,
+          "thumb": "/media/cards/yugioh/46014517-SUDA-EN044_thumb.webp",
+          "game": "yugioh"
+        },
+        {
+          "slug": "gorehorn-raider-fdn-89",
+          "stock": 3,
+          "thumb": "/media/cards/magic/78ce6c40-3452-4aa0-a45b-dbfd70f8d220_thumb.webp",
+          "game": "magic",
+          "id": 16
+        },
+        {
+          "slug": "gouging-fire-ex-sv05-204-foil",
+          "stock": 2,
+          "thumb": "/media/cards/pokemon/sv05-204_thumb.webp",
+          "game": "pokemon",
+          "id": 267
+        },
+        {
+          "game": "pokemon",
+          "id": 269,
+          "slug": "gouging-fire-ex-sv05-214-foil",
+          "stock": 1,
+          "thumb": "/media/cards/pokemon/sv05-214_thumb.webp"
+        },
+        {
+          "id": 338,
+          "slug": "grand-knight-of-the-red-lotus-suda-suda-en024",
+          "stock": 7,
+          "thumb": "/media/cards/yugioh/51132012-SUDA-EN024_thumb.webp",
+          "game": "yugioh"
+        },
+        {
+          "slug": "grand-tree-sv07-136-foil",
+          "stock": 2,
+          "thumb": "/media/cards/pokemon/sv07-136_thumb.webp",
+          "game": "pokemon",
+          "id": 204
+        },
+        {
+          "id": 180,
+          "slug": "gravity-mountain-sv08-250-foil",
+          "stock": 2,
+          "thumb": "/media/cards/pokemon/sv08-250_thumb.webp",
+          "game": "pokemon"
+        },
+        {
+          "game": "magic",
+          "id": 50,
+          "slug": "grievous-wound-dsk-102-foil",
+          "stock": 2,
+          "thumb": "/media/cards/magic/6ed3dd5e-cd27-4b18-ad60-f5c4d9a811b9_thumb.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 182,
+          "slug": "grubbin-sv07-009",
+          "stock": 9,
+          "thumb": "/media/cards/pokemon/sv07-009_thumb.webp"
+        },
+        {
+          "id": 97,
+          "slug": "guardian-of-the-forgotten-mh3-28-foil",
+          "stock": 7,
+          "thumb": "/media/cards/magic/8032c909-3170-45ab-a552-a8dc683b0a6e_thumb.webp",
+          "game": "magic"
+        },
+        {
+          "game": "pokemon",
+          "id": 289,
+          "slug": "gyarados-sv03-5-130-foil",
+          "stock": 2,
+          "thumb": "/media/cards/pokemon/sv03.5-130_thumb.webp"
+        },
+        {
+          "game": "yugioh",
+          "id": 445,
+          "slug": "haggard-lizardose-lede-lede-en089",
+          "stock": 9,
+          "thumb": "/media/cards/yugioh/9763474-LEDE-EN089_thumb.webp"
+        },
+        {
+          "stock": 11,
+          "thumb": "/media/cards/yugioh/4341721-SUDA-EN063_thumb.webp",
+          "game": "yugioh",
+          "id": 350,
+          "slug": "hallo-ween-suda-suda-en063"
+        },
+        {
+          "game": "magic",
+          "id": 132,
+          "slug": "harrier-strix-otj-52-foil",
+          "stock": 8,
+          "thumb": "/media/cards/magic/70ca61a9-8938-41bf-bd14-5759f4de6521_thumb.webp"
+        },
+        {
+          "stock": 3,
+          "thumb": "/media/cards/pokemon/sv05-031_thumb.webp",
+          "game": "pokemon",
+          "id": 244,
+          "slug": "heatmor-sv05-031"
+        },
+        {
+          "game": "yugioh",
+          "id": 305,
+          "slug": "heraldic-beast-gryphon-alin-alin-en009-foil",
+          "stock": 6,
+          "thumb": "/media/cards/yugioh/60268386-ALIN-EN009_thumb.webp"
+        },
+        {
+          "slug": "hero-s-cape-sv05-152-foil",
+          "stock": 3,
+          "thumb": "/media/cards/pokemon/sv05-152_thumb.webp",
+          "game": "pokemon",
+          "id": 260
+        },
+        {
+          "game": "magic",
+          "id": 12,
+          "slug": "high-society-hunter-fdn-61",
+          "stock": 1,
+          "thumb": "/media/cards/magic/51da4a4b-ea12-4169-a7cf-eb4427f13e84_thumb.webp"
+        },
+        {
+          "stock": 9,
+          "thumb": "/media/cards/pokemon/sv03.5-107_thumb.webp",
+          "game": "pokemon",
+          "id": 286,
+          "slug": "hitmonchan-sv03-5-107"
+        },
+        {
+          "stock": 5,
+          "thumb": "/media/cards/magic/90de84c9-941b-4056-8501-ce8a948b9643_thumb.webp",
+          "game": "magic",
+          "id": 126,
+          "slug": "holy-cow-otj-16-foil"
+        },
+        {
+          "thumb": "/media/cards/magic/ee7207f8-5daa-42af-aeea-7a489047110b_thumb.webp",
+          "game": "magic",
+          "id": 63,
+          "slug": "hop-to-it-blb-16",
+          "stock": 1
+        },
+        {
+          "game": "magic",
+          "id": 120,
+          "slug": "horrific-assault-mh3-157",
+          "stock": 4,
+          "thumb": "/media/cards/magic/cfa6ed13-7bba-40c0-8e0e-4ffd3cea6241_thumb.webp"
+        },
+        {
+          "slug": "hrimnir-the-divine-follower-alin-alin-en082",
+          "stock": 2,
+          "thumb": "/media/cards/yugioh/49904658-ALIN-EN082_thumb.webp",
+          "game": "yugioh",
+          "id": 322
+        },
+        {
+          "slug": "hydrojet-shark-suda-suda-en013",
+          "stock": 11,
+          "thumb": "/media/cards/yugioh/90315086-SUDA-EN013_thumb.webp",
+          "game": "yugioh",
+          "id": 334
+        },
+        {
+          "id": 25,
+          "slug": "imprisoned-in-the-moon-fdn-156",
+          "stock": 8,
+          "thumb": "/media/cards/magic/ee28e147-6622-4399-a314-c14a5c912dd0_thumb.webp",
+          "game": "magic"
+        },
+        {
+          "game": "yugioh",
+          "id": 436,
+          "slug": "in-papa-s-footsteps-lede-lede-en070",
+          "stock": 3,
+          "thumb": "/media/cards/yugioh/91668078-LEDE-EN070_thumb.webp"
+        },
+        {
+          "game": "magic",
+          "id": 98,
+          "slug": "indebted-spirit-mh3-31",
+          "stock": 8,
+          "thumb": "/media/cards/magic/bfdbef00-bc1b-4dd6-aef5-aeb5ce454344_thumb.webp"
+        },
+        {
+          "game": "magic",
+          "id": 13,
+          "slug": "infestation-sage-fdn-64",
+          "stock": 10,
+          "thumb": "/media/cards/magic/d40c73de-7a5f-46f2-a70b-449bc8ecfe24_thumb.webp"
+        },
+        {
+          "game": "magic",
+          "id": 51,
+          "slug": "innocuous-rat-dsk-103-foil",
+          "stock": 2,
+          "thumb": "/media/cards/magic/94edbbc5-5673-4753-bfad-4432c4b7dca4_thumb.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 194,
+          "slug": "iron-boulder-sv07-071-foil",
+          "stock": 4,
+          "thumb": "/media/cards/pokemon/sv07-071_thumb.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 215,
+          "slug": "iron-bundle-sv06-062",
+          "stock": 7,
+          "thumb": "/media/cards/pokemon/sv06-062_thumb.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 250,
+          "slug": "iron-valiant-sv05-080-foil",
+          "stock": 6,
+          "thumb": "/media/cards/pokemon/sv05-080_thumb.webp"
+        },
+        {
+          "slug": "iron-fist-pulverizer-otj-131-foil",
+          "stock": 1,
+          "thumb": "/media/cards/magic/cd7f984a-0b56-45df-958d-6178e4da61ed_thumb.webp",
+          "game": "magic",
+          "id": 144
+        },
+        {
+          "slug": "jolly-gerbils-blb-19",
+          "stock": 6,
+          "thumb": "/media/cards/magic/0eab51d6-ba17-4a8c-8834-25db363f2b6b_thumb.webp",
+          "game": "magic",
+          "id": 64
+        },
+        {
+          "slug": "joust-through-fdn-19",
+          "stock": 5,
+          "thumb": "/media/cards/magic/846adb38-f9bb-4fed-b8ed-36ec7885f989_thumb.webp",
+          "game": "magic",
+          "id": 3
+        },
+        {
+          "stock": 1,
+          "thumb": "/media/cards/yugioh/73490417-LEDE-EN085_thumb.webp",
+          "game": "yugioh",
+          "id": 444,
+          "slug": "jungle-dweller-lede-lede-en085"
+        },
+        {
+          "stock": 1,
+          "thumb": "/media/cards/pokemon/sv03.5-191_thumb.webp",
+          "game": "pokemon",
+          "id": 297,
+          "slug": "jynx-ex-sv03-5-191-foil"
+        },
+        {
+          "thumb": "/media/cards/pokemon/sv03.5-141_thumb.webp",
+          "game": "pokemon",
+          "id": 290,
+          "slug": "kabutops-sv03-5-141-foil",
+          "stock": 1
+        },
+        {
+          "game": "pokemon",
+          "id": 278,
+          "slug": "kadabra-sv03-5-064-foil",
+          "stock": 6,
+          "thumb": "/media/cards/pokemon/sv03.5-064_thumb.webp"
+        },
+        {
+          "game": "magic",
+          "id": 109,
+          "slug": "kami-of-jealous-thirst-mh3-98",
+          "stock": 10,
+          "thumb": "/media/cards/magic/a2958c96-97f8-4961-813c-938b83e20d07_thumb.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 166,
+          "slug": "kecleon-sv08-150",
+          "stock": 5,
+          "thumb": "/media/cards/pokemon/sv08-150_thumb.webp"
+        },
+        {
+          "id": 236,
+          "slug": "kieran-sv06-206-foil",
+          "stock": 3,
+          "thumb": "/media/cards/pokemon/sv06-206_thumb.webp",
+          "game": "pokemon"
+        },
+        {
+          "slug": "kitsa-otterball-elite-blb-54",
+          "stock": 1,
+          "thumb": "/media/cards/magic/c8ff751a-ec64-41d5-b22c-2a483ad9a9b2_thumb.webp",
+          "game": "magic",
+          "id": 70
+        },
+        {
+          "slug": "koraidon-sv05-119",
+          "stock": 1,
+          "thumb": "/media/cards/pokemon/sv05-119_thumb.webp",
+          "game": "pokemon",
+          "id": 255
+        },
+        {
+          "game": "magic",
+          "id": 93,
+          "slug": "kozilek-the-broken-reality-mh3-10",
+          "stock": 2,
+          "thumb": "/media/cards/magic/04066abb-44d2-4730-9cc3-2584bc4c7d8c_thumb.webp"
+        },
+        {
+          "thumb": "/media/cards/yugioh/20087414-INFO-EN083_thumb.webp",
+          "game": "yugioh",
+          "id": 415,
+          "slug": "kuebiko-info-info-en083-foil",
+          "stock": 3
+        },
+        {
+          "thumb": "/media/cards/yugioh/34873741-ALIN-EN008_thumb.webp",
+          "game": "yugioh",
+          "id": 304,
+          "slug": "kuribon-the-fairy-spirit-alin-alin-en008",
+          "stock": 11
+        },
+        {
+          "game": "yugioh",
+          "id": 366,
+          "slug": "l-magi-mergy-rota-rota-en027",
+          "stock": 3,
+          "thumb": "/media/cards/yugioh/47028805-ROTA-EN027_thumb.webp"
+        },
+        {
+          "thumb": "/media/cards/pokemon/sv06-184_thumb.webp",
+          "game": "pokemon",
+          "id": 234,
+          "slug": "lairon-sv06-184-foil",
+          "stock": 3
+        },
+        {
+          "id": 240,
+          "slug": "lana-s-aid-sv06-219-foil",
+          "stock": 2,
+          "thumb": "/media/cards/pokemon/sv06-219_thumb.webp",
+          "game": "pokemon"
+        },
+        {
+          "slug": "landorus-sv08-110-foil",
+          "stock": 4,
+          "thumb": "/media/cards/pokemon/sv08-110_thumb.webp",
+          "game": "pokemon",
+          "id": 162
+        },
+        {
+          "stock": 10,
+          "thumb": "/media/cards/pokemon/sv07-049_thumb.webp",
+          "game": "pokemon",
+          "id": 188,
+          "slug": "lanturn-sv07-049"
+        },
+        {
+          "game": "pokemon",
+          "id": 169,
+          "slug": "larvesta-sv08-196-foil",
+          "stock": 2,
+          "thumb": "/media/cards/pokemon/sv08-196_thumb.webp"
+        },
+        {
+          "game": "magic",
+          "id": 127,
+          "slug": "lassoed-by-the-law-otj-18",
+          "stock": 3,
+          "thumb": "/media/cards/magic/ea96eeac-c316-4247-a81f-0ddf52675ebf_thumb.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 172,
+          "slug": "latios-sv08-203-foil",
+          "stock": 3,
+          "thumb": "/media/cards/pokemon/sv08-203_thumb.webp"
+        },
+        {
+          "thumb": "/media/cards/pokemon/sv07-003_thumb.webp",
+          "game": "pokemon",
+          "id": 181,
+          "slug": "ledian-sv07-003-foil",
+          "stock": 2
+        },
+        {
+          "game": "pokemon",
+          "id": 205,
+          "slug": "ledian-sv07-144-foil",
+          "stock": 3,
+          "thumb": "/media/cards/pokemon/sv07-144_thumb.webp"
+        },
+        {
+          "slug": "legacy-energy-sv06-167-foil",
+          "stock": 3,
+          "thumb": "/media/cards/pokemon/sv06-167_thumb.webp",
+          "game": "pokemon",
+          "id": 230
+        },
+        {
+          "game": "magic",
+          "id": 52,
+          "slug": "let-s-play-a-game-dsk-105",
+          "stock": 2,
+          "thumb": "/media/cards/magic/645911b4-7728-4380-9097-e4139b986423_thumb.webp"
+        },
+        {
+          "game": "magic",
+          "id": 34,
+          "slug": "leyline-of-hope-dsk-18",
+          "stock": 1,
+          "thumb": "/media/cards/magic/40960e47-3065-485e-aede-29a62411034e_thumb.webp"
+        },
+        {
+          "thumb": "/media/cards/yugioh/24643913-SUDA-EN023_thumb.webp",
+          "game": "yugioh",
+          "id": 337,
+          "slug": "liberator-eto-suda-suda-en023-foil",
+          "stock": 2
+        },
+        {
+          "game": "yugioh",
+          "id": 392,
+          "slug": "light-end-sublimation-dragon-info-info-en010",
+          "stock": 3,
+          "thumb": "/media/cards/yugioh/35614780-INFO-EN010_thumb.webp"
+        },
+        {
+          "slug": "lileep-sv07-145-foil",
+          "stock": 2,
+          "thumb": "/media/cards/pokemon/sv07-145_thumb.webp",
+          "game": "pokemon",
+          "id": 206
+        },
+        {
+          "stock": 1,
+          "thumb": "/media/cards/yugioh/82699999-ALIN-EN028_thumb.webp",
+          "game": "yugioh",
+          "id": 307,
+          "slug": "livetwin-lil-la-sweet-alin-alin-en028-foil"
+        },
+        {
+          "game": "pokemon",
+          "id": 228,
+          "slug": "lucky-helmet-sv06-158",
+          "stock": 2,
+          "thumb": "/media/cards/pokemon/sv06-158_thumb.webp"
+        },
+        {
+          "id": 413,
+          "slug": "madolche-dessert-info-info-en077",
+          "stock": 8,
+          "thumb": "/media/cards/yugioh/51650038-INFO-EN077_thumb.webp",
+          "game": "yugioh"
+        },
+        {
+          "id": 288,
+          "slug": "magmar-sv03-5-126",
+          "stock": 1,
+          "thumb": "/media/cards/pokemon/sv03.5-126_thumb.webp",
+          "game": "pokemon"
+        },
+        {
+          "game": "pokemon",
+          "id": 281,
+          "slug": "magneton-sv03-5-082-foil",
+          "stock": 7,
+          "thumb": "/media/cards/pokemon/sv03.5-082_thumb.webp"
+        },
+        {
+          "thumb": "/media/cards/yugioh/37552929-INFO-EN004_thumb.webp",
+          "game": "yugioh",
+          "id": 391,
+          "slug": "maiden-of-the-millennium-moon-info-info-en004",
+          "stock": 9
+        },
+        {
+          "thumb": "/media/cards/magic/db3832b5-e83f-4569-bd49-fb7b86fa2d47_thumb.webp",
+          "game": "magic",
+          "id": 83,
+          "slug": "manifold-mouse-blb-143",
+          "stock": 5
+        },
+        {
+          "game": "yugioh",
+          "id": 384,
+          "slug": "mantman-the-ultrahuman-rota-rota-en084",
+          "stock": 12,
+          "thumb": "/media/cards/yugioh/22916418-ROTA-EN084_thumb.webp"
+        },
+        {
+          "game": "magic",
+          "id": 133,
+          "slug": "marauding-sphinx-otj-56",
+          "stock": 1,
+          "thumb": "/media/cards/magic/34071884-c5b6-42c0-9eb3-9f32910c29d8_thumb.webp"
+        },
+        {
+          "game": "magic",
+          "id": 43,
+          "slug": "marina-vendrell-s-grimoire-dsk-64",
+          "stock": 2,
+          "thumb": "/media/cards/magic/1ab1aef7-4171-4869-8eb5-fe42e3ca9e45_thumb.webp"
+        },
+        {
+          "slug": "materiactor-critical-suda-suda-en074",
+          "stock": 6,
+          "thumb": "/media/cards/yugioh/64767757-SUDA-EN074_thumb.webp",
+          "game": "yugioh",
+          "id": 352
+        },
+        {
+          "slug": "materiactor-zeptwing-suda-suda-en012",
+          "stock": 6,
+          "thumb": "/media/cards/yugioh/64911387-SUDA-EN012_thumb.webp",
+          "game": "yugioh",
+          "id": 333
+        },
+        {
+          "slug": "meddling-memo-sv08-181",
+          "stock": 4,
+          "thumb": "/media/cards/pokemon/sv08-181_thumb.webp",
+          "game": "pokemon",
+          "id": 167
+        },
+        {
+          "game": "pokemon",
+          "id": 195,
+          "slug": "meditite-sv07-078",
+          "stock": 7,
+          "thumb": "/media/cards/pokemon/sv07-078_thumb.webp"
+        },
+        {
+          "thumb": "/media/cards/pokemon/sv07-104_thumb.webp",
+          "game": "pokemon",
+          "id": 197,
+          "slug": "melmetal-sv07-104-foil",
+          "stock": 6
+        },
+        {
+          "game": "pokemon",
+          "id": 254,
+          "slug": "melmetal-sv05-117-foil",
+          "stock": 5,
+          "thumb": "/media/cards/pokemon/sv05-117_thumb.webp"
+        },
+        {
+          "thumb": "/media/cards/pokemon/sv05-179_thumb.webp",
+          "game": "pokemon",
+          "id": 263,
+          "slug": "meltan-sv05-179-foil",
+          "stock": 3
+        }
+      ],
+      "sellado": [
+        {
+          "stock": 26,
+          "thumb": "/media/sets/pokemon/SV03.5.webp",
+          "game": "pokemon",
+          "id": 480,
+          "slug": "caja-de-entrenador-151-pokemon"
+        },
+        {
+          "game": "pokemon",
+          "id": 471,
+          "slug": "caja-de-entrenador-stellar-crown-pokemon",
+          "stock": 3,
+          "thumb": "/media/sets/pokemon/SV07.webp"
+        },
+        {
+          "stock": 14,
+          "thumb": "/media/sets/pokemon/SV08.webp",
+          "game": "pokemon",
+          "id": 468,
+          "slug": "caja-de-entrenador-surging-sparks-pokemon"
+        },
+        {
+          "slug": "caja-de-entrenador-temporal-forces-pokemon",
+          "stock": 14,
+          "thumb": "/media/sets/pokemon/SV05_generado.svg",
+          "game": "pokemon",
+          "id": 477
+        },
+        {
+          "game": "pokemon",
+          "id": 474,
+          "slug": "caja-de-entrenador-twilight-masquerade-pokemon",
+          "stock": 20,
+          "thumb": "/media/sets/pokemon/SV06.webp"
+        },
+        {
+          "thumb": "/media/sets/pokemon/SV03.5.webp",
+          "game": "pokemon",
+          "id": 479,
+          "slug": "display-151-pokemon",
+          "stock": 27
+        },
+        {
+          "game": "yugioh",
+          "id": 482,
+          "slug": "display-alliance-insight-yugioh",
+          "stock": 20,
+          "thumb": "/media/sets/yugioh/ALIN.webp"
+        },
+        {
+          "game": "magic",
+          "id": 458,
+          "slug": "display-bloomburrow-magic",
+          "stock": 25,
+          "thumb": "/media/sets/magic/BLB.svg"
+        },
+        {
+          "slug": "display-duskmourn-house-of-horror-magic",
+          "stock": 12,
+          "thumb": "/media/sets/magic/DSK.svg",
+          "game": "magic",
+          "id": 455
+        },
+        {
+          "game": "yugioh",
+          "id": 494,
+          "slug": "display-legacy-of-destruction-yugioh",
+          "stock": 9,
+          "thumb": "/media/sets/yugioh/LEDE.webp"
+        },
+        {
+          "game": "magic",
+          "id": 461,
+          "slug": "display-modern-horizons-3-magic",
+          "stock": 3,
+          "thumb": "/media/sets/magic/MH3.svg"
+        },
+        {
+          "game": "magic",
+          "id": 464,
+          "slug": "display-outlaws-of-thunder-junction-magic",
+          "stock": 13,
+          "thumb": "/media/sets/magic/OTJ.svg"
+        },
+        {
+          "game": "yugioh",
+          "id": 488,
+          "slug": "display-rage-of-the-abyss-yugioh",
+          "stock": 17,
+          "thumb": "/media/sets/yugioh/ROTA.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 470,
+          "slug": "display-stellar-crown-pokemon",
+          "stock": 18,
+          "thumb": "/media/sets/pokemon/SV07.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 467,
+          "slug": "display-surging-sparks-pokemon",
+          "stock": 4,
+          "thumb": "/media/sets/pokemon/SV08.webp"
+        },
+        {
+          "slug": "display-temporal-forces-pokemon",
+          "stock": 14,
+          "thumb": "/media/sets/pokemon/SV05_generado.svg",
+          "game": "pokemon",
+          "id": 476
+        },
+        {
+          "id": 491,
+          "slug": "display-the-infinite-forbidden-yugioh",
+          "stock": 29,
+          "thumb": "/media/sets/yugioh/INFO.webp",
+          "game": "yugioh"
+        },
+        {
+          "thumb": "/media/sets/pokemon/SV06.webp",
+          "game": "pokemon",
+          "id": 473,
+          "slug": "display-twilight-masquerade-pokemon",
+          "stock": 5
+        },
+        {
+          "id": 483,
+          "slug": "mazo-de-estructura-alliance-insight-yugioh",
+          "stock": 30,
+          "thumb": "/media/sets/yugioh/ALIN.webp",
+          "game": "yugioh"
+        },
+        {
+          "game": "yugioh",
+          "id": 495,
+          "slug": "mazo-de-estructura-legacy-of-destruction-yugioh",
+          "stock": 5,
+          "thumb": "/media/sets/yugioh/LEDE.webp"
+        },
+        {
+          "id": 489,
+          "slug": "mazo-de-estructura-rage-of-the-abyss-yugioh",
+          "stock": 30,
+          "thumb": "/media/sets/yugioh/ROTA.webp",
+          "game": "yugioh"
+        },
+        {
+          "game": "yugioh",
+          "id": 486,
+          "slug": "mazo-de-estructura-supreme-darkness-yugioh",
+          "stock": 20,
+          "thumb": "/media/sets/yugioh/SUDA.webp"
+        },
+        {
+          "game": "yugioh",
+          "id": 492,
+          "slug": "mazo-de-estructura-the-infinite-forbidden-yugioh",
+          "stock": 3,
+          "thumb": "/media/sets/yugioh/INFO.webp"
+        },
+        {
+          "id": 456,
+          "slug": "mazo-preconstruido-duskmourn-house-of-horror-magic",
+          "stock": 10,
+          "thumb": "/media/sets/magic/DSK.svg",
+          "game": "magic"
+        },
+        {
+          "stock": 2,
+          "thumb": "/media/sets/magic/FDN.svg",
+          "game": "magic",
+          "id": 453,
+          "slug": "mazo-preconstruido-foundations-magic"
+        },
+        {
+          "game": "magic",
+          "id": 462,
+          "slug": "mazo-preconstruido-modern-horizons-3-magic",
+          "stock": 30,
+          "thumb": "/media/sets/magic/MH3.svg"
+        },
+        {
+          "game": "magic",
+          "id": 465,
+          "slug": "mazo-preconstruido-outlaws-of-thunder-junction-magic",
+          "stock": 25,
+          "thumb": "/media/sets/magic/OTJ.svg"
+        },
+        {
+          "game": "pokemon",
+          "id": 478,
+          "slug": "sobre-151-pokemon",
+          "stock": 3,
+          "thumb": "/media/sets/pokemon/SV03.5.webp"
+        },
+        {
+          "id": 481,
+          "slug": "sobre-alliance-insight-yugioh",
+          "stock": 5,
+          "thumb": "/media/sets/yugioh/ALIN.webp",
+          "game": "yugioh"
+        },
+        {
+          "thumb": "/media/sets/magic/BLB.svg",
+          "game": "magic",
+          "id": 457,
+          "slug": "sobre-bloomburrow-magic",
+          "stock": 27
+        },
+        {
+          "game": "magic",
+          "id": 454,
+          "slug": "sobre-duskmourn-house-of-horror-magic",
+          "stock": 2,
+          "thumb": "/media/sets/magic/DSK.svg"
+        },
+        {
+          "game": "magic",
+          "id": 451,
+          "slug": "sobre-foundations-magic",
+          "stock": 25,
+          "thumb": "/media/sets/magic/FDN.svg"
+        },
+        {
+          "game": "yugioh",
+          "id": 493,
+          "slug": "sobre-legacy-of-destruction-yugioh",
+          "stock": 10,
+          "thumb": "/media/sets/yugioh/LEDE.webp"
+        },
+        {
+          "game": "magic",
+          "id": 460,
+          "slug": "sobre-modern-horizons-3-magic",
+          "stock": 4,
+          "thumb": "/media/sets/magic/MH3.svg"
+        },
+        {
+          "game": "magic",
+          "id": 463,
+          "slug": "sobre-outlaws-of-thunder-junction-magic",
+          "stock": 6,
+          "thumb": "/media/sets/magic/OTJ.svg"
+        },
+        {
+          "id": 469,
+          "slug": "sobre-stellar-crown-pokemon",
+          "stock": 20,
+          "thumb": "/media/sets/pokemon/SV07.webp",
+          "game": "pokemon"
+        },
+        {
+          "game": "yugioh",
+          "id": 484,
+          "slug": "sobre-supreme-darkness-yugioh",
+          "stock": 13,
+          "thumb": "/media/sets/yugioh/SUDA.webp"
+        },
+        {
+          "slug": "sobre-surging-sparks-pokemon",
+          "stock": 13,
+          "thumb": "/media/sets/pokemon/SV08.webp",
+          "game": "pokemon",
+          "id": 466
+        },
+        {
+          "id": 475,
+          "slug": "sobre-temporal-forces-pokemon",
+          "stock": 3,
+          "thumb": "/media/sets/pokemon/SV05_generado.svg",
+          "game": "pokemon"
+        },
+        {
+          "game": "yugioh",
+          "id": 490,
+          "slug": "sobre-the-infinite-forbidden-yugioh",
+          "stock": 8,
+          "thumb": "/media/sets/yugioh/INFO.webp"
+        },
+        {
+          "game": "pokemon",
+          "id": 472,
+          "slug": "sobre-twilight-masquerade-pokemon",
+          "stock": 24,
+          "thumb": "/media/sets/pokemon/SV06.webp"
+        }
+      ],
+      "accesorio": [
+        {
+          "stock": 40,
+          "thumb": "/media/accessories/carpeta-de-4-bolsillos-160-cartas-morado.svg",
+          "game": null,
+          "id": 512,
+          "slug": "carpeta-de-4-bolsillos-160-cartas-morado"
+        },
+        {
+          "id": 511,
+          "slug": "carpeta-de-4-bolsillos-160-cartas-negro",
+          "stock": 16,
+          "thumb": "/media/accessories/carpeta-de-4-bolsillos-160-cartas-negro.svg",
+          "game": null
+        },
+        {
+          "slug": "carpeta-de-9-bolsillos-360-cartas-azul",
+          "stock": 19,
+          "thumb": "/media/accessories/carpeta-de-9-bolsillos-360-cartas-azul.svg",
+          "game": null,
+          "id": 508
+        },
+        {
+          "slug": "carpeta-de-9-bolsillos-360-cartas-rojo",
+          "stock": 37,
+          "thumb": "/media/accessories/carpeta-de-9-bolsillos-360-cartas-rojo.svg",
+          "game": null,
+          "id": 509
+        },
+        {
+          "thumb": "/media/accessories/carpeta-de-9-bolsillos-360-cartas-verde.svg",
+          "game": null,
+          "id": 510,
+          "slug": "carpeta-de-9-bolsillos-360-cartas-verde",
+          "stock": 10
+        },
+        {
+          "game": null,
+          "id": 514,
+          "slug": "deck-box-para-100-cartas-azul",
+          "stock": 31,
+          "thumb": "/media/accessories/deck-box-para-100-cartas-azul.svg"
+        },
+        {
+          "thumb": "/media/accessories/deck-box-para-100-cartas-blanco.svg",
+          "game": null,
+          "id": 517,
+          "slug": "deck-box-para-100-cartas-blanco",
+          "stock": 8
+        },
+        {
+          "stock": 8,
+          "thumb": "/media/accessories/deck-box-para-100-cartas-negro.svg",
+          "game": null,
+          "id": 513,
+          "slug": "deck-box-para-100-cartas-negro"
+        },
+        {
+          "game": null,
+          "id": 515,
+          "slug": "deck-box-para-100-cartas-rojo",
+          "stock": 21,
+          "thumb": "/media/accessories/deck-box-para-100-cartas-rojo.svg"
+        },
+        {
+          "thumb": "/media/accessories/fundas-interiores-ajustadas-100-u-ahumado.svg",
+          "game": null,
+          "id": 506,
+          "slug": "fundas-interiores-ajustadas-100-u-ahumado",
+          "stock": 35
+        },
+        {
+          "stock": 28,
+          "thumb": "/media/accessories/fundas-interiores-ajustadas-100-u-transparente.svg",
+          "game": null,
+          "id": 505,
+          "slug": "fundas-interiores-ajustadas-100-u-transparente"
+        },
+        {
+          "slug": "fundas-mate-tamano-estandar-100-u-azul",
+          "stock": 17,
+          "thumb": "/media/accessories/fundas-mate-tamano-estandar-100-u-azul.svg",
+          "game": null,
+          "id": 497
+        },
+        {
+          "game": null,
+          "id": 500,
+          "slug": "fundas-mate-tamano-estandar-100-u-blanco",
+          "stock": 8,
+          "thumb": "/media/accessories/fundas-mate-tamano-estandar-100-u-blanco.svg"
+        },
+        {
+          "game": null,
+          "id": 501,
+          "slug": "fundas-mate-tamano-estandar-100-u-dorado",
+          "stock": 28,
+          "thumb": "/media/accessories/fundas-mate-tamano-estandar-100-u-dorado.svg"
+        },
+        {
+          "slug": "fundas-mate-tamano-estandar-100-u-rojo",
+          "stock": 9,
+          "thumb": "/media/accessories/fundas-mate-tamano-estandar-100-u-rojo.svg",
+          "game": null,
+          "id": 498
+        },
+        {
+          "game": null,
+          "id": 499,
+          "slug": "fundas-mate-tamano-estandar-100-u-verde",
+          "stock": 14,
+          "thumb": "/media/accessories/fundas-mate-tamano-estandar-100-u-verde.svg"
+        },
+        {
+          "game": null,
+          "id": 503,
+          "slug": "fundas-tamano-japones-60-u-celeste",
+          "stock": 5,
+          "thumb": "/media/accessories/fundas-tamano-japones-60-u-celeste.svg"
+        },
+        {
+          "game": null,
+          "id": 502,
+          "slug": "fundas-tamano-japones-60-u-negro",
+          "stock": 4,
+          "thumb": "/media/accessories/fundas-tamano-japones-60-u-negro.svg"
+        },
+        {
+          "game": null,
+          "id": 504,
+          "slug": "fundas-tamano-japones-60-u-rosado",
+          "stock": 15,
+          "thumb": "/media/accessories/fundas-tamano-japones-60-u-rosado.svg"
+        },
+        {
+          "game": null,
+          "id": 518,
+          "slug": "playmat-de-goma-60-x-35-cm-bosque",
+          "stock": 14,
+          "thumb": "/media/accessories/playmat-de-goma-60-x-35-cm-bosque.svg"
+        },
+        {
+          "slug": "playmat-de-goma-60-x-35-cm-noche",
+          "stock": 37,
+          "thumb": "/media/accessories/playmat-de-goma-60-x-35-cm-noche.svg",
+          "game": null,
+          "id": 521
+        },
+        {
+          "game": null,
+          "id": 520,
+          "slug": "playmat-de-goma-60-x-35-cm-volcan",
+          "stock": 28,
+          "thumb": "/media/accessories/playmat-de-goma-60-x-35-cm-volcan.svg"
+        },
+        {
+          "stock": 16,
+          "thumb": "/media/accessories/toploaders-130-pt-para-cartas-gruesas-10-u-transparente.svg",
+          "game": null,
+          "id": 523,
+          "slug": "toploaders-130-pt-para-cartas-gruesas-10-u-transparente"
+        },
+        {
+          "stock": 20,
+          "thumb": "/media/accessories/toploaders-35-pt-25-u-transparente.svg",
+          "game": null,
+          "id": 522,
+          "slug": "toploaders-35-pt-25-u-transparente"
+        }
+      ]
+    }
+  }
+}

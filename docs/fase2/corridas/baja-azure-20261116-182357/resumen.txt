@@ -1,0 +1,94 @@
+     █ navegante
+
+       ✓ home: 200
+       ✓ listado: 200
+       ✓ facetas: 200
+       ✓ detalle: 200
+       ✓ relacionados: 200
+
+     █ buscador
+
+       ✓ home: 200
+       ✓ listado: 200
+       ✓ facetas: 200
+       ✓ detalle: 200
+       ✓ relacionados: 200
+
+     █ abandono
+
+       ✓ listado: 200
+       ✓ facetas: 200
+       ✓ detalle: 200
+       ✓ relacionados: 200
+       ✓ agregar al carrito: 201/409
+       ✓ carrito: 200
+
+     █ comprador_invitado
+
+       ✓ home: 200
+       ✓ listado: 200
+       ✓ facetas: 200
+       ✓ detalle: 200
+       ✓ relacionados: 200
+       ✓ agregar al carrito: 201/409
+       ✓ carrito: 200
+       ✓ opciones de pago: 200
+       ✓ crear pedido: 201/409
+       ✓ confirmar pago: 200
+       ✓ ver pedido: 200
+
+     █ comprador_cuenta
+
+       ✓ registro: 201
+       ✓ listado: 200
+       ✓ facetas: 200
+       ✓ detalle: 200
+       ✓ relacionados: 200
+       ✓ agregar al carrito: 201/409
+       ✓ carrito: 200
+       ✓ opciones de pago: 200
+       ✓ crear pedido: 201/409
+       ✓ confirmar pago: 200
+       ✓ ver pedido: 200
+       ✓ cerrar sesión: 204
+       ✓ ingresar: 200
+       ✓ mis pedidos: 200
+
+     checkout_exitoso................................: 100.00% ✓ 39        ✗ 0   
+   ✓ checks..........................................: 100.00% ✓ 2061      ✗ 0   
+     compras_aprobadas...............................: 35      0.109591/s
+     compras_rechazadas..............................: 4       0.012525/s
+     data_received...................................: 119 MB  374 kB/s
+     data_sent.......................................: 1.0 MB  3.2 kB/s
+     duracion_checkout...............................: avg=4.04s    min=2.4s     med=3.78s    p(90)=5.71s    p(95)=5.81s    p(99)=6.23s    max=6.32s   
+     duracion_sesion.................................: avg=11.61s   min=2.49s    med=12.05s   p(90)=17.01s   p(95)=17.93s   p(99)=20.33s   max=21.44s  
+     group_duration..................................: avg=11.61s   min=2.49s    med=12.04s   p(90)=17s      p(95)=17.93s   p(99)=20.33s   max=21.44s  
+     http_req_blocked................................: avg=126.34µs min=0s       med=200ns    p(90)=500ns    p(95)=800ns    p(99)=1.5µs    max=35.14ms 
+     http_req_connecting.............................: avg=45.54µs  min=0s       med=0s       p(90)=0s       p(95)=0s       p(99)=0s       max=10.98ms 
+     http_req_duration...............................: avg=17.65ms  min=4.43ms   med=13.98ms  p(90)=25.14ms  p(95)=31.22ms  p(99)=74.96ms  max=356.71ms
+       { expected_response:true }....................: avg=17.65ms  min=4.43ms   med=13.98ms  p(90)=25.14ms  p(95)=31.22ms  p(99)=74.96ms  max=356.71ms
+     ✓ { grupo:carrito }.............................: avg=14.45ms  min=7.36ms   med=15.25ms  p(90)=19.6ms   p(95)=21.63ms  p(99)=25.54ms  max=29.84ms 
+     ✓ { grupo:checkout }............................: avg=90.5ms   min=5.76ms   med=18.85ms  p(90)=317.84ms p(95)=319.78ms p(99)=330.61ms max=356.71ms
+     ✓ { grupo:navegacion }..........................: avg=17.74ms  min=7.62ms   med=14.35ms  p(90)=27.43ms  p(95)=34.06ms  p(99)=62.54ms  max=122.33ms
+       { name:GET /api/cart }........................: avg=10.49ms  min=7.36ms   med=9.62ms   p(90)=13.25ms  p(95)=17.46ms  p(99)=22.03ms  max=22.8ms  
+       { name:GET /api/checkout/simulado/retorno }...: avg=318.89ms min=313.36ms med=317.35ms p(90)=323.6ms  p(95)=330.13ms p(99)=347.08ms max=356.71ms
+       { name:GET /api/home }........................: avg=34.53ms  min=21.64ms  med=28.78ms  p(90)=56.29ms  p(95)=62.84ms  p(99)=82.69ms  max=122.33ms
+       { name:GET /api/products }....................: avg=19.27ms  min=9.78ms   med=17.62ms  p(90)=25.65ms  p(95)=29.49ms  p(99)=52.55ms  max=66.49ms 
+       { name:GET /api/products/{slug} }.............: avg=12.09ms  min=7.62ms   med=11.17ms  p(90)=16.19ms  p(95)=18.82ms  p(99)=24.92ms  max=63.88ms 
+       { name:GET /api/products/{slug}/related }.....: avg=13.6ms   min=9.47ms   med=12.51ms  p(90)=17.44ms  p(95)=20.74ms  p(99)=27.14ms  max=96.27ms 
+       { name:GET /api/products/facets }.............: avg=16.73ms  min=9.95ms   med=14.67ms  p(90)=22.52ms  p(95)=26.4ms   p(99)=41.22ms  max=100.77ms
+       { name:GET /media/* }.........................: avg=14.83ms  min=4.43ms   med=13.75ms  p(90)=23.56ms  p(95)=28.15ms  p(99)=39.79ms  max=84.66ms 
+       { name:POST /api/auth/login }.................: avg=89.45ms  min=72.75ms  med=75.95ms  p(90)=131.44ms p(95)=156.11ms p(99)=171.6ms  max=175.47ms
+       { name:POST /api/auth/register }..............: avg=126.76ms min=113.14ms med=120.47ms p(90)=130.38ms p(95)=157.36ms p(99)=188.24ms max=195.97ms
+       { name:POST /api/cart/items }.................: avg=17.45ms  min=13.74ms  med=16.75ms  p(90)=20.19ms  p(95)=23.11ms  p(99)=27.7ms   max=29.84ms 
+       { name:POST /api/checkout }...................: avg=22.35ms  min=18.54ms  med=21.4ms   p(90)=26.03ms  p(95)=27.64ms  p(99)=32.15ms  max=33.95ms 
+   ✓ http_req_failed.................................: 0.00%   ✓ 0         ✗ 6693
+     http_req_receiving..............................: avg=3.96ms   min=21.4µs   med=2.41ms   p(90)=9.84ms   p(95)=12.57ms  p(99)=21.87ms  max=65.44ms 
+     http_req_sending................................: avg=135.31µs min=16.1µs   med=116.5µs  p(90)=234.4µs  p(95)=289.65µs p(99)=441.61µs max=953.9µs 
+     http_req_tls_handshaking........................: avg=77.95µs  min=0s       med=0s       p(90)=0s       p(95)=0s       p(99)=0s       max=23.92ms 
+     http_req_waiting................................: avg=13.56ms  min=3.88ms   med=9.96ms   p(90)=19.47ms  p(95)=24ms     p(99)=72.82ms  max=356.41ms
+     http_reqs.......................................: 6693    20.956945/s
+     iteration_duration..............................: avg=11.61s   min=2.49s    med=12.05s   p(90)=17s      p(95)=17.93s   p(99)=20.33s   max=21.44s  
+     iterations......................................: 267     0.836023/s
+     vus.............................................: 1       min=0       max=15
+     vus_max.........................................: 39      min=39      max=39

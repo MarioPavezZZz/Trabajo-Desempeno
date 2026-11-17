@@ -1,0 +1,112 @@
+     █ navegante
+
+       ✗ home: 200
+        ↳  65% — ✓ 132 / ✗ 69
+       ✗ listado: 200
+        ↳  90% — ✓ 181 / ✗ 18
+       ✗ facetas: 200
+        ↳  90% — ✓ 181 / ✗ 18
+       ✓ detalle: 200
+       ✓ relacionados: 200
+
+     █ buscador
+
+       ✗ home: 200
+        ↳  64% — ✓ 72 / ✗ 39
+       ✗ listado: 200
+        ↳  89% — ✓ 98 / ✗ 11
+       ✗ facetas: 200
+        ↳  89% — ✓ 98 / ✗ 11
+       ✓ detalle: 200
+       ✓ relacionados: 200
+
+     █ abandono
+
+       ✗ listado: 200
+        ↳  65% — ✓ 44 / ✗ 23
+       ✗ facetas: 200
+        ↳  65% — ✓ 44 / ✗ 23
+       ✗ detalle: 200
+        ↳  91% — ✓ 44 / ✗ 4
+       ✗ relacionados: 200
+        ↳  91% — ✓ 44 / ✗ 4
+       ✓ agregar al carrito: 201/409
+       ✓ carrito: 200
+
+     █ comprador_invitado
+
+       ✗ home: 200
+        ↳  68% — ✓ 30 / ✗ 14
+       ✗ listado: 200
+        ↳  90% — ✓ 30 / ✗ 3
+       ✗ facetas: 200
+        ↳  90% — ✓ 30 / ✗ 3
+       ✓ detalle: 200
+       ✓ relacionados: 200
+       ✓ agregar al carrito: 201/409
+       ✓ carrito: 200
+       ✓ opciones de pago: 200
+       ✓ crear pedido: 201/409
+       ✓ confirmar pago: 200
+       ✓ ver pedido: 200
+
+     █ comprador_cuenta
+
+       ✗ registro: 201
+        ↳  63% — ✓ 14 / ✗ 8
+       ✗ listado: 200
+        ↳  87% — ✓ 14 / ✗ 2
+       ✗ facetas: 200
+        ↳  87% — ✓ 14 / ✗ 2
+       ✓ detalle: 200
+       ✓ relacionados: 200
+       ✓ agregar al carrito: 201/409
+       ✓ carrito: 200
+       ✓ opciones de pago: 200
+       ✓ crear pedido: 201/409
+       ✓ confirmar pago: 200
+       ✓ ver pedido: 200
+       ✓ cerrar sesión: 204
+       ✓ ingresar: 200
+       ✓ mis pedidos: 200
+
+     checkout_exitoso................................: 100.00% ✓ 44        ✗ 0     
+   ✗ checks..........................................: 89.94%  ✓ 2255      ✗ 252   
+     compras_aprobadas...............................: 37      0.294294/s
+     compras_rechazadas..............................: 7       0.055677/s
+     data_received...................................: 13 MB   100 kB/s
+     data_sent.......................................: 420 kB  3.3 kB/s
+     duracion_checkout...............................: avg=4.11s    min=2.37s    med=4.14s    p(90)=5.95s    p(95)=6.21s    p(99)=6.32s    max=6.32s   
+     duracion_sesion.................................: avg=12.03s   min=2.49s    med=11.71s   p(90)=17.22s   p(95)=19.64s   p(99)=44.54s   max=48.17s  
+     fallos_red......................................: 252     2.00438/s
+     group_duration..................................: avg=12.03s   min=2.49s    med=11.71s   p(90)=17.22s   p(95)=19.64s   p(99)=44.54s   max=48.17s  
+     http_req_blocked................................: avg=3.34ms   min=0s       med=300ns    p(90)=15.56ms  p(95)=17.72ms  p(99)=23.27ms  max=1.03s   
+     http_req_connecting.............................: avg=2.07ms   min=0s       med=0s       p(90)=5.52ms   p(95)=7.12ms   p(99)=10.67ms  max=1.02s   
+     http_req_duration...............................: avg=22.2ms   min=0s       med=14.07ms  p(90)=29.2ms   p(95)=50.97ms  p(99)=317.37ms max=341.05ms
+       { expected_response:true }....................: avg=24.67ms  min=5.31ms   med=14.95ms  p(90)=30.08ms  p(95)=54.58ms  p(99)=317.6ms  max=341.05ms
+     ✓ { grupo:carrito }.............................: avg=15.96ms  min=7.49ms   med=15.53ms  p(90)=21.98ms  p(95)=24.71ms  p(99)=31.92ms  max=98.81ms 
+     ✓ { grupo:checkout }............................: avg=90.72ms  min=5.9ms    med=18.7ms   p(90)=318.26ms p(95)=321.12ms p(99)=332.07ms max=341.05ms
+     ✓ { grupo:navegacion }..........................: avg=16.16ms  min=0s       med=13.88ms  p(90)=27.92ms  p(95)=34.39ms  p(99)=66.56ms  max=111.58ms
+       { name:GET /api/cart }........................: avg=11.33ms  min=7.49ms   med=10.2ms   p(90)=14.06ms  p(95)=18.62ms  p(99)=25.91ms  max=31.95ms 
+       { name:GET /api/checkout/simulado/retorno }...: avg=319.5ms  min=314.13ms med=317.8ms  p(90)=325.1ms  p(95)=328.83ms p(99)=340.66ms max=341.05ms
+       { name:GET /api/home }........................: avg=23.31ms  min=0s       med=26.49ms  p(90)=51.62ms  p(95)=61.19ms  p(99)=89.78ms  max=111.58ms
+       { name:GET /api/products }....................: avg=17.26ms  min=0s       med=17.49ms  p(90)=26.22ms  p(95)=31.69ms  p(99)=53.25ms  max=79.99ms 
+       { name:GET /api/products/{slug} }.............: avg=12.29ms  min=0s       med=11.28ms  p(90)=15.61ms  p(95)=17.8ms   p(99)=31.47ms  max=79.7ms  
+       { name:GET /api/products/{slug}/related }.....: avg=14.2ms   min=0s       med=12.85ms  p(90)=17.15ms  p(95)=19.38ms  p(99)=47.18ms  max=82.58ms 
+       { name:GET /api/products/facets }.............: avg=14.9ms   min=0s       med=14.73ms  p(90)=22.28ms  p(95)=26.68ms  p(99)=47.14ms  max=76.46ms 
+       { name:GET /media/* }.........................: avg=0s       min=0s       med=0s       p(90)=0s       p(95)=0s       p(99)=0s       max=0s      
+       { name:POST /api/auth/login }.................: avg=79.51ms  min=74.91ms  med=78.91ms  p(90)=82.33ms  p(95)=85.31ms  p(99)=89.59ms  max=90.67ms 
+       { name:POST /api/auth/register }..............: avg=82.54ms  min=0s       med=118.67ms p(90)=145.06ms p(95)=146.03ms p(99)=154.39ms max=156.6ms 
+       { name:POST /api/cart/items }.................: avg=19.33ms  min=10.3ms   med=17.76ms  p(90)=23.07ms  p(95)=27ms     p(99)=48.42ms  max=98.81ms 
+       { name:POST /api/checkout }...................: avg=24.12ms  min=18.2ms   med=22.75ms  p(90)=29.99ms  p(95)=33.89ms  p(99)=37.34ms  max=39.04ms 
+   ✗ http_req_failed.................................: 10.02%  ✓ 252       ✗ 2262  
+     http_req_receiving..............................: avg=1.05ms   min=0s       med=109.3µs  p(90)=4.84ms   p(95)=6.02ms   p(99)=7.57ms   max=16.3ms  
+     http_req_sending................................: avg=115.14µs min=0s       med=101.7µs  p(90)=196.87µs p(95)=261.79µs p(99)=464.48µs max=859.4µs 
+     http_req_tls_handshaking........................: avg=1.24ms   min=0s       med=0s       p(90)=8.94ms   p(95)=10.51ms  p(99)=14.56ms  max=22.86ms 
+     http_req_waiting................................: avg=21.02ms  min=0s       med=13.31ms  p(90)=25.16ms  p(95)=46.05ms  p(99)=317.08ms max=340.84ms
+     http_reqs.......................................: 2514    19.996073/s
+     iteration_duration..............................: avg=12.03s   min=2.49s    med=11.71s   p(90)=17.22s   p(95)=19.64s   p(99)=44.54s   max=48.17s  
+     iterations......................................: 296     2.354351/s
+     sin_stock_409...................................: 1       0.007954/s
+     vus.............................................: 254     min=0       max=254 
+     vus_max.........................................: 1000    min=1000    max=1000

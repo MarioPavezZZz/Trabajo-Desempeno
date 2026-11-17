@@ -1,0 +1,12 @@
+﻿perfil=navegadores
+sitio=https://tcgmaster.chilecentral.cloudapp.azure.com
+fecha=2026-11-16T18:24:18
+rate=
+duration=
+ramp=
+max_vus=
+think=
+imagenes=True
+k6=grafana/k6:0.54.0
+servidor=
+generador=DESKTOP-NF7PNIE Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz

@@ -1,0 +1,130 @@
+     █ navegante
+
+       ✗ home: 200
+        ↳  85% — ✓ 1193 / ✗ 195
+       ✗ listado: 200
+        ↳  86% — ✓ 1542 / ✗ 240
+       ✗ facetas: 200
+        ↳  86% — ✓ 1542 / ✗ 240
+       ✗ detalle: 200
+        ↳  86% — ✓ 2426 / ✗ 371
+       ✗ relacionados: 200
+        ↳  86% — ✓ 2426 / ✗ 371
+
+     █ buscador
+
+       ✗ home: 200
+        ↳  82% — ✓ 642 / ✗ 137
+       ✗ listado: 200
+        ↳  83% — ✓ 917 / ✗ 185
+       ✗ facetas: 200
+        ↳  83% — ✓ 917 / ✗ 185
+       ✓ detalle: 200
+       ✓ relacionados: 200
+
+     █ abandono
+
+       ✗ listado: 200
+        ↳  87% — ✓ 393 / ✗ 57
+       ✗ facetas: 200
+        ↳  87% — ✓ 393 / ✗ 57
+       ✗ detalle: 200
+        ↳  87% — ✓ 394 / ✗ 56
+       ✗ relacionados: 200
+        ↳  87% — ✓ 394 / ✗ 56
+       ✗ agregar al carrito: 201/409
+        ↳  75% — ✓ 625 / ✗ 201
+       ✗ carrito: 200
+        ↳  90% — ✓ 396 / ✗ 44
+
+     █ comprador_invitado
+
+       ✗ home: 200
+        ↳  84% — ✓ 245 / ✗ 44
+       ✗ listado: 200
+        ↳  85% — ✓ 247 / ✗ 42
+       ✗ facetas: 200
+        ↳  85% — ✓ 247 / ✗ 42
+       ✗ detalle: 200
+        ↳  85% — ✓ 247 / ✗ 42
+       ✗ relacionados: 200
+        ↳  85% — ✓ 247 / ✗ 42
+       ✗ agregar al carrito: 201/409
+        ↳  72% — ✓ 378 / ✗ 146
+       ✗ carrito: 200
+        ↳  88% — ✓ 247 / ✗ 31
+       ✓ opciones de pago: 200
+       ✓ crear pedido: 201/409
+       ✓ confirmar pago: 200
+       ✓ ver pedido: 200
+
+     █ comprador_cuenta
+
+       ✗ registro: 201
+        ↳  82% — ✓ 117 / ✗ 24
+       ✗ listado: 200
+        ↳  82% — ✓ 117 / ✗ 24
+       ✗ facetas: 200
+        ↳  82% — ✓ 117 / ✗ 24
+       ✗ detalle: 200
+        ↳  82% — ✓ 117 / ✗ 24
+       ✗ relacionados: 200
+        ↳  82% — ✓ 117 / ✗ 24
+       ✗ agregar al carrito: 201/409
+        ↳  66% — ✓ 132 / ✗ 68
+       ✗ carrito: 200
+        ↳  86% — ✓ 118 / ✗ 18
+       ✓ opciones de pago: 200
+       ✗ crear pedido: 201/409
+        ↳  99% — ✓ 117 / ✗ 1
+       ✓ confirmar pago: 200
+       ✓ ver pedido: 200
+       ✗ cerrar sesión: 204
+        ↳  88% — ✓ 118 / ✗ 15
+       ✗ ingresar: 200
+        ↳  89% — ✓ 117 / ✗ 14
+       ✗ mis pedidos: 200
+        ↳  91% — ✓ 117 / ✗ 11
+
+     checkout_exitoso................................: 99.44% ✓ 361       ✗ 2    
+   ✗ checks..........................................: 86.80% ✓ 19944     ✗ 3031 
+     compras_aprobadas...............................: 323    0.978361/s
+     compras_rechazadas..............................: 38     0.115101/s
+     data_received...................................: 99 MB  300 kB/s
+     data_sent.......................................: 2.2 MB 6.6 kB/s
+     dropped_iterations..............................: 68     0.205971/s
+     duracion_checkout...............................: avg=5.02s    min=2.4s     med=4.97s    p(90)=6.85s    p(95)=7.43s    p(99)=8.11s    max=9.43s  
+     duracion_sesion.................................: avg=24.23s   min=2.43s    med=14.06s   p(90)=1m9s     p(95)=1m55s    p(99)=2m38s    max=3m43s  
+     fallos_4xx......................................: 3      0.009087/s
+     fallos_red......................................: 3028   9.171752/s
+     group_duration..................................: avg=24.23s   min=2.43s    med=14.06s   p(90)=1m9s     p(95)=1m55s    p(99)=2m38s    max=3m43s  
+     http_req_blocked................................: avg=6.71ms   min=0s       med=200ns    p(90)=400ns    p(95)=500ns    p(99)=16.55ms  max=15.06s 
+     http_req_connecting.............................: avg=6.56ms   min=0s       med=0s       p(90)=0s       p(95)=0s       p(99)=6.25ms   max=15.06s 
+     http_req_duration...............................: avg=186.3ms  min=0s       med=35.27ms  p(90)=583.36ms p(95)=867.71ms p(99)=1.59s    max=3.17s  
+       { expected_response:true }....................: avg=214.6ms  min=4.99ms   med=53.39ms  p(90)=650.15ms p(95)=915.79ms p(99)=1.66s    max=3.17s  
+     ✗ { grupo:carrito }.............................: avg=183.71ms min=0s       med=26.2ms   p(90)=618.52ms p(95)=878.35ms p(99)=1.57s    max=2.69s  
+     ✓ { grupo:checkout }............................: avg=294.15ms min=4.99ms   med=126.71ms p(90)=797.08ms p(95)=1.14s    p(99)=1.73s    max=3s     
+     ✗ { grupo:navegacion }..........................: avg=177.12ms min=0s       med=33.86ms  p(90)=550.92ms p(95)=839.48ms p(99)=1.58s    max=3.17s  
+       { name:GET /api/cart }........................: avg=163.13ms min=0s       med=22.43ms  p(90)=551.72ms p(95)=771.1ms  p(99)=1.48s    max=2.69s  
+       { name:GET /api/checkout/simulado/retorno }...: avg=625.49ms min=313.82ms med=419.85ms p(90)=1.29s    p(95)=1.56s    p(99)=2.2s     max=3s     
+       { name:GET /api/home }........................: avg=196.54ms min=0s       med=58.21ms  p(90)=606.98ms p(95)=870.66ms p(99)=1.39s    max=3.1s   
+       { name:GET /api/products }....................: avg=191.42ms min=0s       med=35.23ms  p(90)=601.54ms p(95)=885.73ms p(99)=1.64s    max=3.01s  
+       { name:GET /api/products/{slug} }.............: avg=149.45ms min=0s       med=24.03ms  p(90)=445.1ms  p(95)=716.29ms p(99)=1.53s    max=3.17s  
+       { name:GET /api/products/{slug}/related }.....: avg=171.65ms min=0s       med=28.67ms  p(90)=538.77ms p(95)=793.71ms p(99)=1.44s    max=2.4s   
+       { name:GET /api/products/facets }.............: avg=187.76ms min=0s       med=30.9ms   p(90)=601.95ms p(95)=901.08ms p(99)=1.74s    max=3s     
+       { name:GET /media/* }.........................: avg=0s       min=0s       med=0s       p(90)=0s       p(95)=0s       p(99)=0s       max=0s     
+       { name:POST /api/auth/login }.................: avg=334.51ms min=0s       med=165.9ms  p(90)=847.39ms p(95)=1.14s    p(99)=1.66s    max=1.76s  
+       { name:POST /api/auth/register }..............: avg=367.61ms min=0s       med=197.22ms p(90)=989.03ms p(95)=1.17s    p(99)=1.58s    max=1.71s  
+       { name:POST /api/cart/items }.................: avg=195.05ms min=0s       med=27.85ms  p(90)=664.18ms p(95)=935.98ms p(99)=1.56s    max=2.57s  
+       { name:POST /api/checkout }...................: avg=316.61ms min=10.46ms  med=81.14ms  p(90)=981.52ms p(95)=1.18s    p(99)=1.67s    max=2.59s  
+   ✗ http_req_failed.................................: 13.18% ✓ 3031      ✗ 19951
+     http_req_receiving..............................: avg=985.1µs  min=0s       med=112.4µs  p(90)=4.82ms   p(95)=5.8ms    p(99)=7.3ms    max=29.27ms
+     http_req_sending................................: avg=78.23µs  min=0s       med=79µs     p(90)=124.8µs  p(95)=145.8µs  p(99)=224.37µs max=721.3µs
+     http_req_tls_handshaking........................: avg=144.75µs min=0s       med=0s       p(90)=0s       p(95)=0s       p(99)=9.33ms   max=22.23ms
+     http_req_waiting................................: avg=185.23ms min=0s       med=33.24ms  p(90)=581.74ms p(95)=864.95ms p(99)=1.59s    max=3.17s  
+     http_reqs.......................................: 22982  69.612023/s
+     iteration_duration..............................: avg=24.23s   min=2.43s    med=14.06s   p(90)=1m9s     p(95)=1m55s    p(99)=2m38s    max=3m43s  
+     iterations......................................: 2992   9.062709/s
+     sin_stock_409...................................: 137    0.41497/s
+     vus.............................................: 55     min=0       max=500
+     vus_max.........................................: 568    min=500     max=568
