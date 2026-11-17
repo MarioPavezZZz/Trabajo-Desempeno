@@ -1,0 +1,665 @@
+PROMPT CARDS — TCGMASTER
+INFB8091 Desempeño de Sistemas · UTEM · Semestre 2 - 2026 · Opción 1: comercio electrónico
+
+Formato: plantilla «Prompt Card» del curso, con una tarjeta por versión del software. Se incluyen
+los prompts más destacados; el registro completo (32 prompts, con fecha, hora, resumen y modelo)
+está en LogFile.txt. Agente: Claude Code con Claude Opus 5.5 en todas las entradas.
+
+Índice de versiones:
+  - v0.1  Configuración del proyecto y propuesta de arquitectura (Fase A)
+  - v0.2  Implementación por piezas con aprobación (datos, API y frontend)
+  - v0.3  Dirección visual: prototipo del home y del listado
+  - v0.4  Checkout con y sin cuenta (Webpay Plus de integración)
+  - v0.5  Integración de GA4 y depuración en DebugView
+  - v0.6  Generadores de carga antes del deploy (Fase 1.2)
+  - v1.0  Deploy en Azure for Students
+  - v1.1  Pruebas de carga y análisis de desempeño (Fase 2)
+  - v1.1  Exploraciones de GA4 con Claude en Chrome
+  - v1.2  Informe técnico en LaTeX
+
+====================================================================================================
+PROMPT CARD 1
+====================================================================================================
+Título del Prompt: Configuración del proyecto y propuesta de arquitectura (Fase A)
+Versión: 0.1 – 12/11/2026
+Autor: Equipo TCGMASTER — Mario Rodríguez, Camilo Araya y Martín Cerda
+
+Objetivo
+  Arrancar el proyecto con el agente de codificación: que lea el enunciado, deje las reglas de
+  trabajo en AGENTS.md, cree LogFile.txt, el repositorio Git y la configuración base, y proponga
+  stack, arquitectura, modelo de datos y páginas pensando en la Fase 2 (medición), sin escribir
+  todavía código de la aplicación.
+
+Prompt Base
+  ------------------------------------------------------------
+  | Vamos a desarrollar el trabajo adjunto (PDF del curso INFB8091). Elegimos la
+  | Opción 1: comercio electrónico. Lee el PDF completo antes de empezar.
+  | 
+  | # CONTEXTO
+  | Tienda online de cartas coleccionables (TCG) llamada [TCGMASTER], que vende
+  | [JUEGOS: ej. Pokémon, Magic, Yu-Gi-Oh!]. Es una tienda individual (no un
+  | marketplace de vendedores). Después del sitio vendrán las pruebas de carga
+  | (k6 o Locust) y el análisis de desempeño, así que el sitio debe ser medible,
+  | estable y reproducible.
+  | 
+  | # REGLAS DE TRABAJO (guárdalas en AGENTS.md)
+  | 1. Español neutro latinoamericano; código documentado.
+  | 2. Antes de implementar cualquier cosa, explícame qué harás y en qué
+  |    módulos/archivos, y espera mi confirmación.
+  | 3. Al terminar cada cambio: compila, corre los tests, propón tests
+  |    automáticos de la pieza nueva y pregúntame si hago commit y si hago deploy.
+  | 4. Registra en LogFile.txt cada prompt mío completo, con fecha y hora, un
+  |    resumen de lo que generó (qué instalaste, qué diseño codificaste) y el
+  |    modelo usado. Al iniciar cada sesión, lee LogFile.txt.
+  | 5. Usa Git con commits pequeños y frecuentes.
+  | 6. Eres experto en performance engineering, desarrollo web full-stack y GA4.
+  | 7. Propón en qué tareas conviene usar cada modelo disponible y en cuáles no.
+  | 
+  | # FASE A: CONFIGURACIÓN (no escribas código de la app todavía)
+  | Crea AGENTS.md, LogFile.txt, .gitignore, .env.example y el repo Git inicial.
+  | Luego propón stack y arquitectura para que yo la apruebe. Mi sugerencia:
+  | backend FastAPI + PostgreSQL, frontend React (Vite) + Tailwind, todo en
+  | Docker Compose. Justifica o propón otra alternativa si es mejor para pruebas
+  | de carga. Incluye estructura de carpetas, modelo de datos y lista de páginas.
+  | 
+  | # FASE B: REQUISITOS FUNCIONALES (del enunciado)
+  | - Catálogo con filtros y búsqueda por texto.
+  | - Carrito de compras.
+  | - Checkout simulado con sandbox de un medio de pago disponible en Chile
+  |   (Webpay Plus de Transbank en ambiente de integración o Mercado Pago
+  |   sandbox), sin pasarela real.
+  | - Registro e inicio de sesión de usuarios.
+  | - Al menos 3 páginas con distinta carga de datos: home, listado, detalle.
+  | 
+  | # ESTRUCTURA DEL SITIO (inspirada en la organización de tcgmatch.cl,
+  | # SIN copiar sus textos, colores, logos, imágenes ni identidad)
+  | Navegación: Inicio, Cartas, Sellados (sobres, displays, cajas de entrenador,
+  | mazos de estructura), Ofertas, Accesorios, Blog (opcional, solo si sobra
+  | tiempo), Mi cuenta, Carrito.
+  | Home, de arriba hacia abajo: hero con lanzamientos destacados; selector de
+  | juegos (mosaicos); novedades/últimas cartas ingresadas con filtro por juego;
+  | sellados destacados; ofertas activas; cartas con mayor variación de precio
+  | (opcional).
+  | Listado: filtros por juego, set/expansión, rareza, estado (NM/LP/MP/HP),
+  | idioma, foil, rango de precio y disponibilidad; orden por precio, novedad y
+  | nombre; paginación.
+  | Detalle: imagen grande, datos de la carta, estado, idioma, foil, precio en
+  | CLP, stock, selector de cantidad, productos relacionados.
+  | 
+  | # DATOS (sin scraping de sitios comerciales)
+  | Crea scripts/seed_catalog.py idempotente que:
+  | 1. Obtenga 300–500 cartas de las APIs públicas gratuitas (Scryfall,
+  |    Pokémon TCG API, YGOPRODeck) respetando límites de peticiones y términos.
+  | 2. Cachee las respuestas en JSON local y descargue las imágenes a una carpeta
+  |    servida por nosotros.
+  | 3. Genere por producto, con semilla aleatoria fija: precio en CLP, estado,
+  |    idioma, foil y stock.
+  | 4. Genere productos sellados a partir de los sets (sobre, display, caja de
+  |    entrenador, mazo de estructura según el juego), con imagen del logo del
+  |    set, precio coherente y stock. Campo tipo_producto: carta | sellado.
+  | 
+  | # DIRECCIÓN VISUAL
+  | Usa las skills instaladas (frontend-design y modern-web-design). NO uses
+  | gradientes morados, fuente Inter en todo ni tarjetas idénticas con sombra
+  | suave. Estética: [ELIGE: vitrina de coleccionista oscura con detalles dorados
+  | / tienda de barrio retro en papel y cartulina / mercado denso tipo tabla de
+  | precios]. Paleta y tipografías propias; indicadores visuales de rareza,
+  | estado y foil. Primero entrégame solo un prototipo del home y del listado
+  | para aprobar antes de construir el resto. Evita animaciones pesadas ni 3D:
+  | vamos a medir Core Web Vitals.
+  | 
+  | # PREPARADO PARA LA FASE 2 (medición)
+  | - Endpoint /health y endpoint /metrics (CPU, memoria, peticiones,
+  |   latencias por ruta).
+  | - Logs estructurados con tiempo de respuesta por petición.
+  | - Configuración por variables de entorno (incluido el ID de medición de GA4).
+  | - Docker Compose reproducible, con límites de recursos configurables.
+  | - Índices en la base de datos para búsqueda y filtros; paginación obligatoria.
+  | 
+  | # GA4 (déjalo preparado, se activa en el paso siguiente)
+  | Prepara un módulo central de analítica que luego emita: view_item_list,
+  | view_item, add_to_cart, begin_checkout, add_payment_info y purchase (con
+  | transaction_id único, moneda CLP e items), más los eventos web-vitals
+  | (LCP, INP, CLS) y un parámetro traffic_type = real | load_test.
+  | 
+  | # ORDEN DE ENTREGA (una pieza por vez, con mi aprobación y un commit en cada una)
+  | 1. Fase A (configuración y propuesta de arquitectura).
+  | 2. Modelo de datos + script de datos semilla.
+  | 3. API del catálogo (listado, filtros, búsqueda, detalle) + /health y /metrics.
+  | 4. Prototipo visual del home y del listado.
+  | 5. Resto del frontend: detalle, registro/login, carrito.
+  | 6. Checkout con sandbox de pago.
+  | 7. Integración de GA4.
+  | 8. Despliegue en un proveedor gratuito en la nube.
+  | 
+  | Empieza solo por el paso 1. No escribas código de la aplicación hasta que yo
+  | apruebe la arquitectura.
+  ------------------------------------------------------------
+  Prompts de seguimiento de esta versión (LogFile):
+    - #2 Adjuntar el PDF del enunciado.
+    - #3 "Apruebo, sigue" (arquitectura aprobada).
+
+Variables / Placeholders
+  - {comercio} → nombre y rubro de la tienda (TCGMASTER, cartas coleccionables)
+  - {juegos} → catálogo a vender (Pokémon, Magic, Yu-Gi-Oh!)
+  - {estetica} → dirección visual a elegir entre tres opciones
+  - {stack_sugerido} → FastAPI + PostgreSQL + React/Vite + Tailwind + Docker Compose
+  - {pdf_enunciado} → archivo con las reglas del curso
+
+Ejemplo de Entrada
+  PDF del curso (5 páginas) y este prompt; repositorio vacío.
+
+Ejemplo de Salida Esperada
+  AGENTS.md, LogFile.txt, .gitignore, .env.example y docs/propuesta-arquitectura.md (stack,
+  diagrama, carpetas, modelo de datos con índices, páginas y plan para la Fase 2), más la tabla de
+  uso de modelos. Sin código de la app hasta la aprobación.
+
+Guías de Estilo
+  - Tono: técnico, en español neutro latinoamericano.
+  - Formato: secciones con títulos (#), listas numeradas para reglas y orden de entrega.
+  - Longitud: prompt extenso (~1.000 palabras): concentra todo el contexto del proyecto en un solo mensaje.
+
+Casos de Prueba
+  - Caso 1: Pedir código antes de aprobar la arquitectura → el agente se detiene y espera
+    confirmación
+  - Caso 2: Herramienta faltante (Docker no instalado) → el agente lo informa y propone cómo seguir
+
+Iteraciones / Feedback
+  - Iteración 1: Se detectó que Docker no estaba instalado; el usuario lo instaló y se continuó
+    (#5).
+  - Iteración 2: Se agregaron reglas: sin coautoría en commits y no registrar prompts
+    administrativos.
+
+Metadatos
+  - Fecha de creación: 12/11/2026
+  - Última modificación: 16/11/2026
+  - Contexto de uso: Proyecto TCGMASTER — INFB8091 Desempeño de Sistemas, UTEM
+  - Entradas del LogFile: #1, #2, #3
+  - Modelo: Claude Opus 5.5 (claude-opus-5-5) en Claude Code
+
+====================================================================================================
+PROMPT CARD 2
+====================================================================================================
+Título del Prompt: Implementación por piezas con aprobación (datos, API y frontend)
+Versión: 0.2 – 14/11/2026 a 15/11/2026
+Autor: Equipo TCGMASTER — Mario Rodríguez, Camilo Araya y Martín Cerda
+
+Objetivo
+  Avanzar el orden de entrega pieza por pieza (modelo de datos y seed, API del catálogo con /health
+  y /metrics, resto del frontend) manteniendo el control: el agente presenta un plan con archivos y
+  diseño, y solo implementa tras una confirmación explícita.
+
+Prompt Base
+  ------------------------------------------------------------
+  | Sí, implementa
+  ------------------------------------------------------------
+  Prompts de seguimiento de esta versión (LogFile):
+    - #4 / #6 / #10 "Sí, implementa" (pasos 2, 3 y 5).
+    - #5 "docker ya esta instalado".
+    - #7 "sigue con el siguiente paso no subas nada aun a git".
+
+Variables / Placeholders
+  - {paso} → pieza del orden de entrega que se aprueba
+  - {restriccion} → condición adicional, p. ej. «no subas nada aún a git»
+
+Ejemplo de Entrada
+  Plan presentado por el agente para el paso 3 (endpoints, índices, métricas, archivos a crear).
+
+Ejemplo de Salida Esperada
+  Código implementado según el plan, compilado, con tests (119 backend al final) y la pregunta
+  «¿hago commit? ¿hago deploy?»; entrada nueva en LogFile.txt.
+
+Guías de Estilo
+  - Tono: breve y directivo.
+  - Formato: una línea de confirmación.
+  - Longitud: ≤ 15 palabras.
+
+Casos de Prueba
+  - Caso 1: «Sí, implementa» tras un plan → implementación + build + tests + pregunta por commit
+  - Caso 2: «no subas nada aún a git» → se implementa sin commit ni push
+
+Iteraciones / Feedback
+  - Iteración 1: El umbral de similitud de trigramas (0,6) era muy estricto para errores de tipeo;
+    se dejó configurable en 0,45.
+  - Iteración 2: Las facetas devolvían ids de juego en vez de slugs; se corrigió y se agregó test.
+
+Metadatos
+  - Fecha de creación: 14/11/2026
+  - Última modificación: 15/11/2026
+  - Contexto de uso: Proyecto TCGMASTER — INFB8091 Desempeño de Sistemas, UTEM
+  - Entradas del LogFile: #4 a #7, #10
+  - Modelo: Claude Opus 5.5 (claude-opus-5-5) en Claude Code
+
+====================================================================================================
+PROMPT CARD 3
+====================================================================================================
+Título del Prompt: Dirección visual: prototipo del home y del listado
+Versión: 0.3 – 15/11/2026
+Autor: Equipo TCGMASTER — Mario Rodríguez, Camilo Araya y Martín Cerda
+
+Objetivo
+  Elegir la estética entre las tres propuestas y obtener un prototipo del home y del listado para
+  aprobar antes de construir el resto, respetando las restricciones de diseño y de Core Web Vitals.
+
+Prompt Base
+  ------------------------------------------------------------
+  | A: Vitrina
+  ------------------------------------------------------------
+  Prompts de seguimiento de esta versión (LogFile):
+    - #9 "Apruebo, sigue" (prototipo aprobado).
+
+Variables / Placeholders
+  - {opcion} → A: vitrina de coleccionista oscura / B: tienda retro / C: mercado denso
+  - {restricciones} → sin gradientes morados, sin Inter en todo, sin tarjetas idénticas, sin 3D
+
+Ejemplo de Entrada
+  Tres direcciones visuales propuestas por el agente con paleta, tipografías y bocetos.
+
+Ejemplo de Salida Esperada
+  Prototipo funcional del home y del listado con paleta propia (paño #13241E, latón #B8913A, marfil
+  #EDE6D6), fuentes Gloock + Public Sans, indicadores de rareza/estado/foil y CLS = 0.
+
+Guías de Estilo
+  - Tono: decisión concisa.
+  - Formato: letra de la opción + nombre.
+  - Longitud: 1 línea.
+
+Casos de Prueba
+  - Caso 1: Elegir A → prototipo vitrina
+  - Caso 2: Elegir una opción no listada → el agente pide aclarar antes de codificar
+
+Iteraciones / Feedback
+  - Iteración 1: CLS de 0,187 en el home por el fallback de Suspense; se cargó el home sin lazy-
+    loading y se reservó altura.
+  - Iteración 2: Se subió react-router-dom a 6.30.6 por avisos de seguridad.
+
+Metadatos
+  - Fecha de creación: 15/11/2026
+  - Última modificación: 15/11/2026
+  - Contexto de uso: Proyecto TCGMASTER — INFB8091 Desempeño de Sistemas, UTEM
+  - Entradas del LogFile: #8, #9
+  - Modelo: Claude Opus 5.5 (claude-opus-5-5) en Claude Code
+
+====================================================================================================
+PROMPT CARD 4
+====================================================================================================
+Título del Prompt: Checkout con y sin cuenta (Webpay Plus de integración)
+Versión: 0.4 – 15/11/2026
+Autor: Equipo TCGMASTER — Mario Rodríguez, Camilo Araya y Martín Cerda
+
+Objetivo
+  Ajustar el plan del checkout para permitir compras como invitado además de con cuenta, porque es
+  un ambiente de prueba y se necesita probar rápido (y simular compradores sin registro en la
+  carga).
+
+Prompt Base
+  ------------------------------------------------------------
+  | añade que se pueda comprar con y sin cuenta , si total es un ambiente de prueba y se necesita ser rapido para probar ciertas cosas
+  ------------------------------------------------------------
+  Prompts de seguimiento de esta versión (LogFile):
+    - #12 "Sí, implementa".
+    - #13 "listo funciona correctamente" (prueba manual con tarjeta de prueba).
+
+Variables / Placeholders
+  - {modo_compra} → con cuenta | invitado
+  - {pasarela} → Webpay Plus integración (tráfico real) o simulador (tráfico load_test)
+
+Ejemplo de Entrada
+  Plan del paso 6 (checkout solo con cuenta) presentado por el agente.
+
+Ejemplo de Salida Esperada
+  Checkout para invitado (nombre + correo, pedido consultable con clave aleatoria), reserva de stock
+  con SELECT … FOR UPDATE, liberación de reservas vencidas, confirmación idempotente, Webpay de
+  integración y simulador; botón «Usar datos de prueba» solo con VITE_TEST_HELPERS=true.
+
+Guías de Estilo
+  - Tono: informal, orientado al objetivo.
+  - Formato: un párrafo.
+  - Longitud: ≤ 40 palabras.
+
+Casos de Prueba
+  - Caso 1: Compra como invitado con tarjeta de prueba de Transbank → pedido pagado y visible con su
+    clave
+  - Caso 2: Dos compras simultáneas del último ítem → una se confirma y la otra recibe 409 sin
+    sobreventa
+
+Iteraciones / Feedback
+  - Iteración 1: La liberación de reservas vencidas se perdía con el rollback; se pasó a su propia
+    transacción.
+  - Iteración 2: Las respuestas de carrito/checkout quedaban con caché pública; se forzó «private,
+    no-store».
+
+Metadatos
+  - Fecha de creación: 15/11/2026
+  - Última modificación: 15/11/2026
+  - Contexto de uso: Proyecto TCGMASTER — INFB8091 Desempeño de Sistemas, UTEM
+  - Entradas del LogFile: #11 a #13
+  - Modelo: Claude Opus 5.5 (claude-opus-5-5) en Claude Code
+
+====================================================================================================
+PROMPT CARD 5
+====================================================================================================
+Título del Prompt: Integración de GA4 y depuración en DebugView
+Versión: 0.5 – 15/11/2026
+Autor: Equipo TCGMASTER — Mario Rodríguez, Camilo Araya y Martín Cerda
+
+Objetivo
+  Activar GA4 con el ID de medición real y lograr ver los eventos en DebugView, diagnosticando por
+  qué no aparecían al navegar el sitio.
+
+Prompt Base
+  ------------------------------------------------------------
+  | ahora lo abri correctamente pero tampoco registra cambios en el debug mode
+  ------------------------------------------------------------
+  Prompts de seguimiento de esta versión (LogFile):
+    - #15 "Sí, implementa" (paso 7: módulo de analítica).
+    - #16 ID de medición "G-2RNCWE4525".
+    - #17 Error de "npm run dev" en la raíz del repositorio.
+    - #19 "Sí, aplica todo".
+    - #20 "Sí, se ven".
+
+Variables / Placeholders
+  - {measurement_id} → ID de GA4 (G-XXXXXXXXXX)
+  - {sintoma} → lo que el usuario observa (no aparecen eventos en DebugView)
+
+Ejemplo de Entrada
+  Sitio corriendo en local con el ID de GA4 configurado; DebugView vacío.
+
+Ejemplo de Salida Esperada
+  Diagnóstico con evidencia (peticiones a /g/collect): faltaba _dbg en los eventos y traffic_type
+  viaja como el campo reservado «tt». Corrección: debug_mode por evento y parámetro tipo_trafico
+  reportable.
+
+Guías de Estilo
+  - Tono: informal, describe un síntoma.
+  - Formato: una oración.
+  - Longitud: ≤ 20 palabras.
+
+Casos de Prueba
+  - Caso 1: Navegar home → compra con debug activo → DebugView muestra page_view … purchase y
+    LCP/INP/CLS
+  - Caso 2: Abrir el sitio con ?traffic_type=load_test → eventos con tipo_trafico = load_test
+
+Iteraciones / Feedback
+  - Iteración 1: Primer intento: el error era abrir npm run dev en la carpeta equivocada (#17).
+  - Iteración 2: Segundo: eventos sin _dbg; se agregó debug_mode por evento (#18–#19).
+  - Iteración 3: Tercero: cada navegador aparece como un dispositivo de depuración distinto (#20).
+
+Metadatos
+  - Fecha de creación: 15/11/2026
+  - Última modificación: 15/11/2026
+  - Contexto de uso: Proyecto TCGMASTER — INFB8091 Desempeño de Sistemas, UTEM
+  - Entradas del LogFile: #15 a #20
+  - Modelo: Claude Opus 5.5 (claude-opus-5-5) en Claude Code
+
+====================================================================================================
+PROMPT CARD 6
+====================================================================================================
+Título del Prompt: Generadores de carga antes del deploy (Fase 1.2)
+Versión: 0.6 – 15/11/2026
+Autor: Equipo TCGMASTER — Mario Rodríguez, Camilo Araya y Martín Cerda
+
+Objetivo
+  Asegurar que los generadores de carga queden programados y probados antes de desplegar, para no
+  tener que volver a desplegar por cambios necesarios para medir.
+
+Prompt Base
+  ------------------------------------------------------------
+  | antes de deployar en cualquiera , tienes que programar los generadores de carga , los tienes puesto en el codigo? porque asi una vez que deployemos no lo haremos de nuevo
+  ------------------------------------------------------------
+  Prompts de seguimiento de esta versión (LogFile):
+    - #21 "Plan del paso 8".
+    - #23 "Sí, implementa".
+
+Variables / Placeholders
+  - {herramienta} → k6 (o Locust)
+  - {comportamientos} → navegación, búsqueda, abandono de carrito, compra invitado, compra con cuenta
+  - {parametros} → usuarios virtuales, ramp-up, duración, tasa de peticiones
+
+Ejemplo de Entrada
+  Plan de deploy listo; sin generadores de carga implementados.
+
+Ejemplo de Salida Esperada
+  k6 en Docker con modelo abierto, 5 comportamientos ponderados, perfiles
+  humo/baja/normal/pico/estrés y navegadores reales; recolector de /metrics; script de reinicio de
+  datos; README. Prueba baja: 6.621 peticiones, 0 % errores, p95 38 ms.
+
+Guías de Estilo
+  - Tono: pregunta de verificación con una condición de orden.
+  - Formato: un párrafo.
+  - Longitud: ≤ 40 palabras.
+
+Casos de Prueba
+  - Caso 1: Perfil humo → 1 sesión de cada tipo, 45/45 checks
+  - Caso 2: Perfil baja 5 min → 0 % errores y compras aprobadas/rechazadas registradas
+
+Iteraciones / Feedback
+  - Iteración 1: /api/auth/me respondía 401 sin sesión e inflaba la tasa de 4xx; se cambió a 200 con
+    null.
+  - Iteración 2: k6 browser no soportaba locator().first; se usó waitForSelector.
+
+Metadatos
+  - Fecha de creación: 15/11/2026
+  - Última modificación: 15/11/2026
+  - Contexto de uso: Proyecto TCGMASTER — INFB8091 Desempeño de Sistemas, UTEM
+  - Entradas del LogFile: #21 a #23
+  - Modelo: Claude Opus 5.5 (claude-opus-5-5) en Claude Code
+
+====================================================================================================
+PROMPT CARD 7
+====================================================================================================
+Título del Prompt: Deploy en Azure for Students
+Versión: 1.0 – 16/11/2026
+Autor: Equipo TCGMASTER — Mario Rodríguez, Camilo Araya y Martín Cerda
+
+Objetivo
+  Desplegar el sitio en la nube con HTTPS, secretos propios y solo los puertos necesarios abiertos.
+
+Prompt Base
+  ------------------------------------------------------------
+  | ya tengo la maquina virtual en azure for students B2 ahora que hago
+  ------------------------------------------------------------
+  Prompts de seguimiento de esta versión (LogFile):
+    - #25 "tcgmaster .chilecentral.cloudapp.azure.com, el usuario es por defecto, el so es ubuntu el
+      repo es publico".
+    - #26 "autorizo".
+
+Variables / Placeholders
+  - {proveedor} → Azure for Students
+  - {vm} → Standard_B2as_v2, Ubuntu 24.04
+  - {dominio} → tcgmaster.chilecentral.cloudapp.azure.com
+
+Ejemplo de Entrada
+  VM recién creada, llave SSH y repositorio público.
+
+Ejemplo de Salida Esperada
+  Guía paso a paso (NSG, etiqueta DNS, server-setup.sh, copia del catálogo, deploy.sh) y deploy
+  ejecutado: Caddy con Let's Encrypt, HSTS, /metrics y BD solo en 127.0.0.1, prueba humo remota
+  45/45.
+
+Guías de Estilo
+  - Tono: informal, pide guía.
+  - Formato: pregunta + datos en el siguiente mensaje.
+  - Longitud: ≤ 25 palabras.
+
+Casos de Prueba
+  - Caso 1: Ejecutar deploy.sh por primera vez → .env con secretos aleatorios, catálogo cargado y
+    /health OK por HTTPS
+  - Caso 2: Volver a ejecutarlo tras un git pull → se reejecuta la versión nueva del script
+
+Iteraciones / Feedback
+  - Iteración 1: La verificación de secretos pendientes detectaba «GENERAR_» en un comentario; se
+    corrigió.
+  - Iteración 2: El script seguía con su versión vieja tras actualizarse; ahora se reejecuta.
+
+Metadatos
+  - Fecha de creación: 16/11/2026
+  - Última modificación: 16/11/2026
+  - Contexto de uso: Proyecto TCGMASTER — INFB8091 Desempeño de Sistemas, UTEM
+  - Entradas del LogFile: #24 a #26
+  - Modelo: Claude Opus 5.5 (claude-opus-5-5) en Claude Code
+
+====================================================================================================
+PROMPT CARD 8
+====================================================================================================
+Título del Prompt: Pruebas de carga y análisis de desempeño (Fase 2)
+Versión: 1.1 – 16/11/2026
+Autor: Equipo TCGMASTER — Mario Rodríguez, Camilo Araya y Martín Cerda
+
+Objetivo
+  Ejecutar los escenarios de carga contra el sitio desplegado y analizar los indicadores de servidor
+  y de experiencia de usuario que pide el enunciado, incluido el punto de saturación.
+
+Prompt Base
+  ------------------------------------------------------------
+  | ahora puedes hacer las pruebas de k6 , y hacer el analisis de desempeño que se pide
+  ------------------------------------------------------------
+  Prompts de seguimiento de esta versión (LogFile):
+    - #29 "Sí, implementa".
+    - #30 "se corto la luz , vuevle a lo que estabas haciendo y luego cuando termines indicamente
+      donde ver los resultados de los test K6".
+
+Variables / Placeholders
+  - {sitio} → URL del sitio desplegado
+  - {escenarios} → baja, normal, pico, estrés (+ navegadores reales)
+  - {indicadores} → latencia avg/mediana/p90/p95/p99, throughput, errores, CPU/memoria/I/O, saturación, Web Vitals
+
+Ejemplo de Entrada
+  Sitio en Azure, generadores k6 listos y acceso SSH a la VM.
+
+Ejemplo de Salida Esperada
+  Recolector remoto (CPU con %steal, disco, red, docker stats), análisis automático con gráficos y
+  tablas, y docs/informe-fase2.md: p95 ≈ 30 ms a 5 sesiones/s, saturación en ≈ 13 sesiones/s por la
+  CPU de la API, 0 errores 5xx, Web Vitals «buenos».
+
+Guías de Estilo
+  - Tono: informal, encarga una tarea amplia.
+  - Formato: una oración.
+  - Longitud: ≤ 20 palabras.
+
+Casos de Prueba
+  - Caso 1: Corrida normal 15 min → 0 % errores y resultados repetibles (Δp95 < 1 ms entre corridas)
+  - Caso 2: Corrida pico → CPU de la API al 100 % y p95 ≈ 0,9 s, sin 5xx
+
+Iteraciones / Feedback
+  - Iteración 1: Errores en pico sin 5xx en el servidor: se aisló un límite de ~290 conexiones en la
+    red del generador.
+  - Iteración 2: Se detectó y corrigió un bug del recolector (ignoraba rutas con {slug}); se agregó
+    test y se repitió la corrida normal.
+  - Iteración 3: Tras el corte de luz se limpiaron procesos huérfanos y se retomó la campaña.
+
+Metadatos
+  - Fecha de creación: 16/11/2026
+  - Última modificación: 16/11/2026
+  - Contexto de uso: Proyecto TCGMASTER — INFB8091 Desempeño de Sistemas, UTEM
+  - Entradas del LogFile: #27, #29, #30
+  - Modelo: Claude Opus 5.5 (claude-opus-5-5) en Claude Code
+
+====================================================================================================
+PROMPT CARD 9
+====================================================================================================
+Título del Prompt: Exploraciones de GA4 con Claude en Chrome
+Versión: 1.1 – 16/11/2026
+Autor: Equipo TCGMASTER — Mario Rodríguez, Camilo Araya y Martín Cerda
+
+Objetivo
+  Obtener prompts listos para que la extensión de Claude en Chrome configure GA4 (definiciones
+  personalizadas, segmentos y exploraciones) para medir rebote, duración de sesión y embudo, real
+  vs. carga.
+
+Prompt Base
+  ------------------------------------------------------------
+  | antes de implementar dame unos promps para pegarle al claude de la extension de google para que cree las tablas necesarias
+  | 
+  | — Ejemplo de prompt generado (2 de 6) —
+  | En GA4 (propiedad TCGMASTER) ve a Explorar y crea una «Exploración de formato libre» llamada «F2 - Engagement real vs carga».
+  | 1. Crea dos segmentos de SESIÓN: «Tráfico real» (tipo_trafico = real) y «Prueba de carga» (tipo_trafico = load_test).
+  | 2. Aplica ambos segmentos. Rango: últimos 7 días. Filas: Fecha y Categoría de dispositivo.
+  | 3. Valores: Sesiones, Usuarios activos, Tasa de rebote, Tasa de participación, Duración media de la sesión, Vistas por sesión.
+  | No modifiques la configuración de la propiedad ni borres nada.
+  ------------------------------------------------------------
+
+Variables / Placeholders
+  - {propiedad} → TCGMASTER
+  - {segmentos} → tipo_trafico = real | load_test
+  - {exploracion} → Engagement, Embudo (cerrado/abierto), Web Vitals, Línea de tiempo
+
+Ejemplo de Entrada
+  Propiedad GA4 con eventos de e-commerce y el parámetro tipo_trafico.
+
+Ejemplo de Salida Esperada
+  Seis prompts ordenados: definiciones personalizadas, engagement, embudo, Web Vitals, línea de
+  tiempo y revisión de accesos.
+
+Guías de Estilo
+  - Tono: instrucciones técnicas y precisas para otro agente.
+  - Formato: pasos numerados por prompt.
+  - Longitud: ≤ 200 palabras por prompt.
+
+Casos de Prueba
+  - Caso 1: Pegar el prompt 1 en Claude en Chrome → crea solo las definiciones faltantes y pide
+    confirmación antes de guardar
+  - Caso 2: Prompt 6 (acceso del profesor) → prepara la invitación pero no la envía sin confirmación
+
+Iteraciones / Feedback
+  - Iteración 1: Se usaron segmentos de sesión porque rebote y duración son métricas de sesión y
+    tipo_trafico es de evento.
+  - Iteración 2: Se advirtió no crear filtros de tráfico interno activos (GA4 borra esos datos de
+    forma permanente).
+
+Metadatos
+  - Fecha de creación: 16/11/2026
+  - Última modificación: 16/11/2026
+  - Contexto de uso: Proyecto TCGMASTER — INFB8091 Desempeño de Sistemas, UTEM
+  - Entradas del LogFile: #28
+  - Modelo: Claude Opus 5.5 (claude-opus-5-5) en Claude Code
+
+====================================================================================================
+PROMPT CARD 10
+====================================================================================================
+Título del Prompt: Informe técnico en LaTeX
+Versión: 1.2 – 16/11/2026
+Autor: Equipo TCGMASTER — Mario Rodríguez, Camilo Araya y Martín Cerda
+
+Objetivo
+  Generar el informe técnico de entrega con todos los puntos del enunciado, a partir de los datos
+  recopilados.
+
+Prompt Base
+  ------------------------------------------------------------
+  | ahora con todos los datos recopilados hace un informe tipo latex (con colores verdes y azules) con el logo utem, cubriendo todos los puntos que salen el pdf de tarea
+  ------------------------------------------------------------
+  Prompts de seguimiento de esta versión (LogFile):
+    - #32 "Sí, implementa".
+
+Variables / Placeholders
+  - {colores} → azul #0057A4 y verde #7AB800
+  - {logo} → logo UTEM (extraído del PDF del enunciado)
+  - {contenido} → arquitectura, metodología, resultados con gráficos, cuellos de botella, mejoras, conclusiones
+
+Ejemplo de Entrada
+  Tablas, gráficos y reportes de k6 en docs/fase2/, informe en Markdown y el PDF del enunciado.
+
+Ejemplo de Salida Esperada
+  docs/informe-latex/ con estilo propio, 12 secciones y PDF de 21 páginas compilado en Docker (TeX
+  Live 2024).
+
+Guías de Estilo
+  - Tono: informal, con requisitos de forma explícitos.
+  - Formato: una oración.
+  - Longitud: ≤ 35 palabras.
+
+Casos de Prueba
+  - Caso 1: Compilar con compilar.ps1 → PDF sin errores
+  - Caso 2: Faltan datos de GA4 → recuadros «Pendiente» con instrucciones para las capturas
+
+Iteraciones / Feedback
+  - Iteración 1: Ajustes de compilación: macro \th reservada, flechas Unicode, sangría de párrafos y
+    títulos huérfanos.
+
+Metadatos
+  - Fecha de creación: 16/11/2026
+  - Última modificación: 16/11/2026
+  - Contexto de uso: Proyecto TCGMASTER — INFB8091 Desempeño de Sistemas, UTEM
+  - Entradas del LogFile: #31, #32
+  - Modelo: Claude Opus 5.5 (claude-opus-5-5) en Claude Code
