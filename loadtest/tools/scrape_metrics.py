@@ -26,7 +26,9 @@ import urllib.request
 from collections import defaultdict
 from pathlib import Path
 
-LINE_RE = re.compile(r"^([a-zA-Z_:][a-zA-Z0-9_:]*)(\{[^}]*\})?\s+([-+eE0-9.NaInf]+)")
+# Las etiquetas pueden contener llaves dentro de las comillas (route="/api/products/{slug}"),
+# así que el bloque {...} se reconoce por valores entre comillas y no con [^}]*.
+LINE_RE = re.compile(r'^([a-zA-Z_:][a-zA-Z0-9_:]*)(\{(?:[^"}]|"(?:[^"\\]|\\.)*")*\})?\s+([-+eE0-9.NaInf]+)')
 LABEL_RE = re.compile(r'(\w+)="([^"]*)"')
 
 
