@@ -7,7 +7,33 @@
  */
 import http from "k6/http";
 import { check } from "k6";
+import { Counter } from "k6/metrics";
 import { BASE_URL } from "./config.js";
+
+/**
+ * Clasificación de fallos, para distinguir en el informe un error del SERVIDOR
+ * (5xx) de uno de RED/CLIENTE (status 0: sin respuesta, conexión rechazada o
+ * reiniciada, timeout, falla de TLS o DNS), que puede originarse en el
+ * generador o en la red intermedia y no en la aplicación.
+ */
+const fallosRed = new Counter("fallos_red");
+const fallos5xx = new Counter("fallos_5xx");
+const fallos4xx = new Counter("fallos_4xx");
+let erroresMostrados = 0;
+
+function track(res) {
+  for (const r of Array.isArray(res) ? res : [res]) {
+    if (r.status === 0) {
+      fallosRed.add(1);
+      if (erroresMostrados++ < 15) console.warn(`fallo de red (${r.error_code}): ${r.error}`);
+    } else if (r.status >= 500) {
+      fallos5xx.add(1);
+    } else if (r.status >= 400 && r.status !== 409) {
+      fallos4xx.add(1);
+    }
+  }
+  return res;
+}
 
 const HEADERS = {
   Accept: "application/json",
@@ -34,15 +60,15 @@ function params(name, grupo, extraHeaders) {
 }
 
 export function get(path, name, grupo = "navegacion") {
-  return http.get(`${BASE_URL}${path}`, params(name, grupo));
+  return track(http.get(`${BASE_URL}${path}`, params(name, grupo)));
 }
 
 export function post(path, body, name, grupo) {
-  return http.post(
+  return track(http.post(
     `${BASE_URL}${path}`,
     body === undefined ? null : JSON.stringify(body),
     params(name, grupo, { "Content-Type": "application/json" }),
-  );
+  ));
 }
 
 /**
@@ -50,17 +76,17 @@ export function post(path, body, name, grupo) {
  * `requests`: [[path, name, grupo], ...]
  */
 export function batch(requests) {
-  return http.batch(
+  return track(http.batch(
     requests.map(([path, name, grupo]) => ["GET", `${BASE_URL}${path}`, null, params(name, grupo || "navegacion")]),
-  );
+  ));
 }
 
 /** Imágenes (servidas por Nginx), como las pediría el navegador. */
 export function assets(paths) {
   if (!paths.length) return [];
-  return http.batch(
+  return track(http.batch(
     paths.map((p) => ["GET", `${BASE_URL}${p}`, null, { headers: { "X-Traffic-Type": "load_test" }, tags: { name: "GET /media/*", grupo: "estaticos" } }]),
-  );
+  ));
 }
 
 export function json(res) {

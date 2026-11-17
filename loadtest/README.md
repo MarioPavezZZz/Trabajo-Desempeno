@@ -92,3 +92,35 @@ ssh -N -L 8000:127.0.0.1:8000 usuario@servidor
 
 Las pruebas se lanzan desde un equipo distinto al servidor (si no, k6 compite
 por la misma CPU y distorsiona los resultados).
+
+Con `-Ssh usuario@host` (llave en `-SshKey`, por defecto `~/.ssh/tcgmaster.pem`)
+todo es automático: `-Reiniciar` reinicia los datos **en el servidor**, se abre
+el túnel a `/metrics` (puerto local 18000) y `tools/remote_stats.sh` registra en
+la VM `host.csv` (CPU con %steal, carga, memoria, disco, red) y
+`containers.csv` (docker stats); al final se traen junto con
+`pg_stat_statements.csv`.
+
+```powershell
+.\loadtest\run.ps1 -Perfil normal -BaseUrl https://tcgmaster.chilecentral.cloudapp.azure.com -Remoto `
+  -Ssh azureuser@tcgmaster.chilecentral.cloudapp.azure.com -Reiniciar
+```
+
+k6 clasifica los fallos en `fallos_red` (sin respuesta: conexión rechazada,
+timeout, TLS), `fallos_5xx` y `fallos_4xx`, para separar errores del servidor
+de los del generador o la red.
+
+**Límite conocido:** desde una conexión doméstica, más de ~290 conexiones
+simultáneas provocan `connection refused` en el lado del generador (router o
+CGNAT del proveedor). Para pico y estrés, generar desde una VM en la nube.
+
+## Análisis (gráficos y tablas para el informe)
+
+```powershell
+.\loadtest\analizar.ps1 -Out docs/fase2 -Estres pico-sin-img `
+  -Corridas "baja=loadtest/results/baja-...", "normal=loadtest/results/normal-..." `
+  -Navegadores "baja=loadtest/results/navegadores-..."
+```
+
+Corre `tools/analizar.py` en Docker (matplotlib con versión fija) y deja en
+`docs/fase2/` los gráficos, `tablas.md` y una copia de los reportes de cada
+corrida. Tests del recolector: `python -m unittest loadtest/tools/test_scrape_metrics.py`.
