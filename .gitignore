@@ -48,3 +48,7 @@ docs/informe-latex/*.fls
 docs/informe-latex/*.fdb_latexmk
 docs/informe-latex/*.out
 docs/informe-latex/*.toc
+docs/informe-latex/*.bbl
+docs/informe-latex/*.bcf
+docs/informe-latex/*.blg
+docs/informe-latex/*.run.xml
