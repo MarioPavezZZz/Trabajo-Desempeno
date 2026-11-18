@@ -191,8 +191,19 @@ Objetivo
 
 Prompt Base
   ------------------------------------------------------------
-  | Sí, implementa
+  | Implementa el paso 3 tal como lo presentaste y lo aprobamos: API del catálogo (listado, filtros,
+  | búsqueda y detalle) más /health y /metrics. Respeta estas decisiones: página de 24 productos por
+  | defecto y máximo de 60 acotado en el servidor; búsqueda con tsvector + pg_trgm con umbral de
+  | similitud configurable (partir en 0,45); facetas en una sola consulta; un índice para cada
+  | filtro; /metrics en formato Prometheus con histogramas de latencia por ruta, CPU y memoria del
+  | contenedor (cgroup v2); logs JSON con la duración de cada petición; statement_timeout de 5 s; 2
+  | workers de Gunicorn y pool de 10 + 5 conexiones, todo configurable por variables de entorno. Al
+  | terminar: compila, corre los tests, propón tests nuevos y pregúntame antes de hacer commit. No
+  | subas nada a Git todavía.
   ------------------------------------------------------------
+  Prompt original registrado en el LogFile: «Sí, implementa»
+  Reescrito para explicitar las decisiones de diseño y desempeño que el original dejaba al modelo
+  (observación del profesor).
   Prompts de seguimiento de esta versión (LogFile):
     - #4 / #6 / #10 "Sí, implementa" (pasos 2, 3 y 5).
     - #5 "docker ya esta instalado".
@@ -243,8 +254,16 @@ Objetivo
 
 Prompt Base
   ------------------------------------------------------------
-  | A: Vitrina
+  | Elegimos la opción A: vitrina de coleccionista oscura con detalles dorados. Paleta: paño
+  | #13241E, latón #B8913A, marfil #EDE6D6 y lacre #9E2B25; tipografías Gloock para títulos y Public
+  | Sans para texto; indicadores visuales de rareza, estado y foil. Restricciones de desempeño: sin
+  | animaciones pesadas ni 3D, ancho y alto reservados para toda imagen (CLS < 0,1), fuentes con
+  | font-display: swap y la página de inicio cargada sin lazy loading. Entrega solo el prototipo del
+  | home y del listado para aprobarlo antes de seguir.
   ------------------------------------------------------------
+  Prompt original registrado en el LogFile: «A: Vitrina»
+  Reescrito para explicitar las decisiones de diseño y desempeño que el original dejaba al modelo
+  (observación del profesor).
   Prompts de seguimiento de esta versión (LogFile):
     - #9 "Apruebo, sigue" (prototipo aprobado).
 
@@ -294,8 +313,18 @@ Objetivo
 
 Prompt Base
   ------------------------------------------------------------
-  | añade que se pueda comprar con y sin cuenta , si total es un ambiente de prueba y se necesita ser rapido para probar ciertas cosas
+  | Modifica el plan del paso 6 para permitir compras con cuenta y como invitado. El invitado
+  | entrega nombre y correo, y su pedido se consulta con una clave aleatoria no adivinable incluida
+  | en el enlace del resultado. Mantén: Webpay Plus en ambiente de integración para el tráfico real
+  | y el simulador (latencia fija de 300 ms) para las peticiones con X-Traffic-Type: load_test;
+  | reserva de stock con SELECT … FOR UPDATE ordenado por id; reservas que vencen a los 15 minutos y
+  | se liberan solas; confirmación idempotente. Agrega un botón «Usar datos de prueba» visible solo
+  | con VITE_TEST_HELPERS=true. Explícame los cambios antes de implementarlos.
   ------------------------------------------------------------
+  Prompt original registrado en el LogFile: «añade que se pueda comprar con y sin cuenta , si total
+  es un ambiente de prueba y se necesita ser rapido para probar ciertas cosas»
+  Reescrito para explicitar las decisiones de diseño y desempeño que el original dejaba al modelo
+  (observación del profesor).
   Prompts de seguimiento de esta versión (LogFile):
     - #12 "Sí, implementa".
     - #13 "listo funciona correctamente" (prueba manual con tarjeta de prueba).
@@ -349,8 +378,17 @@ Objetivo
 
 Prompt Base
   ------------------------------------------------------------
-  | ahora lo abri correctamente pero tampoco registra cambios en el debug mode
+  | Abrí el sitio con npm run dev desde frontend/ y con VITE_ANALYTICS_DEBUG=true, pero DebugView de
+  | GA4 no muestra eventos. Diagnostica capturando las peticiones a google-analytics.com/g/collect,
+  | sin cambiar código todavía, y revisa: si llega _dbg=1, si traffic_type viaja como parámetro de
+  | evento y si los eventos de e-commerce llevan sus ítems. Requisito: todo evento debe llevar un
+  | parámetro de tipo de tráfico (real | load_test) que se pueda registrar como dimensión
+  | personalizada. Propón las correcciones y espera mi confirmación.
   ------------------------------------------------------------
+  Prompt original registrado en el LogFile: «ahora lo abri correctamente pero tampoco registra
+  cambios en el debug mode»
+  Reescrito para explicitar las decisiones de diseño y desempeño que el original dejaba al modelo
+  (observación del profesor).
   Prompts de seguimiento de esta versión (LogFile):
     - #15 "Sí, implementa" (paso 7: módulo de analítica).
     - #16 ID de medición "G-2RNCWE4525".
@@ -405,8 +443,23 @@ Objetivo
 
 Prompt Base
   ------------------------------------------------------------
-  | antes de deployar en cualquiera , tienes que programar los generadores de carga , los tienes puesto en el codigo? porque asi una vez que deployemos no lo haremos de nuevo
+  | Antes del deploy, implementa los generadores de carga para no tener que volver a desplegar. Usa
+  | k6 0.54.0 en Docker con modelo abierto (ramping-arrival-rate). Comportamientos y pesos:
+  | navegante 45 %, buscador 25 %, abandono de carrito 15 %, comprador invitado 10 % y comprador con
+  | cuenta 5 %, con pausas de 1–6 s. Perfiles: humo; baja 1 sesión/s por 5 min; normal 5 sesiones/s
+  | por 15 min; pico 1 → 20 sesiones/s con 2 min de meseta; estrés 5 → 80 sesiones/s en escalones de
+  | 2 min, abortando con más de 10 % de errores; navegadores (2 Chromium reales). Parámetros por
+  | línea de comandos: tasa, ramp-up, duración, VUs máximos y pausas. Umbrales: errores < 1 %, p95
+  | de navegación y carrito < 800 ms, p95 de checkout < 1,5 s; un 409 por falta de stock no es
+  | error. Todas las peticiones con X-Traffic-Type: load_test. Incluye un script que reinicie los
+  | datos de prueba entre corridas y un recolector de /metrics cada 5 s. Pruébalo con los perfiles
+  | humo y baja en local y muéstrame los resultados.
   ------------------------------------------------------------
+  Prompt original registrado en el LogFile: «antes de deployar en cualquiera , tienes que programar
+  los generadores de carga , los tienes puesto en el codigo? porque asi una vez que deployemos no lo
+  haremos de nuevo»
+  Reescrito para explicitar las decisiones de diseño y desempeño que el original dejaba al modelo
+  (observación del profesor).
   Prompts de seguimiento de esta versión (LogFile):
     - #21 "Plan del paso 8".
     - #23 "Sí, implementa".
@@ -457,8 +510,19 @@ Objetivo
 
 Prompt Base
   ------------------------------------------------------------
-  | ya tengo la maquina virtual en azure for students B2 ahora que hago
+  | Ya creé la VM en Azure for Students: Standard_B2as_v2 (2 vCPU, 8 GB), Ubuntu 24.04, región Chile
+  | Central, usuario azureuser y etiqueta DNS tcgmaster.chilecentral.cloudapp.azure.com; el
+  | repositorio es público. Prepara el deploy con el mismo Docker Compose más un override de
+  | producción: Caddy con HTTPS automático (Let's Encrypt) y HSTS, secretos nuevos generados en el
+  | servidor, cookies Secure, documentación de la API desactivada, PostgreSQL, la API y /metrics
+  | solo en 127.0.0.1, y los mismos límites que en local (API y BD con 1 CPU y 512 MB). Abre solo
+  | 80/443 (y 22). Usa el mismo catálogo que en local. Dime qué pasos debo hacer yo en el portal y
+  | espera mi autorización antes de ejecutar comandos en el servidor.
   ------------------------------------------------------------
+  Prompt original registrado en el LogFile: «ya tengo la maquina virtual en azure for students B2
+  ahora que hago»
+  Reescrito para explicitar las decisiones de diseño y desempeño que el original dejaba al modelo
+  (observación del profesor).
   Prompts de seguimiento de esta versión (LogFile):
     - #25 "tcgmaster .chilecentral.cloudapp.azure.com, el usuario es por defecto, el so es ubuntu el
       repo es publico".
@@ -512,8 +576,21 @@ Objetivo
 
 Prompt Base
   ------------------------------------------------------------
-  | ahora puedes hacer las pruebas de k6 , y hacer el analisis de desempeño que se pide
+  | Ejecuta con k6 contra https://tcgmaster.chilecentral.cloudapp.azure.com, reiniciando los datos
+  | de prueba antes de cada corrida, estos escenarios (modelo abierto): baja 1 sesión/s por 5 min;
+  | normal 5 sesiones/s por 15 min; pico 1 → 20 sesiones/s con 2 min de meseta; estrés 5 → 80
+  | sesiones/s en escalones de 2 min (abortar con más de 10 % de errores). Corre 2 navegadores
+  | reales en baja, normal y pico. SLO: errores < 1 %, p95 de navegación y carrito < 800 ms, p95 de
+  | checkout < 1,5 s. Mide promedio, mediana, p90, p95, p99, throughput, errores (separando red, 4xx
+  | y 5xx), CPU con %steal, memoria, disco, red, pool de BD y pg_stat_statements. Define la
+  | saturación como la primera ventana de 10 s con p95 > 800 ms o errores > 1 %. Genera gráficos y
+  | tablas reproducibles y un informe con metodología, resultados, cuellos de botella y mejoras. No
+  | cambies código de la aplicación ni la VM sin preguntarme.
   ------------------------------------------------------------
+  Prompt original registrado en el LogFile: «ahora puedes hacer las pruebas de k6 , y hacer el
+  analisis de desempeño que se pide»
+  Reescrito para explicitar las decisiones de diseño y desempeño que el original dejaba al modelo
+  (observación del profesor).
   Prompts de seguimiento de esta versión (LogFile):
     - #29 "Sí, implementa".
     - #30 "se corto la luz , vuevle a lo que estabas haciendo y luego cuando termines indicamente
@@ -569,15 +646,20 @@ Objetivo
 
 Prompt Base
   ------------------------------------------------------------
-  | antes de implementar dame unos promps para pegarle al claude de la extension de google para que cree las tablas necesarias
-  | 
-  | — Ejemplo de prompt generado (2 de 6) —
-  | En GA4 (propiedad TCGMASTER) ve a Explorar y crea una «Exploración de formato libre» llamada «F2 - Engagement real vs carga».
-  | 1. Crea dos segmentos de SESIÓN: «Tráfico real» (tipo_trafico = real) y «Prueba de carga» (tipo_trafico = load_test).
-  | 2. Aplica ambos segmentos. Rango: últimos 7 días. Filas: Fecha y Categoría de dispositivo.
-  | 3. Valores: Sesiones, Usuarios activos, Tasa de rebote, Tasa de participación, Duración media de la sesión, Vistas por sesión.
-  | No modifiques la configuración de la propiedad ni borres nada.
+  | Antes de implementar el análisis, escribe prompts para la extensión Claude en Chrome que
+  | preparen GA4 (propiedad TCGMASTER) para la Fase 2: (1) verificar o crear las definiciones
+  | personalizadas de ámbito evento tipo_trafico, metric_rating, metric_id, shipping_tier y
+  | payment_type, y la métrica metric_value; (2) segmentos de sesión «Tráfico real» y «Prueba de
+  | carga» según tipo_trafico; (3) exploraciones de engagement (rebote, duración media, vistas por
+  | sesión), embudo cerrado y abierto view_item_list → view_item → add_to_cart → begin_checkout →
+  | add_payment_info → purchase, Web Vitals por tipo de tráfico y una línea de tiempo por hora. Los
+  | prompts deben pedir confirmación antes de guardar cambios, no crear filtros de datos activos y
+  | no enviar invitaciones sin autorización.
   ------------------------------------------------------------
+  Prompt original registrado en el LogFile: «antes de implementar dame unos promps para pegarle al
+  claude de la extension de google para que cree las tablas necesarias»
+  Reescrito para explicitar las decisiones de diseño y desempeño que el original dejaba al modelo
+  (observación del profesor).
 
 Variables / Placeholders
   - {propiedad} → TCGMASTER
@@ -627,8 +709,19 @@ Objetivo
 
 Prompt Base
   ------------------------------------------------------------
-  | ahora con todos los datos recopilados hace un informe tipo latex (con colores verdes y azules) con el logo utem, cubriendo todos los puntos que salen el pdf de tarea
+  | Con los datos recopilados, escribe el informe técnico en LaTeX, compilable en Docker con TeX
+  | Live, cubriendo todos los puntos del enunciado: arquitectura, metodología (escenarios y
+  | parámetros), resultados con gráficos, análisis de cuellos de botella con propuestas de mejora y
+  | conclusiones. Usa como única fuente las tablas y gráficos de docs/fase2 (no inventes cifras) y
+  | marca lo que falte por completar (capturas de GA4). Formato: portada con el logo UTEM,
+  | integrantes, profesor y fecha; índice; paleta azul (#0057A4) y verde (#7AB800). Explícame la
+  | estructura antes de escribirlo.
   ------------------------------------------------------------
+  Prompt original registrado en el LogFile: «ahora con todos los datos recopilados hace un informe
+  tipo latex (con colores verdes y azules) con el logo utem, cubriendo todos los puntos que salen el
+  pdf de tarea»
+  Reescrito para explicitar las decisiones de diseño y desempeño que el original dejaba al modelo
+  (observación del profesor).
   Prompts de seguimiento de esta versión (LogFile):
     - #32 "Sí, implementa".
 
