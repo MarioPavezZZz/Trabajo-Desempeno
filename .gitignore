@@ -52,3 +52,14 @@ docs/informe-latex/*.bbl
 docs/informe-latex/*.bcf
 docs/informe-latex/*.blg
 docs/informe-latex/*.run.xml
+docs/presentacion-latex/*.aux
+docs/presentacion-latex/*.log
+docs/presentacion-latex/*.fls
+docs/presentacion-latex/*.fdb_latexmk
+docs/presentacion-latex/*.out
+docs/presentacion-latex/*.toc
+docs/presentacion-latex/*.nav
+docs/presentacion-latex/*.snm
+
+# Registro local de prompts (no se versiona)
+LogFile.txt
