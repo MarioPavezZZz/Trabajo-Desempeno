@@ -2,8 +2,7 @@ PROMPT CARDS — TCGMASTER
 INFB8091 Desempeño de Sistemas · UTEM · Semestre 2 - 2026 · Opción 1: comercio electrónico
 
 Formato: plantilla «Prompt Card» del curso, con una tarjeta por versión del software. Se incluyen
-los prompts más destacados; el registro completo (con fecha, hora, resumen y modelo) está
-en LogFile.txt. Agente: Claude Code con Claude Opus 5.5 en todas las entradas.
+los prompts más destacados. Agente: Claude Code con Claude Opus 5.5 en todas las entradas.
 
 Índice de versiones:
   - v0.1  Configuración del proyecto y propuesta de arquitectura (Fase A)
@@ -24,7 +23,7 @@ Autor: Equipo TCGMASTER — Mario Rodríguez, Camilo Araya y Martín Cerda
 
 Objetivo
   Arrancar el proyecto con el agente de codificación: que lea el enunciado, deje las reglas de
-  trabajo en AGENTS.md, cree LogFile.txt, el repositorio Git y la configuración base, y proponga
+  trabajo en AGENTS.md, cree el registro de prompts, el repositorio Git y la configuración base, y proponga
   stack, arquitectura, modelo de datos y páginas pensando en la Fase 2 (medición), sin escribir
   todavía código de la aplicación.
 
@@ -46,15 +45,15 @@ Prompt Base
   |    módulos/archivos, y espera mi confirmación.
   | 3. Al terminar cada cambio: compila, corre los tests, propón tests
   |    automáticos de la pieza nueva y pregúntame si hago commit y si hago deploy.
-  | 4. Registra en LogFile.txt cada prompt mío completo, con fecha y hora, un
+  | 4. Registra cada prompt mío completo, con fecha y hora, un
   |    resumen de lo que generó (qué instalaste, qué diseño codificaste) y el
-  |    modelo usado. Al iniciar cada sesión, lee LogFile.txt.
+  |    modelo usado. Al iniciar cada sesión, lee ese registro.
   | 5. Usa Git con commits pequeños y frecuentes.
   | 6. Eres experto en performance engineering, desarrollo web full-stack y GA4.
   | 7. Propón en qué tareas conviene usar cada modelo disponible y en cuáles no.
   | 
   | # FASE A: CONFIGURACIÓN (no escribas código de la app todavía)
-  | Crea AGENTS.md, LogFile.txt, .gitignore, .env.example y el repo Git inicial.
+  | Crea AGENTS.md, el registro de prompts, .gitignore, .env.example y el repo Git.
   | Luego propón stack y arquitectura para que yo la apruebe. Mi sugerencia:
   | backend FastAPI + PostgreSQL, frontend React (Vite) + Tailwind, todo en
   | Docker Compose. Si propones otro stack, justifícalo con su efecto en las pruebas
@@ -141,11 +140,11 @@ Prompt Base
   | Empieza solo por el paso 1. No escribas código de la aplicación hasta que yo
   | apruebe la arquitectura.
   ------------------------------------------------------------
-  Ajustado respecto del original del LogFile (#1): se fijaron los valores de paginación, índices,
+  Ajustado respecto del prompt original: se fijaron los valores de paginación, índices,
   workers, pool, timeouts, límites de recursos y semilla, y la elección de stack queda en el equipo.
-  Prompts de seguimiento de esta versión (LogFile):
-    - #2 Adjuntar el PDF del enunciado.
-    - #3 "Apruebo, sigue" (arquitectura aprobada).
+  Prompts de seguimiento de esta versión:
+    - Adjuntar el PDF del enunciado.
+    - "Apruebo, sigue" (arquitectura aprobada).
 
 Variables / Placeholders
   - {comercio} → nombre y rubro de la tienda (TCGMASTER, cartas coleccionables)
@@ -158,7 +157,7 @@ Ejemplo de Entrada
   PDF del curso (5 páginas) y este prompt; repositorio vacío.
 
 Ejemplo de Salida Esperada
-  AGENTS.md, LogFile.txt, .gitignore, .env.example y docs/propuesta-arquitectura.md (stack,
+  AGENTS.md, registro de prompts, .gitignore, .env.example y docs/propuesta-arquitectura.md (stack,
   diagrama, carpetas, modelo de datos con índices, páginas y plan para la Fase 2), más la tabla de
   uso de modelos. Sin código de la app hasta la aprobación.
 
@@ -182,7 +181,6 @@ Metadatos
   - Fecha de creación: 12/11/2026
   - Última modificación: 16/11/2026
   - Contexto de uso: Proyecto TCGMASTER — INFB8091 Desempeño de Sistemas, UTEM
-  - Entradas del LogFile: #1, #2, #3
   - Modelo: Claude Opus 5.5 (claude-opus-5-5) en Claude Code
 
 ====================================================================================================
@@ -209,13 +207,13 @@ Prompt Base
   | terminar: compila, corre los tests, propón tests nuevos y pregúntame antes de hacer commit. No
   | subas nada a Git todavía.
   ------------------------------------------------------------
-  Prompt original registrado en el LogFile: «Sí, implementa»
+  Prompt original: «Sí, implementa»
   Reescrito para explicitar las decisiones de diseño y desempeño que el original dejaba al modelo
   (observación del profesor).
-  Prompts de seguimiento de esta versión (LogFile):
-    - #4 / #6 / #10 "Sí, implementa" (pasos 2, 3 y 5).
-    - #5 "docker ya esta instalado".
-    - #7 "sigue con el siguiente paso no subas nada aun a git".
+  Prompts de seguimiento de esta versión:
+    - / #6 / #10 "Sí, implementa" (pasos 2, 3 y 5).
+    - "docker ya esta instalado".
+    - "sigue con el siguiente paso no subas nada aun a git".
 
 Variables / Placeholders
   - {paso} → pieza del orden de entrega que se aprueba
@@ -226,7 +224,7 @@ Ejemplo de Entrada
 
 Ejemplo de Salida Esperada
   Código implementado según el plan, compilado, con tests (119 backend al final) y la pregunta
-  «¿hago commit? ¿hago deploy?»; entrada nueva en LogFile.txt.
+  «¿hago commit? ¿hago deploy?».
 
 Guías de Estilo
   - Tono: técnico y directivo.
@@ -246,7 +244,6 @@ Metadatos
   - Fecha de creación: 14/11/2026
   - Última modificación: 15/11/2026
   - Contexto de uso: Proyecto TCGMASTER — INFB8091 Desempeño de Sistemas, UTEM
-  - Entradas del LogFile: #4 a #7, #10
   - Modelo: Claude Opus 5.5 (claude-opus-5-5) en Claude Code
 
 ====================================================================================================
@@ -269,11 +266,11 @@ Prompt Base
   | font-display: swap y la página de inicio cargada sin lazy loading. Entrega solo el prototipo del
   | home y del listado para aprobarlo antes de seguir.
   ------------------------------------------------------------
-  Prompt original registrado en el LogFile: «A: Vitrina»
+  Prompt original: «A: Vitrina»
   Reescrito para explicitar las decisiones de diseño y desempeño que el original dejaba al modelo
   (observación del profesor).
-  Prompts de seguimiento de esta versión (LogFile):
-    - #9 "Apruebo, sigue" (prototipo aprobado).
+  Prompts de seguimiento de esta versión:
+    - "Apruebo, sigue" (prototipo aprobado).
 
 Variables / Placeholders
   - {opcion} → A: vitrina de coleccionista oscura / B: tienda retro / C: mercado denso
@@ -304,7 +301,6 @@ Metadatos
   - Fecha de creación: 15/11/2026
   - Última modificación: 15/11/2026
   - Contexto de uso: Proyecto TCGMASTER — INFB8091 Desempeño de Sistemas, UTEM
-  - Entradas del LogFile: #8, #9
   - Modelo: Claude Opus 5.5 (claude-opus-5-5) en Claude Code
 
 ====================================================================================================
@@ -329,13 +325,13 @@ Prompt Base
   | se liberan solas; confirmación idempotente. Agrega un botón «Usar datos de prueba» visible solo
   | con VITE_TEST_HELPERS=true. Explícame los cambios antes de implementarlos.
   ------------------------------------------------------------
-  Prompt original registrado en el LogFile: «añade que se pueda comprar con y sin cuenta , si total
+  Prompt original: «añade que se pueda comprar con y sin cuenta , si total
   es un ambiente de prueba y se necesita ser rapido para probar ciertas cosas»
   Reescrito para explicitar las decisiones de diseño y desempeño que el original dejaba al modelo
   (observación del profesor).
-  Prompts de seguimiento de esta versión (LogFile):
-    - #12 "Sí, implementa".
-    - #13 "listo funciona correctamente" (prueba manual con tarjeta de prueba).
+  Prompts de seguimiento de esta versión:
+    - "Sí, implementa".
+    - "listo funciona correctamente" (prueba manual con tarjeta de prueba).
 
 Variables / Placeholders
   - {modo_compra} → con cuenta | invitado
@@ -370,7 +366,6 @@ Metadatos
   - Fecha de creación: 15/11/2026
   - Última modificación: 15/11/2026
   - Contexto de uso: Proyecto TCGMASTER — INFB8091 Desempeño de Sistemas, UTEM
-  - Entradas del LogFile: #11 a #13
   - Modelo: Claude Opus 5.5 (claude-opus-5-5) en Claude Code
 
 ====================================================================================================
@@ -393,16 +388,16 @@ Prompt Base
   | parámetro de tipo de tráfico (real | load_test) que se pueda registrar como dimensión
   | personalizada. Propón las correcciones y espera mi confirmación.
   ------------------------------------------------------------
-  Prompt original registrado en el LogFile: «ahora lo abri correctamente pero tampoco registra
+  Prompt original: «ahora lo abri correctamente pero tampoco registra
   cambios en el debug mode»
   Reescrito para explicitar las decisiones de diseño y desempeño que el original dejaba al modelo
   (observación del profesor).
-  Prompts de seguimiento de esta versión (LogFile):
-    - #15 "Sí, implementa" (paso 7: módulo de analítica).
-    - #16 ID de medición "G-2RNCWE4525".
-    - #17 Error de "npm run dev" en la raíz del repositorio.
-    - #19 "Sí, aplica todo".
-    - #20 "Sí, se ven".
+  Prompts de seguimiento de esta versión:
+    - "Sí, implementa" (paso 7: módulo de analítica).
+    - ID de medición "G-2RNCWE4525".
+    - Error de "npm run dev" en la raíz del repositorio.
+    - "Sí, aplica todo".
+    - "Sí, se ven".
 
 Variables / Placeholders
   - {measurement_id} → ID de GA4 (G-XXXXXXXXXX)
@@ -435,7 +430,6 @@ Metadatos
   - Fecha de creación: 15/11/2026
   - Última modificación: 15/11/2026
   - Contexto de uso: Proyecto TCGMASTER — INFB8091 Desempeño de Sistemas, UTEM
-  - Entradas del LogFile: #15 a #20
   - Modelo: Claude Opus 5.5 (claude-opus-5-5) en Claude Code
 
 ====================================================================================================
@@ -463,14 +457,14 @@ Prompt Base
   | datos de prueba entre corridas y un recolector de /metrics cada 5 s. Pruébalo con los perfiles
   | humo y baja en local y muéstrame los resultados.
   ------------------------------------------------------------
-  Prompt original registrado en el LogFile: «antes de deployar en cualquiera , tienes que programar
+  Prompt original: «antes de deployar en cualquiera , tienes que programar
   los generadores de carga , los tienes puesto en el codigo? porque asi una vez que deployemos no lo
   haremos de nuevo»
   Reescrito para explicitar las decisiones de diseño y desempeño que el original dejaba al modelo
   (observación del profesor).
-  Prompts de seguimiento de esta versión (LogFile):
-    - #21 "Plan del paso 8".
-    - #23 "Sí, implementa".
+  Prompts de seguimiento de esta versión:
+    - "Plan del paso 8".
+    - "Sí, implementa".
 
 Variables / Placeholders
   - {herramienta} → k6 (o Locust)
@@ -503,7 +497,6 @@ Metadatos
   - Fecha de creación: 15/11/2026
   - Última modificación: 15/11/2026
   - Contexto de uso: Proyecto TCGMASTER — INFB8091 Desempeño de Sistemas, UTEM
-  - Entradas del LogFile: #21 a #23
   - Modelo: Claude Opus 5.5 (claude-opus-5-5) en Claude Code
 
 ====================================================================================================
@@ -527,14 +520,14 @@ Prompt Base
   | 80/443 (y 22). Usa el mismo catálogo que en local. Dime qué pasos debo hacer yo en el portal y
   | espera mi autorización antes de ejecutar comandos en el servidor.
   ------------------------------------------------------------
-  Prompt original registrado en el LogFile: «ya tengo la maquina virtual en azure for students B2
+  Prompt original: «ya tengo la maquina virtual en azure for students B2
   ahora que hago»
   Reescrito para explicitar las decisiones de diseño y desempeño que el original dejaba al modelo
   (observación del profesor).
-  Prompts de seguimiento de esta versión (LogFile):
-    - #25 "tcgmaster .chilecentral.cloudapp.azure.com, el usuario es por defecto, el so es ubuntu el
+  Prompts de seguimiento de esta versión:
+    - "tcgmaster .chilecentral.cloudapp.azure.com, el usuario es por defecto, el so es ubuntu el
       repo es publico".
-    - #26 "autorizo".
+    - "autorizo".
 
 Variables / Placeholders
   - {proveedor} → Azure for Students
@@ -568,7 +561,6 @@ Metadatos
   - Fecha de creación: 16/11/2026
   - Última modificación: 16/11/2026
   - Contexto de uso: Proyecto TCGMASTER — INFB8091 Desempeño de Sistemas, UTEM
-  - Entradas del LogFile: #24 a #26
   - Modelo: Claude Opus 5.5 (claude-opus-5-5) en Claude Code
 
 ====================================================================================================
@@ -595,13 +587,13 @@ Prompt Base
   | tablas reproducibles de esos indicadores por corrida. No cambies código de la aplicación ni la VM
   | sin preguntarme.
   ------------------------------------------------------------
-  Prompt original registrado en el LogFile: «ahora puedes hacer las pruebas de k6 , y hacer el
+  Prompt original: «ahora puedes hacer las pruebas de k6 , y hacer el
   analisis de desempeño que se pide»
   Reescrito para explicitar las decisiones de diseño y desempeño que el original dejaba al modelo
   (observación del profesor).
-  Prompts de seguimiento de esta versión (LogFile):
-    - #29 "Sí, implementa".
-    - #30 "se corto la luz , vuevle a lo que estabas haciendo y luego cuando termines indicamente
+  Prompts de seguimiento de esta versión:
+    - "Sí, implementa".
+    - "se corto la luz , vuevle a lo que estabas haciendo y luego cuando termines indicamente
       donde ver los resultados de los test K6".
 
 Variables / Placeholders
@@ -637,5 +629,4 @@ Metadatos
   - Fecha de creación: 16/11/2026
   - Última modificación: 16/11/2026
   - Contexto de uso: Proyecto TCGMASTER — INFB8091 Desempeño de Sistemas, UTEM
-  - Entradas del LogFile: #27, #29, #30
   - Modelo: Claude Opus 5.5 (claude-opus-5-5) en Claude Code

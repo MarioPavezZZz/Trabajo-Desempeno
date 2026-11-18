@@ -1,8 +1,7 @@
 # AGENTS.md — TCGMASTER
 
 Guía para cualquier agente de codificación (Claude Code u otro) que trabaje en
-este repositorio. **Léela completa al iniciar cada sesión**, junto con
-`LogFile.txt`.
+este repositorio. **Léela completa al iniciar cada sesión.**
 
 ---
 
@@ -61,13 +60,9 @@ este repositorio. **Léela completa al iniciar cada sesión**, junto con
    - proponer tests automáticos para la pieza nueva;
    - **preguntar si se hace commit y si se hace deploy.** Nunca hacer commit,
      push ni deploy sin autorización.
-5. **LogFile.txt:** registrar cada prompt del usuario **completo**, con fecha y
-   hora (zona America/Santiago), un resumen de lo generado (qué se instaló, qué
-   diseño se codificó, qué archivos cambiaron) y el **modelo usado**. Al iniciar
-   cada sesión, leer `LogFile.txt` para recuperar el contexto.
-   **No registrar prompts sin contenido de desarrollo** (por ejemplo, pedir un
-   commit o confirmar un paso a paso administrativo): solo los que generan o
-   deciden algo del proyecto.
+5. **Prompts:** los prompts destacados del proyecto se documentan en
+   `docs/prompt-cards.txt` (plantilla Prompt Card del curso), con las decisiones
+   de diseño y desempeño explícitas.
 6. **Git:** commits pequeños y frecuentes, un tema por commit. Formato:
    `tipo(alcance): descripción` (tipos: feat, fix, docs, chore, test, perf, refactor).
    **Sin líneas de coautoría** (`Co-Authored-By`) ni otra atribución al agente.
@@ -93,7 +88,7 @@ Modelos disponibles en Claude Code: Opus 5.5, Sonnet 5.5, Haiku 5.5, Fable 5.2.
 |---|---|---|
 | Arquitectura, modelo de datos, decisiones de desempeño, análisis de resultados de carga, depuración difícil (concurrencia, stock, pagos) | **Opus 5.5** | Razonamiento profundo; errores aquí son caros. |
 | Implementación de endpoints, componentes React, tests, script de seed | **Sonnet 5.5** | Buena calidad de código a menor costo y mayor velocidad. |
-| Tareas mecánicas: actualizar LogFile, renombrados, formateo, boilerplate, traducir textos, revisar typos | **Haiku 5.5** | Rápido y barato; tareas sin ambigüedad. |
+| Tareas mecánicas: renombrados, formateo, boilerplate, traducir textos, revisar typos | **Haiku 5.5** | Rápido y barato; tareas sin ambigüedad. |
 | Fable 5.2 | Evaluar con una tarea acotada antes de asignarle trabajo | Sin evidencia propia todavía sobre sus fortalezas en este proyecto. |
 
 **No usar** Haiku para: seguridad (auth, hashing, JWT), integración de pagos,

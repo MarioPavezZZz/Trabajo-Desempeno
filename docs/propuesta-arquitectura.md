@@ -46,7 +46,7 @@ Prometheus ──scrape──► /metrics, cAdvisor   ──► Grafana   (perfi
 
 ```
 tcgmaster/
-├─ AGENTS.md  LogFile.txt  README.md  .env.example  .gitignore
+├─ AGENTS.md  README.md  .env.example  .gitignore
 ├─ docker-compose.yml               # db, api, web (nginx); límites por variables
 ├─ docker-compose.monitoring.yml    # prometheus, grafana, cadvisor (opcional)
 ├─ backend/
