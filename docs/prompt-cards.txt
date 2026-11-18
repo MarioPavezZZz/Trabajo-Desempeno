@@ -2,8 +2,8 @@ PROMPT CARDS — TCGMASTER
 INFB8091 Desempeño de Sistemas · UTEM · Semestre 2 - 2026 · Opción 1: comercio electrónico
 
 Formato: plantilla «Prompt Card» del curso, con una tarjeta por versión del software. Se incluyen
-los prompts más destacados; el registro completo (32 prompts, con fecha, hora, resumen y modelo)
-está en LogFile.txt. Agente: Claude Code con Claude Opus 5.5 en todas las entradas.
+los prompts más destacados; el registro completo (con fecha, hora, resumen y modelo) está
+en LogFile.txt. Agente: Claude Code con Claude Opus 5.5 en todas las entradas.
 
 Índice de versiones:
   - v0.1  Configuración del proyecto y propuesta de arquitectura (Fase A)
@@ -14,8 +14,6 @@ está en LogFile.txt. Agente: Claude Code con Claude Opus 5.5 en todas las entra
   - v0.6  Generadores de carga antes del deploy (Fase 1.2)
   - v1.0  Deploy en Azure for Students
   - v1.1  Pruebas de carga y análisis de desempeño (Fase 2)
-  - v1.1  Exploraciones de GA4 con Claude en Chrome
-  - v1.2  Informe técnico en LaTeX
 
 ====================================================================================================
 PROMPT CARD 1
@@ -59,8 +57,9 @@ Prompt Base
   | Crea AGENTS.md, LogFile.txt, .gitignore, .env.example y el repo Git inicial.
   | Luego propón stack y arquitectura para que yo la apruebe. Mi sugerencia:
   | backend FastAPI + PostgreSQL, frontend React (Vite) + Tailwind, todo en
-  | Docker Compose. Justifica o propón otra alternativa si es mejor para pruebas
-  | de carga. Incluye estructura de carpetas, modelo de datos y lista de páginas.
+  | Docker Compose. Si propones otro stack, justifícalo con su efecto en las pruebas
+  | de carga y espera mi decisión. Incluye estructura de carpetas, modelo de datos
+  | y lista de páginas.
   | 
   | # FASE B: REQUISITOS FUNCIONALES (del enunciado)
   | - Catálogo con filtros y búsqueda por texto.
@@ -114,7 +113,14 @@ Prompt Base
   | - Logs estructurados con tiempo de respuesta por petición.
   | - Configuración por variables de entorno (incluido el ID de medición de GA4).
   | - Docker Compose reproducible, con límites de recursos configurables.
-  | - Índices en la base de datos para búsqueda y filtros; paginación obligatoria.
+  | - Índices en la base de datos para búsqueda y filtros: GIN sobre tsvector y
+  |   trigramas (pg_trgm) para el texto, e índice por cada filtro del listado.
+  | - Paginación obligatoria: 24 productos por página por defecto y máximo 60,
+  |   acotado en el servidor.
+  | - Valores iniciales (configurables): Gunicorn con 2 workers Uvicorn; pool de
+  |   BD de 10 + 5 conexiones; statement_timeout de 5 s; límites API 1 CPU/512 MB,
+  |   BD 1 CPU/512 MB, Nginx 0,5 CPU/128 MB.
+  | - Datos semilla deterministas con semilla aleatoria fija (8091).
   | 
   | # GA4 (déjalo preparado, se activa en el paso siguiente)
   | Prepara un módulo central de analítica que luego emita: view_item_list,
@@ -135,6 +141,8 @@ Prompt Base
   | Empieza solo por el paso 1. No escribas código de la aplicación hasta que yo
   | apruebe la arquitectura.
   ------------------------------------------------------------
+  Ajustado respecto del original del LogFile (#1): se fijaron los valores de paginación, índices,
+  workers, pool, timeouts, límites de recursos y semilla, y la elección de stack queda en el equipo.
   Prompts de seguimiento de esta versión (LogFile):
     - #2 Adjuntar el PDF del enunciado.
     - #3 "Apruebo, sigue" (arquitectura aprobada).
@@ -221,9 +229,9 @@ Ejemplo de Salida Esperada
   «¿hago commit? ¿hago deploy?»; entrada nueva en LogFile.txt.
 
 Guías de Estilo
-  - Tono: breve y directivo.
-  - Formato: una línea de confirmación.
-  - Longitud: ≤ 15 palabras.
+  - Tono: técnico y directivo.
+  - Formato: un párrafo con los parámetros y restricciones explícitos.
+  - Longitud: 80–160 palabras.
 
 Casos de Prueba
   - Caso 1: «Sí, implementa» tras un plan → implementación + build + tests + pregunta por commit
@@ -279,9 +287,9 @@ Ejemplo de Salida Esperada
   #EDE6D6), fuentes Gloock + Public Sans, indicadores de rareza/estado/foil y CLS = 0.
 
 Guías de Estilo
-  - Tono: decisión concisa.
-  - Formato: letra de la opción + nombre.
-  - Longitud: 1 línea.
+  - Tono: técnico y directivo.
+  - Formato: un párrafo con los parámetros y restricciones explícitos.
+  - Longitud: 80–160 palabras.
 
 Casos de Prueba
   - Caso 1: Elegir A → prototipo vitrina
@@ -342,9 +350,9 @@ Ejemplo de Salida Esperada
   integración y simulador; botón «Usar datos de prueba» solo con VITE_TEST_HELPERS=true.
 
 Guías de Estilo
-  - Tono: informal, orientado al objetivo.
-  - Formato: un párrafo.
-  - Longitud: ≤ 40 palabras.
+  - Tono: técnico y directivo.
+  - Formato: un párrafo con los parámetros y restricciones explícitos.
+  - Longitud: 80–160 palabras.
 
 Casos de Prueba
   - Caso 1: Compra como invitado con tarjeta de prueba de Transbank → pedido pagado y visible con su
@@ -409,9 +417,9 @@ Ejemplo de Salida Esperada
   reportable.
 
 Guías de Estilo
-  - Tono: informal, describe un síntoma.
-  - Formato: una oración.
-  - Longitud: ≤ 20 palabras.
+  - Tono: técnico y directivo.
+  - Formato: un párrafo con los parámetros y restricciones explícitos.
+  - Longitud: 80–160 palabras.
 
 Casos de Prueba
   - Caso 1: Navegar home → compra con debug activo → DebugView muestra page_view … purchase y
@@ -478,9 +486,9 @@ Ejemplo de Salida Esperada
   datos; README. Prueba baja: 6.621 peticiones, 0 % errores, p95 38 ms.
 
 Guías de Estilo
-  - Tono: pregunta de verificación con una condición de orden.
-  - Formato: un párrafo.
-  - Longitud: ≤ 40 palabras.
+  - Tono: técnico y directivo.
+  - Formato: un párrafo con los parámetros y restricciones explícitos.
+  - Longitud: 80–160 palabras.
 
 Casos de Prueba
   - Caso 1: Perfil humo → 1 sesión de cada tipo, 45/45 checks
@@ -542,9 +550,9 @@ Ejemplo de Salida Esperada
   45/45.
 
 Guías de Estilo
-  - Tono: informal, pide guía.
-  - Formato: pregunta + datos en el siguiente mensaje.
-  - Longitud: ≤ 25 palabras.
+  - Tono: técnico y directivo.
+  - Formato: un párrafo con los parámetros y restricciones explícitos.
+  - Longitud: 80–160 palabras.
 
 Casos de Prueba
   - Caso 1: Ejecutar deploy.sh por primera vez → .env con secretos aleatorios, catálogo cargado y
@@ -584,8 +592,8 @@ Prompt Base
   | checkout < 1,5 s. Mide promedio, mediana, p90, p95, p99, throughput, errores (separando red, 4xx
   | y 5xx), CPU con %steal, memoria, disco, red, pool de BD y pg_stat_statements. Define la
   | saturación como la primera ventana de 10 s con p95 > 800 ms o errores > 1 %. Genera gráficos y
-  | tablas reproducibles y un informe con metodología, resultados, cuellos de botella y mejoras. No
-  | cambies código de la aplicación ni la VM sin preguntarme.
+  | tablas reproducibles de esos indicadores por corrida. No cambies código de la aplicación ni la VM
+  | sin preguntarme.
   ------------------------------------------------------------
   Prompt original registrado en el LogFile: «ahora puedes hacer las pruebas de k6 , y hacer el
   analisis de desempeño que se pide»
@@ -606,13 +614,13 @@ Ejemplo de Entrada
 
 Ejemplo de Salida Esperada
   Recolector remoto (CPU con %steal, disco, red, docker stats), análisis automático con gráficos y
-  tablas, y docs/informe-fase2.md: p95 ≈ 30 ms a 5 sesiones/s, saturación en ≈ 13 sesiones/s por la
+  tablas por corrida (docs/fase2/): p95 ≈ 30 ms a 5 sesiones/s, saturación en ≈ 13 sesiones/s por la
   CPU de la API, 0 errores 5xx, Web Vitals «buenos».
 
 Guías de Estilo
-  - Tono: informal, encarga una tarea amplia.
-  - Formato: una oración.
-  - Longitud: ≤ 20 palabras.
+  - Tono: técnico y directivo.
+  - Formato: un párrafo con los parámetros y restricciones explícitos.
+  - Longitud: 80–160 palabras.
 
 Casos de Prueba
   - Caso 1: Corrida normal 15 min → 0 % errores y resultados repetibles (Δp95 < 1 ms entre corridas)
@@ -630,129 +638,4 @@ Metadatos
   - Última modificación: 16/11/2026
   - Contexto de uso: Proyecto TCGMASTER — INFB8091 Desempeño de Sistemas, UTEM
   - Entradas del LogFile: #27, #29, #30
-  - Modelo: Claude Opus 5.5 (claude-opus-5-5) en Claude Code
-
-====================================================================================================
-PROMPT CARD 9
-====================================================================================================
-Título del Prompt: Exploraciones de GA4 con Claude en Chrome
-Versión: 1.1 – 16/11/2026
-Autor: Equipo TCGMASTER — Mario Rodríguez, Camilo Araya y Martín Cerda
-
-Objetivo
-  Obtener prompts listos para que la extensión de Claude en Chrome configure GA4 (definiciones
-  personalizadas, segmentos y exploraciones) para medir rebote, duración de sesión y embudo, real
-  vs. carga.
-
-Prompt Base
-  ------------------------------------------------------------
-  | Antes de implementar el análisis, escribe prompts para la extensión Claude en Chrome que
-  | preparen GA4 (propiedad TCGMASTER) para la Fase 2: (1) verificar o crear las definiciones
-  | personalizadas de ámbito evento tipo_trafico, metric_rating, metric_id, shipping_tier y
-  | payment_type, y la métrica metric_value; (2) segmentos de sesión «Tráfico real» y «Prueba de
-  | carga» según tipo_trafico; (3) exploraciones de engagement (rebote, duración media, vistas por
-  | sesión), embudo cerrado y abierto view_item_list → view_item → add_to_cart → begin_checkout →
-  | add_payment_info → purchase, Web Vitals por tipo de tráfico y una línea de tiempo por hora. Los
-  | prompts deben pedir confirmación antes de guardar cambios, no crear filtros de datos activos y
-  | no enviar invitaciones sin autorización.
-  ------------------------------------------------------------
-  Prompt original registrado en el LogFile: «antes de implementar dame unos promps para pegarle al
-  claude de la extension de google para que cree las tablas necesarias»
-  Reescrito para explicitar las decisiones de diseño y desempeño que el original dejaba al modelo
-  (observación del profesor).
-
-Variables / Placeholders
-  - {propiedad} → TCGMASTER
-  - {segmentos} → tipo_trafico = real | load_test
-  - {exploracion} → Engagement, Embudo (cerrado/abierto), Web Vitals, Línea de tiempo
-
-Ejemplo de Entrada
-  Propiedad GA4 con eventos de e-commerce y el parámetro tipo_trafico.
-
-Ejemplo de Salida Esperada
-  Seis prompts ordenados: definiciones personalizadas, engagement, embudo, Web Vitals, línea de
-  tiempo y revisión de accesos.
-
-Guías de Estilo
-  - Tono: instrucciones técnicas y precisas para otro agente.
-  - Formato: pasos numerados por prompt.
-  - Longitud: ≤ 200 palabras por prompt.
-
-Casos de Prueba
-  - Caso 1: Pegar el prompt 1 en Claude en Chrome → crea solo las definiciones faltantes y pide
-    confirmación antes de guardar
-  - Caso 2: Prompt 6 (acceso del profesor) → prepara la invitación pero no la envía sin confirmación
-
-Iteraciones / Feedback
-  - Iteración 1: Se usaron segmentos de sesión porque rebote y duración son métricas de sesión y
-    tipo_trafico es de evento.
-  - Iteración 2: Se advirtió no crear filtros de tráfico interno activos (GA4 borra esos datos de
-    forma permanente).
-
-Metadatos
-  - Fecha de creación: 16/11/2026
-  - Última modificación: 16/11/2026
-  - Contexto de uso: Proyecto TCGMASTER — INFB8091 Desempeño de Sistemas, UTEM
-  - Entradas del LogFile: #28
-  - Modelo: Claude Opus 5.5 (claude-opus-5-5) en Claude Code
-
-====================================================================================================
-PROMPT CARD 10
-====================================================================================================
-Título del Prompt: Informe técnico en LaTeX
-Versión: 1.2 – 16/11/2026
-Autor: Equipo TCGMASTER — Mario Rodríguez, Camilo Araya y Martín Cerda
-
-Objetivo
-  Generar el informe técnico de entrega con todos los puntos del enunciado, a partir de los datos
-  recopilados.
-
-Prompt Base
-  ------------------------------------------------------------
-  | Con los datos recopilados, escribe el informe técnico en LaTeX, compilable en Docker con TeX
-  | Live, cubriendo todos los puntos del enunciado: arquitectura, metodología (escenarios y
-  | parámetros), resultados con gráficos, análisis de cuellos de botella con propuestas de mejora y
-  | conclusiones. Usa como única fuente las tablas y gráficos de docs/fase2 (no inventes cifras) y
-  | marca lo que falte por completar (capturas de GA4). Formato: portada con el logo UTEM,
-  | integrantes, profesor y fecha; índice; paleta azul (#0057A4) y verde (#7AB800). Explícame la
-  | estructura antes de escribirlo.
-  ------------------------------------------------------------
-  Prompt original registrado en el LogFile: «ahora con todos los datos recopilados hace un informe
-  tipo latex (con colores verdes y azules) con el logo utem, cubriendo todos los puntos que salen el
-  pdf de tarea»
-  Reescrito para explicitar las decisiones de diseño y desempeño que el original dejaba al modelo
-  (observación del profesor).
-  Prompts de seguimiento de esta versión (LogFile):
-    - #32 "Sí, implementa".
-
-Variables / Placeholders
-  - {colores} → azul #0057A4 y verde #7AB800
-  - {logo} → logo UTEM (extraído del PDF del enunciado)
-  - {contenido} → arquitectura, metodología, resultados con gráficos, cuellos de botella, mejoras, conclusiones
-
-Ejemplo de Entrada
-  Tablas, gráficos y reportes de k6 en docs/fase2/, informe en Markdown y el PDF del enunciado.
-
-Ejemplo de Salida Esperada
-  docs/informe-latex/ con estilo propio, 12 secciones y PDF de 21 páginas compilado en Docker (TeX
-  Live 2024).
-
-Guías de Estilo
-  - Tono: informal, con requisitos de forma explícitos.
-  - Formato: una oración.
-  - Longitud: ≤ 35 palabras.
-
-Casos de Prueba
-  - Caso 1: Compilar con compilar.ps1 → PDF sin errores
-  - Caso 2: Faltan datos de GA4 → recuadros «Pendiente» con instrucciones para las capturas
-
-Iteraciones / Feedback
-  - Iteración 1: Ajustes de compilación: macro \th reservada, flechas Unicode, sangría de párrafos y
-    títulos huérfanos.
-
-Metadatos
-  - Fecha de creación: 16/11/2026
-  - Última modificación: 16/11/2026
-  - Contexto de uso: Proyecto TCGMASTER — INFB8091 Desempeño de Sistemas, UTEM
-  - Entradas del LogFile: #31, #32
   - Modelo: Claude Opus 5.5 (claude-opus-5-5) en Claude Code
